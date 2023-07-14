@@ -12,3 +12,5 @@ Got a simple scrapy notebook running with little effort. Now I want to see about
 ## Friday, July 14, 2023
 
 This really should be very easy to do with srapy! Trying to scrape yahoo finance ....
+
+Trying to see what I can get going using [ScrappyYahooFinance](https://github.com/iaugustine/WebScraping_Scrapy_YahooFinanceData)
