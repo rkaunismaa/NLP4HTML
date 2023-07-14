@@ -5,9 +5,11 @@ from ..items import YahooscrapingItem
 class MostactiveSpider(scrapy.Spider):
 
     name = 'mostactive'
-    
+
     def start_requests(self):
+        
         urls = ['https://finance.yahoo.com/most-active/']  # Most active start URL
+
         for url in urls:
             yield scrapy.Request(url=url, callback=self.get_pages)
 
