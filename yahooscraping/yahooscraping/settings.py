@@ -50,16 +50,16 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    "yahooscraping.middlewares.YahooscrapingDownloaderMiddleware": 543,
-# }
+DOWNLOADER_MIDDLEWARES = {
+   "yahooscraping.middlewares.YahooscrapingDownloaderMiddleware": 543,
+}
 
 # https://vpnoverview.com/privacy/anonymous-browsing/free-proxy-servers/
-# PROXY_POOL_ENABLED = True
-# PROXY_POOL_PROXIES = [
-#     'http://145.239.85.58:9300',
-#     # Add more proxy URLs if needed
-# ]
+PROXY_POOL_ENABLED = True
+PROXY_POOL_PROXIES = [
+    'https://145.239.85.58:9300',
+    # Add more proxy URLs if needed
+]
 
 
 

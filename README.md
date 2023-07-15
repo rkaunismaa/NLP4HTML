@@ -18,3 +18,7 @@ Trying to see what I can get going using [ScrappyYahooFinance](https://github.co
 ## Saturday, July 15, 2023
 
 So looks like I've been blocked by Yahoo Finance ... time to figure out how to use a proxy server!
+
+Using a proxy server with yfinance is trivial. So far can't get it to work with scrapy. 
+
+Gonna move back to scraping newegg.ca ...
