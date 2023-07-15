@@ -14,3 +14,7 @@ Got a simple scrapy notebook running with little effort. Now I want to see about
 This really should be very easy to do with srapy! Trying to scrape yahoo finance ....
 
 Trying to see what I can get going using [ScrappyYahooFinance](https://github.com/iaugustine/WebScraping_Scrapy_YahooFinanceData)
+
+## Saturday, July 15, 2023
+
+So looks like I've been blocked by Yahoo Finance ... time to figure out how to use a proxy server!
