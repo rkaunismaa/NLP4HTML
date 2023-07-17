@@ -22,3 +22,7 @@ So looks like I've been blocked by Yahoo Finance ... time to figure out how to u
 Using a proxy server with yfinance is trivial. So far can't get it to work with scrapy. 
 
 Gonna move back to scraping newegg.ca ...
+
+## Monday, July 17, 2023
+
+Working through the [scrapy tutorial](https://docs.scrapy.org/en/latest/intro/tutorial.html)
