@@ -3,6 +3,8 @@ from pathlib import Path
 
 import scrapy
 
+from newegg.items import NeweggItem
+
 class NeweggSpider(scrapy.Spider):
 
     name = "newegg"
@@ -11,6 +13,23 @@ class NeweggSpider(scrapy.Spider):
 
     def parse(self, response):
 
+
+        # 1) Get all items
+       #  allGoods = response.css(".goods-container").getall()
+
+        # 2) Loop through each item
+        titles = response.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "goods-title", " " ))]').css('::text').extract()
+
+        # yield { 'title', title}
+        for title in titles:
+            item = NeweggItem()
+            item["title"] = title.strip()
+            yield item
+
+
+
+
+
         # yield response.css(".goods-title::text").getall()
 
 
@@ -18,6 +37,12 @@ class NeweggSpider(scrapy.Spider):
 
 
     #    allGoods = response.css(".goods-container").getall()
+    # //*[@id="item_cell_34-156-308_1_0"]
+
+    # //*[contains(concat( " ", @class, " " ), concat( " ", "goods-container", " " ))]
+    # //*[contains(concat( " ", @class, " " ), concat( " ", "goods-info", " " ))]
+    # //*[contains(concat( " ", @class, " " ), concat( " ", "goods-title", " " ))]
+    # //*[contains(concat( " ", @class, " " ), concat( " ", "goods-container", " " ))]
 
     #    for good in allGoods:
            

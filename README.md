@@ -26,3 +26,7 @@ Gonna move back to scraping newegg.ca ...
 ## Monday, July 17, 2023
 
 Working through the [scrapy tutorial](https://docs.scrapy.org/en/latest/intro/tutorial.html)
+
+## Tuesday, July 18, 2023
+
+Trying again to scrap stuff from [newegg](https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363) ...
