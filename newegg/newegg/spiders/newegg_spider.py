@@ -19,7 +19,7 @@ class NeweggSpider(scrapy.Spider):
         # loop through the items
         for item in items:
 
-            # //*[@id="item_cell_34-156-308_1_0"]/a/img
+            # #item_cell_34-156-452_3_0 > div.goods-info > div.tag-list > div > div
             title = item.css(".goods-title::text").get()
 
             # salePrice
@@ -29,10 +29,13 @@ class NeweggSpider(scrapy.Spider):
 
             wasPrice = item.css(".goods-price-was::text").get()
 
-            if title and wasPrice and salePrice:
+            savings = item.css("div.goods-info > div.tag-list > div > div::text").get()
+
+            if title and wasPrice and salePrice and savings:
                 neitem = NeweggItem()
                 neitem["title"] = title.strip()
                 neitem["originalPrice"] = wasPrice.strip()
                 neitem["salePrice"] = salePrice
+                neitem["savings"] =savings.strip()
                 yield neitem
 
