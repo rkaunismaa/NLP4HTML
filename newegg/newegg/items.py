@@ -9,4 +9,6 @@ import scrapy
 class NeweggItem(scrapy.Item):
     # define the fields for your item here like:
     title = scrapy.Field()
+    originalPrice = scrapy.Field()
+    salePrice = scrapy.Field()
     pass

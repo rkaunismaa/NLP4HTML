@@ -13,52 +13,26 @@ class NeweggSpider(scrapy.Spider):
 
     def parse(self, response):
 
+        # grab all the items
+        items = response.css(".goods-container")
 
-        # 1) Get all items
-       #  allGoods = response.css(".goods-container").getall()
+        # loop through the items
+        for item in items:
 
-        # 2) Loop through each item
-        titles = response.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "goods-title", " " ))]').css('::text').extract()
+            # //*[@id="item_cell_34-156-308_1_0"]/a/img
+            title = item.css(".goods-title::text").get()
 
-        # yield { 'title', title}
-        for title in titles:
-            item = NeweggItem()
-            item["title"] = title.strip()
-            yield item
+            # salePrice
+            spDollars = item.css("span.goods-price-value > strong::text").get()
+            spCents = item.css("span.goods-price-value > sup::text").get()
+            salePrice = "$" + spDollars + spCents
 
+            wasPrice = item.css(".goods-price-was::text").get()
 
+            if title and wasPrice and salePrice:
+                neitem = NeweggItem()
+                neitem["title"] = title.strip()
+                neitem["originalPrice"] = wasPrice.strip()
+                neitem["salePrice"] = salePrice
+                yield neitem
 
-
-
-        # yield response.css(".goods-title::text").getall()
-
-
-        # yield response.xpath('//*[@id="quote-header-info"]/div[2]/div[1]/div[1]/h1').css('::text').extract()
-
-
-    #    allGoods = response.css(".goods-container").getall()
-    # //*[@id="item_cell_34-156-308_1_0"]
-
-    # //*[contains(concat( " ", @class, " " ), concat( " ", "goods-container", " " ))]
-    # //*[contains(concat( " ", @class, " " ), concat( " ", "goods-info", " " ))]
-    # //*[contains(concat( " ", @class, " " ), concat( " ", "goods-title", " " ))]
-    # //*[contains(concat( " ", @class, " " ), concat( " ", "goods-container", " " ))]
-
-    #    for good in allGoods:
-           
-    #        title = good.css('img::title').get()
-
-    #        yield { 'title', title}
-
-           
-
-           
-
-
-        # for item in items[:10]:
-
-        #     title = item.css('.goods-title::text').get()
-
-        #     yield {
-        #         'title': title,
-        #     }
