@@ -14,28 +14,38 @@ class NeweggSpider(scrapy.Spider):
     def parse(self, response):
 
         # grab all the items
-        items = response.css(".goods-container")
+        items = response.css(".goods-container") # .getall() does not work!
 
         # loop through the items
         for item in items:
 
-            # #item_cell_34-156-452_3_0 > div.goods-info > div.tag-list > div > div
+            tagmedal = item.css(".tag-medal::text").get()
             title = item.css(".goods-title::text").get()
-
+            url = item.css(".goods-title::attr(href)").get()
+            
             # salePrice
-            spDollars = item.css("span.goods-price-value > strong::text").get()
-            spCents = item.css("span.goods-price-value > sup::text").get()
-            salePrice = "$" + spDollars + spCents
+            dollars = item.css("span.goods-price-value > strong::text").get()
+            cents = item.css("span.goods-price-value > sup::text").get()
+            price = "$" + dollars + cents
 
+            # these items may not not exist ...
             wasPrice = item.css(".goods-price-was::text").get()
-
             savings = item.css("div.goods-info > div.tag-list > div > div::text").get()
-
-            if title and wasPrice and salePrice and savings:
+       
+            #if tagmedal and title and wasPrice and salePrice and savings:
+            if tagmedal and title and url and price:
                 neitem = NeweggItem()
+                neitem["tagmedal"] = tagmedal.strip()
                 neitem["title"] = title.strip()
-                neitem["originalPrice"] = wasPrice.strip()
-                neitem["salePrice"] = salePrice
-                neitem["savings"] =savings.strip()
+                neitem["url"] = url.strip()
+                neitem["price"] = price
+                if wasPrice is not None:
+                    neitem["wasprice"] = wasPrice.strip()
+                else:
+                    neitem["wasprice"] = ""
+                if savings is not None:
+                    neitem["savings"] = savings.strip()
+                else:
+                    neitem["savings"] = ""
                 yield neitem
 

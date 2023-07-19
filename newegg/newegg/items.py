@@ -8,8 +8,10 @@ import scrapy
 
 class NeweggItem(scrapy.Item):
     # define the fields for your item here like:
+    tagmedal = scrapy.Field()
     title = scrapy.Field()
-    originalPrice = scrapy.Field()
-    salePrice = scrapy.Field()
+    url = scrapy.Field()
+    wasprice = scrapy.Field()
+    price = scrapy.Field()
     savings = scrapy.Field()
     pass
