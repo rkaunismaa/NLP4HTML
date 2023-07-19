@@ -9,7 +9,17 @@ class NeweggSpider(scrapy.Spider):
 
     name = "newegg"
     
-    start_urls = ['https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363']
+    def start_requests(self):
+
+        urls = [
+            "https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363",
+            "https://www.newegg.ca/d/Best-Sellers/Desktop-Computers/c/ID-228",
+            "https://www.newegg.ca/d/Best-Sellers/GPUs-Video-Graphics-Devices/c/ID-38",
+        ]
+        
+        for url in urls:
+            yield scrapy.Request(url=url, callback=self.parse)
+
 
     def parse(self, response):
 
