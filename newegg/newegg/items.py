@@ -11,7 +11,8 @@ class NeweggItem(scrapy.Item):
     tagmedal = scrapy.Field()
     title = scrapy.Field()
     url = scrapy.Field()
-    wasprice = scrapy.Field()
+    imgsrc = scrapy.Field()
     price = scrapy.Field()
+    wasprice = scrapy.Field()
     savings = scrapy.Field()
     pass

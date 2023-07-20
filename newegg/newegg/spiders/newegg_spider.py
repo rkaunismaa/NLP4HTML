@@ -35,7 +35,8 @@ class NeweggSpider(scrapy.Spider):
             tagmedal = item.css(".tag-medal::text").get()
             title = item.css(".goods-title::text").get()
             url = item.css(".goods-title::attr(href)").get()
-            
+            imgsrc = item.css("a > img::attr(src)").get()
+
             # price
             dollars = item.css("span.goods-price-value > strong::text").get()
             cents = item.css("span.goods-price-value > sup::text").get()
@@ -46,11 +47,12 @@ class NeweggSpider(scrapy.Spider):
             savings = item.css("div.goods-info > div.tag-list > div > div::text").get()
        
             #if tagmedal and title and wasPrice and salePrice and savings:
-            if tagmedal and title and url and price:
+            if tagmedal and title and url and imgsrc and price:
                 neitem = NeweggItem()
                 neitem["tagmedal"] = tagmedal.strip()
                 neitem["title"] = title.strip()
                 neitem["url"] = url.strip()
+                neitem["imgsrc"] = imgsrc.strip()
                 neitem["price"] = price
                 if wasPrice is not None:
                     neitem["wasprice"] = wasPrice.strip()
