@@ -30,3 +30,11 @@ Working through the [scrapy tutorial](https://docs.scrapy.org/en/latest/intro/tu
 ## Tuesday, July 18, 2023
 
 Trying again to scrap stuff from [newegg](https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363) ...
+
+# Thursday, July 20, 2023
+
+Scrapy on newegg is working. Today, I want to persist to some db. 
+
+Yup. Going with MySql ... Yeah ... not going to install MySql to this docker image, but going to spin up a separate docker image that has MySql ...
+
+Installing "MySQL Shell for VS Code" to VSCode ... 

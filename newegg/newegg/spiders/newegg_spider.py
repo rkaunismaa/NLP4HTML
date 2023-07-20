@@ -12,9 +12,9 @@ class NeweggSpider(scrapy.Spider):
     def start_requests(self):
 
         urls = [
-            "https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363",
+            #"https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363",
             "https://www.newegg.ca/d/Best-Sellers/Desktop-Computers/c/ID-228",
-            "https://www.newegg.ca/d/Best-Sellers/GPUs-Video-Graphics-Devices/c/ID-38",
+            #"https://www.newegg.ca/d/Best-Sellers/GPUs-Video-Graphics-Devices/c/ID-38",
         ]
         
         for url in urls:
@@ -33,7 +33,7 @@ class NeweggSpider(scrapy.Spider):
             title = item.css(".goods-title::text").get()
             url = item.css(".goods-title::attr(href)").get()
             
-            # salePrice
+            # price
             dollars = item.css("span.goods-price-value > strong::text").get()
             cents = item.css("span.goods-price-value > sup::text").get()
             price = "$" + dollars + cents
