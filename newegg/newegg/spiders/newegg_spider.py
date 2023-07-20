@@ -12,12 +12,12 @@ class NeweggSpider(scrapy.Spider):
     def start_requests(self):
 
         urls = [
-            "https://www.newegg.ca/d/Best-Sellers/CPUs-Processors/c/ID-34",
+            # "https://www.newegg.ca/d/Best-Sellers/CPUs-Processors/c/ID-34",
             "https://www.newegg.ca/d/Best-Sellers/Motherboards/c/ID-20",
-            "https://www.newegg.ca/d/Best-Sellers/SSDs/c/ID-119",
-            "https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363",
-            "https://www.newegg.ca/d/Best-Sellers/Desktop-Computers/c/ID-228",
-            "https://www.newegg.ca/d/Best-Sellers/GPUs-Video-Graphics-Devices/c/ID-38",
+            # "https://www.newegg.ca/d/Best-Sellers/SSDs/c/ID-119",
+            # "https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363",
+            # "https://www.newegg.ca/d/Best-Sellers/Desktop-Computers/c/ID-228",
+            # "https://www.newegg.ca/d/Best-Sellers/GPUs-Video-Graphics-Devices/c/ID-38",
         ]
         
         for url in urls:
@@ -62,5 +62,29 @@ class NeweggSpider(scrapy.Spider):
                     neitem["savings"] = savings.strip()
                 else:
                     neitem["savings"] = ""
+
                 yield neitem
+
+                # Follow the link to the item details page
+                if url is not None:
+                    yield response.follow(url, callback = self.parse_item,  meta={'neitem': neitem})
+
+
+    def parse_item(self, response):
+
+        # //*[@id="app"]/div[3]/div/div/div/div[2]/div[1]/div[5]/div[10]
+        # #app > div.page-content > div > div > div > div.row-body > div.product-main.display-flex > div.product-wrap > div.product-bullets > ul
+        # #app > div.page-content > div > div > div > div.row-body > div.product-main.display-flex > div.product-wrap > div.product-bullets
+
+        listitems = response.css("div.product-bullets > ul > li::text").getall()
+
+        # Get the neitem object from the metadata of the response object
+        neitem = response.meta['neitem']
+
+        neitem["bullets"] = listitems
+
+        # //*[@id="app"]/div[3]/div/div/div/div[2]/div[1]/div[5]/div[10]/ul/li[1]/text()
+        # /html/body/div[17]/div[3]/div/div/div/div[2]/div[1]/div[5]/div[10]/ul/li[1]/text()
+
+        yield neitem
 

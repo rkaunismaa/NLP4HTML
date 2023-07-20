@@ -15,4 +15,5 @@ class NeweggItem(scrapy.Item):
     price = scrapy.Field()
     wasprice = scrapy.Field()
     savings = scrapy.Field()
+    bullets = scrapy.Field()
     pass
