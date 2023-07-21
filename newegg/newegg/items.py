@@ -8,6 +8,7 @@ import scrapy
 
 class NeweggItem(scrapy.Item):
     # define the fields for your item here like:
+    sourceUrl = scrapy.Field()
     tagmedal = scrapy.Field()
     title = scrapy.Field()
     url = scrapy.Field()

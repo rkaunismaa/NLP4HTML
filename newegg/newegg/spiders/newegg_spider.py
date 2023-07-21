@@ -13,18 +13,20 @@ class NeweggSpider(scrapy.Spider):
 
         urls = [
             "https://www.newegg.ca/d/Best-Sellers/CPUs-Processors/c/ID-34",
-            # "https://www.newegg.ca/d/Best-Sellers/Motherboards/c/ID-20",
-            # "https://www.newegg.ca/d/Best-Sellers/SSDs/c/ID-119",
-            # "https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363",
-            # "https://www.newegg.ca/d/Best-Sellers/Desktop-Computers/c/ID-228",
-            # "https://www.newegg.ca/d/Best-Sellers/GPUs-Video-Graphics-Devices/c/ID-38",
+            "https://www.newegg.ca/d/Best-Sellers/Motherboards/c/ID-20",
+            "https://www.newegg.ca/d/Best-Sellers/SSDs/c/ID-119",
+            "https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363",
+            "https://www.newegg.ca/d/Best-Sellers/Desktop-Computers/c/ID-228",
+            "https://www.newegg.ca/d/Best-Sellers/GPUs-Video-Graphics-Devices/c/ID-38",
         ]
         
         for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
+            yield scrapy.Request(url=url, callback=self.parse, meta={'url' : url})
 
 
     def parse(self, response):
+
+        responseUrl = response.meta['url']
 
         # grab all the items
         items = response.css(".goods-container") # .getall() does not work!
@@ -49,6 +51,7 @@ class NeweggSpider(scrapy.Spider):
             #if tagmedal and title and wasPrice and salePrice and savings:
             if tagmedal and title and url and imgsrc and price:
                 neitem = NeweggItem()
+                neitem["sourceUrl"] = responseUrl
                 neitem["tagmedal"] = tagmedal.strip()
                 neitem["title"] = title.strip()
                 neitem["url"] = url.strip()
