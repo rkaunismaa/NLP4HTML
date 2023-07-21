@@ -13,7 +13,6 @@ with open(dir + source + ext, 'r') as file:
 data_list = [json.loads(line) for line in lines]
 sorted_data_list = sorted(data_list, key=lambda x: (x['sourceUrl'], x['tagmedal']))
 
-
 # Step 3: Write the sorted list back to the JSONL file
 with open(target, 'w') as file:
     for item in sorted_data_list:

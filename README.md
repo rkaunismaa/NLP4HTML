@@ -44,3 +44,11 @@ Installing "MySQL Shell for VS Code" to VSCode ... hmm it did not work ... ok, r
 Tweaking some issues with newegg scrapy code ... 
 
 Ok ... it's working now, but the list is out of order. I can live with that. I just need it to scrape the correct data.
+
+Wrote a simple python file to fix the order problem. It's bloody ridiculous how much more useful is the response from ChatGPT than what I get back with a search engine!
+
+OK ... now running under a newer docker container, based off the latest image ...
+
+docker pull huggingface/transformers-pytorch-gpu
+
+This new container has been given the name hfpt_June21 ... fuck me ... that really should be July21 ... meh ... 
