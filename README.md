@@ -38,3 +38,9 @@ Scrapy on newegg is working. Today, I want to persist to some db.
 Yup. Going with MySql ... Yeah ... not going to install MySql to this docker image, but going to spin up a separate docker image that has MySql ...
 
 Installing "MySQL Shell for VS Code" to VSCode ... hmm it did not work ... ok, ran it again, with the docker container running, and it looks like it installed something to the host.
+
+# Friday, July 21, 2023
+
+Tweaking some issues with newegg scrapy code ... 
+
+Ok ... it's working now, but the list is out of order. I can live with that. I just need it to scrape the correct data.
