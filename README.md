@@ -52,3 +52,9 @@ OK ... now running under a newer docker container, based off the latest image ..
 docker pull huggingface/transformers-pytorch-gpu
 
 This new container has been given the name hfpt_June21 ... fuck me ... that really should be July21 ... meh ... 
+
+OK ... killed that, restarted with the correct name, with user root privileges, and was now able to install the MySQL connector to Visual Studio Code. Yay!
+
+## Saturday, July 22, 2023
+
+Still ongoing issues with the 

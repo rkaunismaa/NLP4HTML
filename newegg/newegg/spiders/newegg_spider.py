@@ -1,6 +1,8 @@
 
 from pathlib import Path
 
+import datetime
+
 import scrapy
 
 from newegg.items import NeweggItem
@@ -12,12 +14,22 @@ class NeweggSpider(scrapy.Spider):
     def start_requests(self):
 
         urls = [
+            "https://www.newegg.ca/d/Best-Sellers/Components-Storage/t/ID-1",
             "https://www.newegg.ca/d/Best-Sellers/CPUs-Processors/c/ID-34",
+            "https://www.newegg.ca/d/Best-Sellers/Memory/c/ID-17",
             "https://www.newegg.ca/d/Best-Sellers/Motherboards/c/ID-20",
-            "https://www.newegg.ca/d/Best-Sellers/SSDs/c/ID-119",
-            "https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363",
-            "https://www.newegg.ca/d/Best-Sellers/Desktop-Computers/c/ID-228",
             "https://www.newegg.ca/d/Best-Sellers/GPUs-Video-Graphics-Devices/c/ID-38",
+            "https://www.newegg.ca/d/Best-Sellers/Computer-Cases/c/ID-9",
+            "https://www.newegg.ca/d/Best-Sellers/Power-Supplies/c/ID-32",
+            "https://www.newegg.ca/d/Best-Sellers/Hard-Drives/c/ID-15",
+            "https://www.newegg.ca/d/Best-Sellers/SSDs/c/ID-119",
+
+            "https://www.newegg.ca/d/Best-Sellers/Desktop-Computers/c/ID-228",
+            "https://www.newegg.ca/d/Best-Sellers/Gaming-Desktops/s/ID-3742",
+            "https://www.newegg.ca/d/Best-Sellers/Laptops-Notebooks/c/ID-223",
+            "https://www.newegg.ca/d/Best-Sellers/Gaming-Laptops/c/ID-363",
+            
+            
         ]
         
         for url in urls:
@@ -27,6 +39,8 @@ class NeweggSpider(scrapy.Spider):
     def parse(self, response):
 
         responseUrl = response.meta['url']
+
+        dateTime = datetime.datetime.now()
 
         # grab all the items
         items = response.css(".goods-container") # .getall() does not work!
@@ -51,6 +65,7 @@ class NeweggSpider(scrapy.Spider):
             #if tagmedal and title and wasPrice and salePrice and savings:
             if tagmedal and title and url and imgsrc and price:
                 neitem = NeweggItem()
+                neitem["dateTime"] = dateTime
                 neitem["sourceUrl"] = responseUrl
                 neitem["tagmedal"] = tagmedal.strip()
                 neitem["title"] = title.strip()
