@@ -57,4 +57,8 @@ OK ... killed that, restarted with the correct name, with user root privileges, 
 
 ## Saturday, July 22, 2023
 
-Still ongoing issues with the 
+Still ongoing issues with the 'MySQL connector to Visual Studio Code'
+
+## Sunday, July 23, 2023
+
+Switched to a newly created conda environment called 'nlp4html' Gonna see if I appear to have fewer issues with this ... 
