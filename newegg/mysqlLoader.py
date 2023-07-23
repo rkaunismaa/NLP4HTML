@@ -15,4 +15,20 @@ conn = mysql.connector.connect(
     database=db_name
 )
 
+import json
+
+dir = 'newegg/'
+ext = '.jsonl'
+source = 'newegg' 
+target = dir + source + '_sorted' + ext
+
+# Step 1: Read the JSONL file into a list
+with open(dir + source + ext, 'r') as file:
+    lines = file.readlines()
+
+# Step 2: Parse each line as JSON and sort the list based on the "name" key
+data_list = [json.loads(line) for line in lines]
+
+
+
 conn.close()
