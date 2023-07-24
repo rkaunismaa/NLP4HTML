@@ -66,3 +66,9 @@ Switched to a newly created conda environment called 'nlp4html' Gonna see if I a
 So yeah, I do get a little further, but I STILL cannot connect to mysql20230720 from python. Sigh ... Gonna install mysql server to kauwitb ... 
 
 OMG What a fucking idiot!! I was having these problems because I had named my python file 'mysql.py' .... DUH! ... I can't beleive how fucking stupid that is!!
+
+## Monday, July 24, 2023
+
+Got the newegg.jsonl stuff to load into MySql, but now, it looks like I am being blocked by newegg, so gotta see how to get around this problem.
+
+Wow. Asked chatgpt for the solution, implemented it, and now the scraping works again!!! Is there any reason to ever use a search engine again??

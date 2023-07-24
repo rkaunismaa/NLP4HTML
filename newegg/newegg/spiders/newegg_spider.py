@@ -14,6 +14,7 @@ class NeweggSpider(scrapy.Spider):
     def start_requests(self):
 
         urls = [
+            
             "https://www.newegg.ca/d/Best-Sellers/Components-Storage/t/ID-1",
             "https://www.newegg.ca/d/Best-Sellers/CPUs-Processors/c/ID-34",
             "https://www.newegg.ca/d/Best-Sellers/Memory/c/ID-17",
