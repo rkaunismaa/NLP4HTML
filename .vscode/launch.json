@@ -1,0 +1,21 @@
+{
+
+    // https://docs.scrapy.org/en/latest/topics/debug.html
+
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "Python: Launch Scrapy Spider",
+            "type": "python",
+            "request": "launch",
+            "module": "scrapy",
+            "args": [
+                "crawl",
+                "mostactive"
+                //"${file}"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceRoot}/yahooscraping",
+        }
+    ]
+}
