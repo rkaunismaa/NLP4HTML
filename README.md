@@ -78,3 +78,5 @@ Wow. Asked chatgpt for the solution, implemented it, and now the scraping works 
 I want to see how far I can get with scraping yahoo finance data with scrapy ... 
 
 Nice! The yahoo scraping spider works just great!! ... Again, thanks to chatGPT for help!
+
+Hmmm ... noticing in the mostactive.jsonl file that a bunch of fields are empty ... gonna try working through fixing some of them.
