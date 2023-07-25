@@ -29,6 +29,7 @@ class MostactiveSpider(scrapy.Spider):
         for stock in stocks:
             # Follow the link to the stock details page.
             yield scrapy.Request(url=f'https://finance.yahoo.com/quote/{stock}?p={stock}', callback=self.parse)
+            # https://finance.yahoo.com/quote/NVDA?p=NVDA ... an example
 
     def parse(self, response):
         #Declare the item objects

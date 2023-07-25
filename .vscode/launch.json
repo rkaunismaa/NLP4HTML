@@ -1,6 +1,7 @@
 {
 
     // https://docs.scrapy.org/en/latest/topics/debug.html
+    // The above did not work for me ... but the below stuff does!
 
     "version": "0.1.0",
     "configurations": [
@@ -11,11 +12,11 @@
             "module": "scrapy",
             "args": [
                 "crawl",
-                "mostactive"
-                //"${file}"
+                "mostactive",
+                "-o mostactive.jsonl"
             ],
             "console": "integratedTerminal",
-            "cwd": "${workspaceRoot}/yahooscraping",
+            "cwd": "${workspaceRoot}/yahooscraping"
         }
     ]
 }

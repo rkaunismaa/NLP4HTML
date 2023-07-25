@@ -76,3 +76,5 @@ Wow. Asked chatgpt for the solution, implemented it, and now the scraping works 
 ## Tuesday, July 25, 2023
 
 I want to see how far I can get with scraping yahoo finance data with scrapy ... 
+
+Nice! The yahoo scraping spider works just great!! ... Again, thanks to chatGPT for help!
