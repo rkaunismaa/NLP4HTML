@@ -21,7 +21,7 @@ import ast
 
 dir = 'newegg/'
 ext = '.jsonl'
-source = 'newegg' 
+source = 'newegg_sorted' 
 
 sourceFile = dir + source + ext
 

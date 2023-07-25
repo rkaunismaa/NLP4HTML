@@ -72,3 +72,7 @@ OMG What a fucking idiot!! I was having these problems because I had named my py
 Got the newegg.jsonl stuff to load into MySql, but now, it looks like I am being blocked by newegg, so gotta see how to get around this problem.
 
 Wow. Asked chatgpt for the solution, implemented it, and now the scraping works again!!! Is there any reason to ever use a search engine again??
+
+## Tuesday, July 25, 2023
+
+I want to see how far I can get with scraping yahoo finance data with scrapy ... 
