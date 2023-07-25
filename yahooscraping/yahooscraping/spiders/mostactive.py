@@ -32,14 +32,15 @@ class MostactiveSpider(scrapy.Spider):
             # https://finance.yahoo.com/quote/NVDA?p=NVDA ... an example
 
     def parse(self, response):
+
         #Declare the item objects
         items = YahooscrapingItem()
         #Save the extracted data in the item objects
         items['stock_name'] = response.xpath('//*[@id="quote-header-info"]/div[2]/div[1]/div[1]/h1').css('::text').extract()
 
         items['intraday_price'] = response.xpath('//*[@id="quote-header-info"]/div[3]/div[1]/div/span[1]').css('::text').extract()
-        # above no longer works, so trying this ... nope!
-        items['intraday_price'] = response.xpath('//*[@id="quote-header-info"]/div[3]/div[1]/div/fin-streamer[1]/span').css('::text').extract()
+        # above no longer works, so trying this ... nope! .. hmm but now it appears as if it does!
+        items['intraday_price'] = response.xpath('//*[@id="quote-header-info"]/div[3]/div[1]/div[1]/fin-streamer[1]').css('::text').extract()
 
         items['price_change'] = response.xpath('//*[@id="quote-header-info"]/div[3]/div[1]/div/span[2]').css('::text').extract()
         # above no longer works, so trying this ... it works!
@@ -66,8 +67,8 @@ class MostactiveSpider(scrapy.Spider):
         
         # this is not working ...
         items['volume'] = response.xpath('//*[@id="quote-summary"]/div[1]/table/tbody/tr[7]/td[2]/span').css('::text').extract()
-        # so let's try this ... nope
-        items['volume'] = response.xpath('//*[@id="quote-summary"]/div[1]/table/tbody/tr[7]/td[2]/fin-streamer/span').css('::text').extract()
+        # so let's try this ... nope ... hmm now it does!
+        items['volume'] = response.xpath('//*[@id="quote-summary"]/div[1]/table/tbody/tr[7]/td[2]/fin-streamer').css('::text').extract()
 
 
 
