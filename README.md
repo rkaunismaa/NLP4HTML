@@ -90,3 +90,13 @@ I think the next scrapy spider will target something I have not looked at yet ..
 ## Wednesday, July 26, 2023
 
 Let's try to scrape match.com shall we ... 
+
+First thing to do is see how to login to the site with scrapy.
+
+Wow. ChatGPT provided a more informative answer to the 'How do I login with scrapy' question than what was shown in the scrapy docs! ... 
+
+[Using FormRequest.from_response() to simulate a user login](https://docs.scrapy.org/en/latest/topics/request-response.html#topics-request-response-ref-request-userlogin)
+
+Ok right ... I forgot ... match uses 2 factor authentication ... how the hell do I automate that??
+
+Ok ... its 4:04pm ... I think for now I am beaten on figuring out how to use scrapy to login to match.com ... recaptchaResponse ... how the hell am I supposed to grab that??

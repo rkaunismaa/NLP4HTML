@@ -10,13 +10,21 @@
             "type": "python",
             "request": "launch",
             "module": "scrapy",
+            "console": "integratedTerminal",
+
+            // "args": [
+            //     "crawl",
+            //     "mostactive",
+            //     "-o mostactive.jsonl"
+            // ],
+            // "cwd": "${workspaceRoot}/yahooscraping",
+            
             "args": [
                 "crawl",
-                "mostactive",
-                "-o mostactive.jsonl"
+                "login_spider",
             ],
-            "console": "integratedTerminal",
-            "cwd": "${workspaceRoot}/yahooscraping"
+            "cwd": "${workspaceRoot}/match",
+
         }
     ]
 }
