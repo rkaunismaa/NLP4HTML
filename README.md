@@ -86,3 +86,7 @@ Hmmm ... noticing in the mostactive.jsonl file that a bunch of fields are empty 
 Nice! ... looks like they are now all working! 
 
 I think the next scrapy spider will target something I have not looked at yet ... 
+
+## Wednesday, July 26, 2023
+
+Let's try to scrape match.com shall we ... 
