@@ -12,18 +12,18 @@
             "module": "scrapy",
             "console": "integratedTerminal",
 
-            // "args": [
-            //     "crawl",
-            //     "mostactive",
-            //     "-o mostactive.jsonl"
-            // ],
-            // "cwd": "${workspaceRoot}/yahooscraping",
-            
             "args": [
                 "crawl",
-                "login_spider",
+                "mostactive",
+                "-o mostactive.jsonl"
             ],
-            "cwd": "${workspaceRoot}/match",
+            "cwd": "${workspaceRoot}/yahooscraping",
+            
+            // "args": [
+            //     "crawl",
+            //     "login_spider",
+            // ],
+            // "cwd": "${workspaceRoot}/match",
 
         }
     ]
