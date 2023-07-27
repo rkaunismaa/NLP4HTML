@@ -102,3 +102,7 @@ Ok right ... I forgot ... match uses 2 factor authentication ... how the hell do
 Ok ... its 4:04pm ... I think for now I am beaten on figuring out how to use scrapy to login to match.com ... recaptchaResponse ... how the hell am I supposed to grab that??
 
 4:33pm yahoo and newegg scrapers still work fine ... nice. 
+
+## Friday, July 27, 2023
+
+12:52pm Looking into Selenium ...
