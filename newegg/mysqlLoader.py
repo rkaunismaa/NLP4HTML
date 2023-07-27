@@ -1,8 +1,11 @@
 # from mysql.connector import *
 import mysql.connector
 
+# The ip of the server may change ... find out what it is by running ...
+# docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mysql20230720
+
 # Replace these with your actual database credentials
-db_host = "172.17.0.2"
+db_host = "172.17.0.3"
 db_user = "root"
 db_password = "12345"
 db_name = "NewEggCa"
