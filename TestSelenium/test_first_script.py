@@ -8,11 +8,13 @@ def test_eight_components():
     # driver = webdriver.Chrome()
     # PATH_TO_GECKO_DRIVER = '/usr/local/bin'
     PATH_TO_GECKO_DRIVER = '/home/rob/Data/Documents/SeleniumDrivers'
-    driver = webdriver.Firefox(executable_path=PATH_TO_GECKO_DRIVER)
+   # driver = webdriver.Firefox(executable_path=PATH_TO_GECKO_DRIVER)
 
     # Let's try Brave with the chromium driver ...
     PATH_TO_BRAVE = '/snap/bin/brave'
     PATH_TO_CHROMIUM_DRIVER = '/usr/local/bin'
+
+    driver = webdriver.Chrome(executable_path=PATH_TO_GECKO_DRIVER)
 
     # Replace 'PATH_TO_CHROMEDRIVER' with the actual path to the chromedriver executable
     brave_options = webdriver.ChromeOptions()

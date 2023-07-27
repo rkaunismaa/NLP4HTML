@@ -105,4 +105,6 @@ Ok ... its 4:04pm ... I think for now I am beaten on figuring out how to use scr
 
 ## Friday, July 27, 2023
 
-12:52pm Looking into Selenium ...
+12:52pm Looking into Selenium ... 
+
+5:55pm Dammit ... still having issues with Selenium ... I am gonna bail on the nlp4html conda environment and switch back to the docker environment 'hfpt_July21'
