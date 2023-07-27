@@ -3,9 +3,22 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-
 def test_eight_components():
-    driver = webdriver.Chrome()
+
+    # driver = webdriver.Chrome()
+    PATH_TO_GECKO_DRIVER = '/usr/local/bin'
+    PATH_TO_GECKO_DRIVER = '/home/rob/Data/Documents/Github/rkaunismaa/NLP4HTML/Selenium'
+  #   driver = webdriver.Firefox(executable_path=PATH_TO_GECKO_DRIVER)
+
+    # Let's try Brave with the chromium driver ...
+    PATH_TO_BRAVE = '/snap/bin/brave'
+    PATH_TO_CHROMIUM_DRIVER = '/usr/local/bin'
+
+    # Replace 'PATH_TO_CHROMEDRIVER' with the actual path to the chromedriver executable
+    brave_options = webdriver.ChromeOptions()
+    brave_options.binary_location = PATH_TO_BRAVE  # Replace with the actual path to Brave browser binary
+
+    driver = webdriver.Chrome(executable_path=PATH_TO_CHROMIUM_DRIVER, options=brave_options)
 
     driver.get("https://www.selenium.dev/selenium/web/web-form.html")
 
@@ -25,5 +38,6 @@ def test_eight_components():
     assert value == "Received!"
 
     driver.quit()
+
 
 test_eight_components()

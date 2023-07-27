@@ -1,30 +1,36 @@
 {
-
     // https://docs.scrapy.org/en/latest/topics/debug.html
     // The above did not work for me ... but the below stuff does!
-
     "version": "0.1.0",
     "configurations": [
+
         {
-            "name": "Python: Launch Scrapy Spider",
+            "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "module": "scrapy",
+            "program": "${file}",
             "console": "integratedTerminal",
+            "justMyCode": true
+        },
 
-            "args": [
-                "crawl",
-                "mostactive",
-                "-o mostactive.jsonl"
-            ],
-            "cwd": "${workspaceRoot}/yahooscraping",
-            
-            // "args": [
-            //     "crawl",
-            //     "login_spider",
-            // ],
-            // "cwd": "${workspaceRoot}/match",
+        // {
+        //     "name": "Python: Launch Scrapy Spider",
+        //     "type": "python",
+        //     "request": "launch",
+        //     "module": "scrapy",
+        //     "console": "integratedTerminal",
+        //     "args": [
+        //         "crawl",
+        //         "mostactive",
+        //         "-o mostactive.jsonl"
+        //     ],
+        //     "cwd": "${workspaceRoot}/yahooscraping",
+        //     // "args": [
+        //     //     "crawl",
+        //     //     "login_spider",
+        //     // ],
+        //     // "cwd": "${workspaceRoot}/match",
+        // }
 
-        }
     ]
 }
