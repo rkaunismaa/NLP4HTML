@@ -19,13 +19,13 @@ def test_eight_components():
 
 
     # PATH_TO_GECKO_DRIVER = '/usr/local/bin'
-    PATH_TO_GECKO_DRIVER = '/home/rob/Data/Documents/SeleniumDrivers'
+    # PATH_TO_GECKO_DRIVER = '/home/rob/Data/Documents/SeleniumDrivers'
     
-    driver = webdriver.Firefox(executable_path='/usr/bin/firefox')
+    # driver = webdriver.Firefox(executable_path='/usr/bin/firefox')
 
-    # Let's try Brave with the chromium driver ...
-    PATH_TO_BRAVE = '/snap/bin/brave'
-    PATH_TO_CHROMIUM_DRIVER = '/usr/local/bin'
+    # # Let's try Brave with the chromium driver ...
+    # PATH_TO_BRAVE = '/snap/bin/brave'
+    # PATH_TO_CHROMIUM_DRIVER = '/usr/local/bin'
 
    #  driver = webdriver.Chrome(executable_path=PATH_TO_GECKO_DRIVER)
 
@@ -34,6 +34,10 @@ def test_eight_components():
     # brave_options.binary_location = PATH_TO_BRAVE  # Replace with the actual path to Brave browser binary
 
     # driver = webdriver.Chrome(executable_path=PATH_TO_CHROMIUM_DRIVER, options=brave_options)
+
+
+    driver = webdriver.Chrome()
+
 
     driver.get("https://www.selenium.dev/selenium/web/web-form.html")
 

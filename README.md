@@ -103,10 +103,14 @@ Ok ... its 4:04pm ... I think for now I am beaten on figuring out how to use scr
 
 4:33pm yahoo and newegg scrapers still work fine ... nice. 
 
-## Friday, July 27, 2023
+## Thursday, July 27, 2023
 
 12:52pm Looking into Selenium ... 
 
 5:55pm Dammit ... still having issues with Selenium ... I am gonna bail on the nlp4html conda environment and switch back to the docker environment 'hfpt_July21'
 
 5:59pm ok now spun up in hfpt_July21 ... gonna run newegg and yahoo scrapers ... nice! they both still run! ... what about mysql stuff? ... Yup! MySql stuff still works ... nice! ... ok, moving onto this Selenium shit ... 
+
+## Friday, July 28, 2023
+
+Selenium with Chrome under the 'finance' conda environment on KAUWITB works ... but I totally do NOT want to use chrome. I killed it on KAUWITB,  and will focus on getting it to work with FireFox ... or maybe even with Brave ... 
