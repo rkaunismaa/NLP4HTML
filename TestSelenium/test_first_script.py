@@ -13,7 +13,7 @@ from selenium.webdriver.common.by import By
 def test_eight_components():
 
 
-    useChrome = True
+    useChrome = False
     useFireFox = not useChrome
 
     # IF this fails, then try killing any running instances of brave, then try again ... 
@@ -27,7 +27,7 @@ def test_eight_components():
     if useFireFox:
         firefoxOptions = FireFoxOptions()
         firefoxOptions.headless = True
-        # interesting ... this next line will break this app ... so yeah, don't use it
+        # interesting ... this next line will break this script ... so yeah, don't use it
        # firefoxOptions.binary_location = '/snap/bin/firefox'
         driver = webdriver.Firefox(options=firefoxOptions)
 
