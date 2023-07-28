@@ -113,4 +113,4 @@ Ok ... its 4:04pm ... I think for now I am beaten on figuring out how to use scr
 
 ## Friday, July 28, 2023
 
-Selenium with Chrome under the 'finance' conda environment on KAUWITB works ... but I totally do NOT want to use chrome. I killed it on KAUWITB,  and will focus on getting it to work with FireFox ... or maybe even with Brave ... 
+Selenium with Chrome under the 'finance' conda environment on KAUWITB works ... but I totally do NOT want to use chrome. I killed it on KAUWITB,  and will focus on getting it to work with FireFox ... or maybe even with Brave ... Right ... the thought of uninstalling FireFox then downloading it from FireFox and installing came to mind ... I ran 'sudo snap remove firefox' and it's now gone. Also ran 'sudo apt remove firefox' and stuff got removed. Now will run 'sudo snap install firefox' 

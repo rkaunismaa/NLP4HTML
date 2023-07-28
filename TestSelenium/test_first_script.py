@@ -2,7 +2,11 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-# from selenium.webdriver.chrome.options import Options
+
+from selenium.webdriver.firefox.options import Options as FireFoxOptions
+from selenium.webdriver.firefox.service import Service as FireFoxService
+from selenium.webdriver.firefox.webdriver import WebDriver as FireFoxWebDriver
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 def test_eight_components():
 
@@ -36,8 +40,17 @@ def test_eight_components():
     # driver = webdriver.Chrome(executable_path=PATH_TO_CHROMIUM_DRIVER, options=brave_options)
 
 
-    driver = webdriver.Chrome()
+    # driver = webdriver.Chrome()
+    FIREFOX_LOCATION = '/snap/bin'
+    FIREFOX_LOCATION = '/snap/bin/firefox'
+  
+    GECKODRIVER_LOCATION = '/span/bin/geckodriver'
+    firefoxOptions =  FireFoxOptions()
+    firefoxOptions.binary_location = FIREFOX_LOCATION
 
+    firefoxDriver = FireFoxWebDriver(options=firefoxOptions)
+
+    driver = webdriver.Firefox(options=firefoxOptions)
 
     driver.get("https://www.selenium.dev/selenium/web/web-form.html")
 
