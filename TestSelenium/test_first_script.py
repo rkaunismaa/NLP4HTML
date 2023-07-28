@@ -1,56 +1,35 @@
-# https://github.com/SeleniumHQ/seleniumhq.github.io/blob/trunk/examples/python/tests/getting_started/test_first_script.py#L6
-
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 from selenium.webdriver.firefox.options import Options as FireFoxOptions
-from selenium.webdriver.firefox.service import Service as FireFoxService
-from selenium.webdriver.firefox.webdriver import WebDriver as FireFoxWebDriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+
+from selenium.webdriver.common.by import By
+
+# Friday, July 28, 2023
+# This runs without problems under the conda environment finance on KAUWITB ...
+# conda nlp4html or docker container hfpt_July21 ... it does not work. 
 
 def test_eight_components():
 
 
-    # options = Options()
-    # options.binary_location = '/opt/google/chrome/chrome'
+    useChrome = True
+    useFireFox = not useChrome
 
+    # IF this fails, then try killing any running instances of brave, then try again ... 
+    if useChrome:
+        chromeOptions = ChromeOptions()
+        chromeOptions.headless = True
+        chromeOptions.binary_location = '/snap/bin/brave'
+        chromeOptions.add_argument('--remote-debugging-port=9224') #NOT 9222
+        driver = webdriver.Chrome(options=chromeOptions)
 
-    # /opt/google/chrome/chrome
-
-    # driver = webdriver.Chrome(exe)
-
-   #  driver = webdriver.Chrome(options=options)
-
-
-    # PATH_TO_GECKO_DRIVER = '/usr/local/bin'
-    # PATH_TO_GECKO_DRIVER = '/home/rob/Data/Documents/SeleniumDrivers'
-    
-    # driver = webdriver.Firefox(executable_path='/usr/bin/firefox')
-
-    # # Let's try Brave with the chromium driver ...
-    # PATH_TO_BRAVE = '/snap/bin/brave'
-    # PATH_TO_CHROMIUM_DRIVER = '/usr/local/bin'
-
-   #  driver = webdriver.Chrome(executable_path=PATH_TO_GECKO_DRIVER)
-
-    # Replace 'PATH_TO_CHROMEDRIVER' with the actual path to the chromedriver executable
-    # brave_options = webdriver.ChromeOptions()
-    # brave_options.binary_location = PATH_TO_BRAVE  # Replace with the actual path to Brave browser binary
-
-    # driver = webdriver.Chrome(executable_path=PATH_TO_CHROMIUM_DRIVER, options=brave_options)
-
-
-    # driver = webdriver.Chrome()
-    FIREFOX_LOCATION = '/snap/bin'
-    FIREFOX_LOCATION = '/snap/bin/firefox'
-  
-    GECKODRIVER_LOCATION = '/span/bin/geckodriver'
-    firefoxOptions =  FireFoxOptions()
-    firefoxOptions.binary_location = FIREFOX_LOCATION
-
-    firefoxDriver = FireFoxWebDriver(options=firefoxOptions)
-
-    driver = webdriver.Firefox(options=firefoxOptions)
+    if useFireFox:
+        firefoxOptions = FireFoxOptions()
+        firefoxOptions.headless = True
+        # interesting ... this next line will break this app ... so yeah, don't use it
+       # firefoxOptions.binary_location = '/snap/bin/firefox'
+        driver = webdriver.Firefox(options=firefoxOptions)
 
     driver.get("https://www.selenium.dev/selenium/web/web-form.html")
 
@@ -68,8 +47,9 @@ def test_eight_components():
     message = driver.find_element(by=By.ID, value="message")
     value = message.text
     assert value == "Received!"
+    
+    print("Success!!")
 
     driver.quit()
-
 
 test_eight_components()
