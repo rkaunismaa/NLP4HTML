@@ -65,6 +65,15 @@ def test_eight_components():
 
         userName = driver.find_element(By.XPATH, '//*[@id="profile-edit-layout"]/div[2]/div[2]/div/section/div/div[1]/div/div[1]/div[1]/h2')
         myName = userName.text
+
+        # 'View more' button
+        viewMore_button = driver.find_element(By.XPATH, '//*[@id="profile-edit-layout"]/section[1]/div/div[2]/div[2]/button')
+        viewMore_button.click()
+
+        # now select the summary
+        summary = driver.find_element(By.XPATH, '//*[@id="profile-edit-layout"]/section[1]/div/div[2]/div[1]/span')
+        mySummary = summary.text
+        
         assert myName == "Rob"
 
         print("Match Success!")
