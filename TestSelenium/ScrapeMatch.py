@@ -12,6 +12,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import pickle
+
 import urllib
 
 # # Pick a few users ...
@@ -38,8 +40,13 @@ userList = [
     ("Monica", "https://www.match.com/profile/VlqUyWrdoGo6FYYZsfOfjA2"),
     ("Karen", "https://www.match.com/profile/ycWfFU8usvIYvY6jcn0FvA2"),
     ("Rose", "https://www.match.com/profile/3M5shM941vGRKAlF0lD2cg2"),
+    ("Linda","https://www.match.com/profile/ebunOUTetc9TrOfjDu6D-A2"),
     ("Sondra" ,"https://www.match.com/profile/mwS4rT4q-DDi0Zl8XR40FA2"),
     ("Raluca", "https://www.match.com/profile/FVsmTW6T2i5YeLzMZQAjsQ2"),
+    ("Christin", "https://www.match.com/profile/1OZ-5Yxvdn78OMi7R15eJQ2"),
+    ("Angela", "https://www.match.com/profile/U6yqKwhgr_QGXl9dAgooJA2"),
+    ("Catherine", "https://www.match.com/profile/6N1l1hfUUSuyMWdIqOm4pQ2"),
+    ("Shannan", "https://www.match.com/profile/xHc4aGtJAreA1FHiNInBPA2")
 ]
 
 chromeOptions = ChromeOptions()
@@ -48,6 +55,7 @@ chromeOptions.binary_location = '/snap/bin/brave'
 chromeOptions.add_argument('--remote-debugging-port=9224') #NOT 9222
 driver = webdriver.Chrome(options=chromeOptions)
 
+# This will store all the metadata we want on the user.
 userProfiles = []
 
 for testUser in userList:
@@ -56,7 +64,7 @@ for testUser in userList:
     driver.get(profilePage)
 
     # Set an implicit wait of 10 seconds
-   #  driver.implicitly_wait(10)
+    driver.implicitly_wait(5)
     
     # Set an explicit wait of 5 seconds for the carousel button to be clickable
     carouselButtonXPATH = '//*[@id="mainContent"]/article/div[2]/div[1]/div[2]/div/button'
@@ -121,6 +129,11 @@ for testUser in userList:
     photo_carousel_close_button.click()
 
     userProfiles.append( (personName, personAgeLocation, personSummary, imageList) )
+
+# Save the userProfiles to a local file
+fileName = 'matchProfiles.txt'
+with open(fileName, "wb") as fp:   #Pickling
+    pickle.dump(userProfiles, fp)
 
 print("Match Success!")
 
