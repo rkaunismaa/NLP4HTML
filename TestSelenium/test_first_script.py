@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
@@ -165,12 +165,19 @@ def test_eight_components():
         elif testPath == 'UserProfile':
 
             # Pick a few users ...
-            Boyanna = "https://www.match.com/highlights/profile/jjLX_J8ZrFwriTXuFyuoyQ2"
+            Boyanna = "https://www.match.com/profile/jjLX_J8ZrFwriTXuFyuoyQ2"
             Pat = "https://www.match.com/profile/W5eSN9DQ38U8umJ82C---g2"
             St = "https://www.match.com/profile/4T33D_27J2hcEoPsgTU0aA2"
             Im = "https://www.match.com/profile/xrb0-ZB6LHYG_IhUqPODug2"
+            Rita = "https://www.match.com/profile/nhwdQ6YppvWJHY1B_qVCNA2"
+            Charlie = "https://www.match.com/profile/TWaXmmkeDcmidIS2aISfPg2"
+            Monica = "https://www.match.com/profile/VlqUyWrdoGo6FYYZsfOfjA2"
+            Karen = "https://www.match.com/profile/ycWfFU8usvIYvY6jcn0FvA2"
+            Rose = "https://www.match.com/profile/3M5shM941vGRKAlF0lD2cg2" # This totally looks like a fishing account
+            Sondra = "https://www.match.com/profile/mwS4rT4q-DDi0Zl8XR40FA2"
+            Raluca = "https://www.match.com/profile/FVsmTW6T2i5YeLzMZQAjsQ2"
 
-            personUrl = Im
+            personUrl = Raluca
 
             driver.get(personUrl)
             driver.implicitly_wait(0.5)
@@ -178,25 +185,40 @@ def test_eight_components():
             userName = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[1]/div[1]/div/h6')
             personName = userName.text
 
+            ageLocation = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[2]/span')
+            personAgeLocation = ageLocation.text
+
+            # try:
+            #     viewMore_button = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/section[1]/div/div/div/div[2]/button')
+            #     if not viewMore_button.is_displayed():
+            #          driver.execute_script("window.scrollBy(0, 500);")
+            #     if viewMore_button.is_displayed() and viewMore_button.is_enabled():
+            #         viewMore_button.click()
+            # except NoSuchElementException:
+            #     personName = userName.text
+            # except ElementClickInterceptedException:
+            #     personName = userName.text
+
             try:
-                viewMore_button = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/section[1]/div/div/div/div[2]/button')
-                viewMore_button.click()
+                summary = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/section[1]/div/div/div/div[1]/span')    
+                personSummary = summary.text    
             except NoSuchElementException:
-                personName = userName.text
-
-
-            summary = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/section[1]/div/div/div/div[1]/span')
-            personSummary = summary.text
+                personSummary = ""
 
             photo_carousel_button = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[1]/div[2]/div/button')
             photo_carousel_button.click()
-
-            photo_carousel_right_arrow_button = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/button[2]')
 
             image_count = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/span')
             no_of_images = image_count.text # '1/5'
             noiList = no_of_images.split('/')
             totalImages = int(noiList[1])
+
+            # user may only have one image, so no right button
+            try:
+                photo_carousel_right_arrow_button = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/button[2]')
+                nextImageButton = True
+            except NoSuchElementException:
+                nextImageButton = False
 
             photo_carousel_image = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/figure/div[2]/button/img')
 
@@ -211,7 +233,8 @@ def test_eight_components():
                     image_caption = ""
 
                 imageList.append( (image_src, image_caption) )
-                photo_carousel_right_arrow_button.click()    
+                if nextImageButton:
+                    photo_carousel_right_arrow_button.click()    
 
             # close the photo carousel
             photo_carousel_close_button = driver.find_element(By.XPATH, '//*[@id="modalHeader"]/button/span')
