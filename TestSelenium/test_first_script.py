@@ -105,21 +105,6 @@ def test_eight_components():
         photo_carousel_close_button.click()
         
 
-        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
-        # https://pictures.match.com/photos/246/607/32739032-98b0-ed11-90ff-f40343f42de8.jpeg
-
-        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
-        # https://pictures.match.com/photos/246/607/1e11c22e-99b0-ed11-90ff-f40343f42de8.jpeg
-
-        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
-        # https://pictures.match.com/photos/246/607/25b9d447-99b0-ed11-90ff-f40343f42de8.jpeg
-
-        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
-        # https://pictures.match.com/photos/246/607/dfa5db66-99b0-ed11-90ff-f40343f42de8.jpeg
-
-        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
-        # https://pictures.match.com/photos/246/607/be766306-acb0-ed11-90ff-f40343f42de8.jpeg
-
         # Right arror button ...
         # /html/body/div[5]/div/div/section/div/button[2]/span/span
 
