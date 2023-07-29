@@ -65,6 +65,7 @@ def test_eight_components():
 
         userName = driver.find_element(By.XPATH, '//*[@id="profile-edit-layout"]/div[2]/div[2]/div/section/div/div[1]/div/div[1]/div[1]/h2')
         myName = userName.text
+        assert myName == "Rob"
 
         # 'View more' button
         viewMore_button = driver.find_element(By.XPATH, '//*[@id="profile-edit-layout"]/section[1]/div/div[2]/div[2]/button')
@@ -73,8 +74,64 @@ def test_eight_components():
         # now select the summary
         summary = driver.find_element(By.XPATH, '//*[@id="profile-edit-layout"]/section[1]/div/div[2]/div[1]/span')
         mySummary = summary.text
+
+        # click VIEW
+        VIEW_button = driver.find_element(By.XPATH, '//*[@id="profile-edit-layout"]/div[1]/div[1]/div/ul/li[1]/a/span')
+        VIEW_button.click()
+
+        # click the photo carousel ..
+        photo_carousel_button = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[1]/div[2]/div/button')
+        photo_carousel_button.click()
+
+        # photo carousel right arrow ...
+        photo_carousel_right_arrow_button = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/button[2]/span/span')
+
+        # figure out how many pictures they have ...
+        image_count = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/span')
+        no_of_images = image_count.text # '1/5'
+        noiList = no_of_images.split('/')
+        totalImages = int(noiList[1])
+
+        photo_carousel_image = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/figure/div[2]/button/img')
+        photo_carousel_caption = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/div/span')
+
+        for _ in range(totalImages):
+            image_text = photo_carousel_caption.text
+            photo_carousel_right_arrow_button.click()    
+
+
+        # close the photo carousel
+        photo_carousel_close_button = driver.find_element(By.XPATH, '//*[@id="modalHeader"]/button/span')
+        photo_carousel_close_button.click()
         
-        assert myName == "Rob"
+
+        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
+        # https://pictures.match.com/photos/246/607/32739032-98b0-ed11-90ff-f40343f42de8.jpeg
+
+        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
+        # https://pictures.match.com/photos/246/607/1e11c22e-99b0-ed11-90ff-f40343f42de8.jpeg
+
+        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
+        # https://pictures.match.com/photos/246/607/25b9d447-99b0-ed11-90ff-f40343f42de8.jpeg
+
+        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
+        # https://pictures.match.com/photos/246/607/dfa5db66-99b0-ed11-90ff-f40343f42de8.jpeg
+
+        # /html/body/div[5]/div/div/section/div/figure/div[2]/button/img
+        # https://pictures.match.com/photos/246/607/be766306-acb0-ed11-90ff-f40343f42de8.jpeg
+
+        # Right arror button ...
+        # /html/body/div[5]/div/div/section/div/button[2]/span/span
+
+        # shows how many images ... "1" "/" "5"
+        # //*[@id="lightbox-image-caption"]/span
+
+        # X to close the photo carousel ...
+        # //*[@id="modalHeader"]/button/span
+
+
+        
+   
 
         print("Match Success!")
 
