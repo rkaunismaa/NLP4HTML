@@ -1,4 +1,7 @@
 from selenium import webdriver
+
+from selenium.common.exceptions import NoSuchElementException
+
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 from selenium.webdriver.firefox.options import Options as FireFoxOptions
@@ -63,6 +66,8 @@ def test_eight_components():
 
         driver.get("https://www.match.com/profile/me/edit")
 
+        driver.implicitly_wait(0.5)
+
         userName = driver.find_element(By.XPATH, '//*[@id="profile-edit-layout"]/div[2]/div[2]/div/section/div/div[1]/div/div[1]/div[1]/h2')
         myName = userName.text
         assert myName == "Rob"
@@ -93,10 +98,20 @@ def test_eight_components():
         totalImages = int(noiList[1])
 
         photo_carousel_image = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/figure/div[2]/button/img')
-        photo_carousel_caption = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/div/span')
+
+        # //*[@id="lightbox-image-caption"]
+        # //*[@id="lightbox-image-caption"]/div/span
+
+       #  photo_carousel_caption = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/div/span')
 
         for _ in range(totalImages):
-            image_text = photo_carousel_caption.text
+            image_src = photo_carousel_image.get_attribute("src")
+            try:
+                photo_carousel_caption = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/div/span')
+                image_caption = photo_carousel_caption.text
+            except NoSuchElementException:
+                image_caption = ""
+
             photo_carousel_right_arrow_button.click()    
 
 
@@ -113,10 +128,6 @@ def test_eight_components():
 
         # X to close the photo carousel ...
         # //*[@id="modalHeader"]/button/span
-
-
-        
-   
 
         print("Match Success!")
 

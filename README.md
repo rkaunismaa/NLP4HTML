@@ -126,3 +126,7 @@ Right ... I started this Selenium stuff to see if I could scrape match from brav
 5:05pm Nice! I figured out how to access Match.com in Brave with Selenium! Now I can really start to test scraping stuff with Selenium!
 
 7:00pm hmm https://hub.docker.com/u/selenium ... https://github.com/SeleniumHQ/docker-selenium ... gonna see what I should download ... 
+
+## Saturday, July 29, 2023
+
+Continuing to drill through match with Selenium ...
