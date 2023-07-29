@@ -16,20 +16,6 @@ import pickle
 
 import time
 
-# # Pick a few users ...
-# Boyanna = "https://www.match.com/profile/jjLX_J8ZrFwriTXuFyuoyQ2"
-# Pat = "https://www.match.com/profile/W5eSN9DQ38U8umJ82C---g2"
-# St = "https://www.match.com/profile/4T33D_27J2hcEoPsgTU0aA2"
-# Im = "https://www.match.com/profile/xrb0-ZB6LHYG_IhUqPODug2"
-# Rita = "https://www.match.com/profile/nhwdQ6YppvWJHY1B_qVCNA2"
-# Charlie = "https://www.match.com/profile/TWaXmmkeDcmidIS2aISfPg2"
-# Monica = "https://www.match.com/profile/VlqUyWrdoGo6FYYZsfOfjA2"
-# Karen = "https://www.match.com/profile/ycWfFU8usvIYvY6jcn0FvA2"
-# Rose = "https://www.match.com/profile/3M5shM941vGRKAlF0lD2cg2" # This totally looks like a fishing account
-# Sondra = "https://www.match.com/profile/mwS4rT4q-DDi0Zl8XR40FA2"
-# Raluca = "https://www.match.com/profile/FVsmTW6T2i5YeLzMZQAjsQ2"
-
-
 userList = [
     ("Boyanna", "https://www.match.com/profile/jjLX_J8ZrFwriTXuFyuoyQ2"),
     ("Pat", "https://www.match.com/profile/W5eSN9DQ38U8umJ82C---g2"),
