@@ -9,6 +9,8 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 from selenium.webdriver.common.by import By
 
+import urllib
+
 # Friday, July 28, 2023
 # This runs without problems under the conda environment finance on KAUWITB ...
 # conda nlp4html or docker container hfpt_July21 ... it does not work. 
