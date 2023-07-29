@@ -99,12 +99,9 @@ def test_eight_components():
 
         photo_carousel_image = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/figure/div[2]/button/img')
 
-        # //*[@id="lightbox-image-caption"]
-        # //*[@id="lightbox-image-caption"]/div/span
-
-       #  photo_carousel_caption = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/div/span')
-
+        imageList = []
         for _ in range(totalImages):
+            
             image_src = photo_carousel_image.get_attribute("src")
             try:
                 photo_carousel_caption = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/div/span')
@@ -112,22 +109,14 @@ def test_eight_components():
             except NoSuchElementException:
                 image_caption = ""
 
-            photo_carousel_right_arrow_button.click()    
+            imageList.append( (image_src, image_caption) )
 
+            photo_carousel_right_arrow_button.click()    
 
         # close the photo carousel
         photo_carousel_close_button = driver.find_element(By.XPATH, '//*[@id="modalHeader"]/button/span')
         photo_carousel_close_button.click()
         
-
-        # Right arror button ...
-        # /html/body/div[5]/div/div/section/div/button[2]/span/span
-
-        # shows how many images ... "1" "/" "5"
-        # //*[@id="lightbox-image-caption"]/span
-
-        # X to close the photo carousel ...
-        # //*[@id="modalHeader"]/button/span
 
         print("Match Success!")
 
