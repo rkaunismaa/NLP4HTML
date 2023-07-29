@@ -14,7 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 import pickle
 
-import urllib
+import time
 
 # # Pick a few users ...
 # Boyanna = "https://www.match.com/profile/jjLX_J8ZrFwriTXuFyuoyQ2"
@@ -64,7 +64,7 @@ for testUser in userList:
     driver.get(profilePage)
 
     # Set an implicit wait of 10 seconds
-    driver.implicitly_wait(5)
+    time.sleep(5)
     
     # Set an explicit wait of 5 seconds for the carousel button to be clickable
     carouselButtonXPATH = '//*[@id="mainContent"]/article/div[2]/div[1]/div[2]/div/button'
@@ -128,7 +128,7 @@ for testUser in userList:
     photo_carousel_close_button = driver.find_element(By.XPATH, carouselCloseButtonXPATH)
     photo_carousel_close_button.click()
 
-    userProfiles.append( (personName, personAgeLocation, personSummary, imageList) )
+    userProfiles.append( (profilePage, personName, personAgeLocation, personSummary, imageList) )
 
 # Save the userProfiles to a local file
 fileName = 'matchProfiles.txt'
