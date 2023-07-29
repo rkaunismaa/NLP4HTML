@@ -132,3 +132,5 @@ Right ... I started this Selenium stuff to see if I could scrape match from brav
 Continuing to drill through match with Selenium ...
 
 Ok. Pulling the data from Match nicely. Next step is to drill through one of the search pages and save to another local list. Damn it's good to be back to coding in real time! 
+
+Also, you really need to clean this repo! You are saving stuff you do not need to save!
