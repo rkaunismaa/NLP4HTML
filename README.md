@@ -137,4 +137,6 @@ Also, you really need to clean this repo! You are saving stuff you do not need t
 
 ## Sunday, July 30, 2023
 
-Let's do some repo clean up, shall we ... 
+Let's do some repo clean up, shall we ... OK ... bunch of useless stuff deleted. 
+
+OK repo now cleaned up.
