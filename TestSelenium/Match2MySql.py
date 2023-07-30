@@ -4,7 +4,9 @@ import shutil
 import os
 
 # Save the userProfiles to a local file
-fileName = 'matchProfiles.txt'
+fileName = 'matchProfiles.txt' #1
+
+# fileName = 'matchUserList.txt'
 
 with open(fileName, "rb") as input_file:
     userProfiles = pickle.load(input_file)

@@ -38,7 +38,7 @@ userList = [
 chromeOptions = ChromeOptions()
 chromeOptions.headless = True
 chromeOptions.binary_location = '/snap/bin/brave'
-chromeOptions.add_argument('--remote-debugging-port=9224') #NOT 9222
+chromeOptions.add_argument('--remote-debugging-port=9224') 
 driver = webdriver.Chrome(options=chromeOptions)
 
 
@@ -49,13 +49,23 @@ if generateNewList:
     userList = []
 
     searchPage = "https://www.match.com/search"
-
+    searchPage = "https://www.match.com/search/mutual"
+    searchPage = "https://www.match.com/search?sortBy=11"
+   
     driver.get(searchPage)
 
     driver.implicitly_wait(5)
 
-    # load more profiles ...
-    driver.execute_script("window.scrollBy(0,5000)","")
+    # load a few more profiles ...
+    driver.execute_script("window.scrollBy(0,4000)","")
+
+    # driver.execute_script("window.scrollBy(0,2000)","")
+
+    # driver.execute_script("window.scrollBy(0,2000)","")
+
+    # driver.execute_script("window.scrollBy(0,2000)","")
+
+    # driver.execute_script("window.scrollBy(0,2000)","")
 
     driver.implicitly_wait(5)
 
@@ -64,22 +74,32 @@ if generateNewList:
 
     for profile in profiles:
 
-        # profilePage, personName, personAgeLocation,
+        try:
 
-        url = profile.get_attribute("href")
-        urlParts = url.split("?")
-        profilePage =urlParts[0]
+            url = profile.get_attribute("href")
+            urlParts = url.split("?")
+            profilePage =urlParts[0]
 
-        personName = profile.find_element(By.CLASS_NAME, "css-1jab1x0").text
-        personAgeLocation =profile.find_element(By.CLASS_NAME, "css-3g75q9").text
+            personName = profile.find_element(By.CLASS_NAME, "css-1jab1x0").text
+            personAgeLocation = profile.find_element(By.CLASS_NAME, "css-3g75q9").text
+            personAgeLocationHidden = profile.find_element(By.CLASS_NAME, "css-17ertmd").text
 
-        userList.append( (personName, profilePage, personAgeLocation) )
+            userList.append( (personName, profilePage, personAgeLocation, personAgeLocationHidden) )
+
+        except NoSuchElementException:
+            print('NoSuchElementException!')
+
+        except Exception:
+            print('Exception!')
+
 
     # Let's save this list, shall we ...
     # Save the userProfiles to a local file
-    fileName = 'matchUserList.txt'
-    with open(fileName, "wt") as fp:   #Pickling
-        pickle.dump(userList, fp)
+    # fileName = 'matchUserList.txt'
+    # with open(fileName, "wb") as fp:   
+    #     pickle.dump(userList, fp)
+
+    print(len(userList))
 
 
 
@@ -163,8 +183,8 @@ for testUser in userList:
         imageList.append( (image_src, image_caption) )
         if nextImageButton:
             photo_carousel_right_arrow_button.click() 
-            # Set an implicit wait of 5 seconds
-            driver.implicitly_wait(5)   
+            # Set an implicit wait of 2 seconds
+            driver.implicitly_wait(2)   
 
     # close the photo carousel
     photo_carousel_close_button = driver.find_element(By.XPATH, carouselCloseButtonXPATH)
