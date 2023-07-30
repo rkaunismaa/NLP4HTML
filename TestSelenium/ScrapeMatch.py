@@ -41,6 +41,62 @@ chromeOptions.binary_location = '/snap/bin/brave'
 chromeOptions.add_argument('--remote-debugging-port=9224') #NOT 9222
 driver = webdriver.Chrome(options=chromeOptions)
 
+
+generateNewList = True
+
+if generateNewList:
+
+    userList = []
+
+    searchPage = "https://www.match.com/search"
+
+    driver.get(searchPage)
+
+    driver.implicitly_wait(5)
+
+    # load more profiles ...
+    driver.execute_script("window.scrollBy(0,5000)","")
+
+    driver.implicitly_wait(5)
+
+    # select all the "css-1trsig2" css selectors 
+    profiles = driver.find_elements(By.CLASS_NAME, "css-1trsig2")
+
+    for profile in profiles:
+
+        # profilePage, personName, personAgeLocation,
+
+        url = profile.get_attribute("href")
+        urlParts = url.split("?")
+        profilePage =urlParts[0]
+
+        personName = profile.find_element(By.CLASS_NAME, "css-1jab1x0").text
+        personAgeLocation =profile.find_element(By.CLASS_NAME, "css-3g75q9").text
+
+        userList.append( (personName, profilePage, personAgeLocation) )
+
+    # Let's save this list, shall we ...
+    # Save the userProfiles to a local file
+    fileName = 'matchUserList.txt'
+    with open(fileName, "wt") as fp:   #Pickling
+        pickle.dump(userList, fp)
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 # This will store all the metadata we want on the user.
 userProfiles = []
 
