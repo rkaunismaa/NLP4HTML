@@ -57,7 +57,7 @@ if generateNewList:
     driver.implicitly_wait(5)
 
     # load a few more profiles ...
-    driver.execute_script("window.scrollBy(0,4000)","")
+  #  driver.execute_script("window.scrollBy(0,4000)","")
 
     # driver.execute_script("window.scrollBy(0,2000)","")
 
@@ -67,7 +67,7 @@ if generateNewList:
 
     # driver.execute_script("window.scrollBy(0,2000)","")
 
-    driver.implicitly_wait(5)
+    # driver.implicitly_wait(5)
 
     # select all the "css-1trsig2" css selectors 
     profiles = driver.find_elements(By.CLASS_NAME, "css-1trsig2")
