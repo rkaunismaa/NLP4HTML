@@ -15,6 +15,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import pickle
 
 import time
+from datetime import date
 
 chromeOptions = ChromeOptions()
 chromeOptions.headless = True
@@ -35,7 +36,9 @@ targetSearchPages = [
  
 userList = []
 profileIDS = []   
-    
+profileCount = 0
+exceptionCount = 0
+
 # Load up one of the specific search pages, then load
 # the profiles into a list
 def scanSearchPage():
@@ -54,7 +57,7 @@ def scanSearchPage():
             profilePageParts = profilePage.split("/")
             profileId = profilePageParts[-1]
 
-          # imageUrl = profile.find_element(By.CLASS_NAME, "css-css-103b9rp").get_attribute("src")
+            imageUrl = profile.find_element(By.CLASS_NAME, "css-103b9rp").get_attribute("src")
             personName = profile.find_element(By.CLASS_NAME, "css-1jab1x0").text
             personAgeLocation = profile.find_element(By.CLASS_NAME, "css-3g75q9").text
             personAgeLocationHidden = profile.find_element(By.CLASS_NAME, "css-17ertmd").text
@@ -62,7 +65,7 @@ def scanSearchPage():
 
             # only load profiles we have not yet loaded
             if not profileId in profileIDS:
-                userList.append( (personName, profilePage, profileId, personAgeLocation, personAgeLocationHidden, images) )
+                userList.append( (personName, profilePage, profileId, personAgeLocation, personAgeLocationHidden, imageUrl, images) )
                 profileIDS.append(profileId)
 
         except NoSuchElementException:
@@ -82,13 +85,17 @@ for tsPage in targetSearchPages:
 
         driver.get(searchPage)
 
+        # Set an implicit wait of 5 seconds
+        driver.implicitly_wait(5)
+
         for _ in range(5):
             scanSearchPage()
             driver.execute_script("window.scrollBy(0,2000)","")
+            driver.implicitly_wait(5)
 
 # Let's save this list, shall we ...
 # Save the userProfiles to a local file
-fileName = 'matchUserList.txt'
+fileName = 'matchLists/matchUserList.txt'
 with open(fileName, "wb") as fp:   
     pickle.dump(userList, fp)
 
@@ -171,8 +178,7 @@ def scanProfilePage_():
 
     userProfiles.append( (profilePage, personName, personAgeLocation, personSummary, imageList) )
 
-
-def scanProfilePage():
+def scanProfilePage(userNumber, userCount):
 
     personName = ""
 
@@ -180,13 +186,45 @@ def scanProfilePage():
 
         # Set an explicit wait of 10 seconds for the carousel button to be clickable
         carouselButtonXPATH = '//*[@id="mainContent"]/article/div[2]/div[1]/div[2]/div/button'
-        photo_carousel_button = driver.find_element(By.XPATH, carouselButtonXPATH)
+        try:
+            wait = WebDriverWait(driver, 10)
+            photo_carousel_button = wait.until(EC.element_to_be_clickable((By.XPATH, carouselButtonXPATH)))
+        except StaleElementReferenceException:
+            photo_carousel_button = driver.find_element(By.XPATH, carouselButtonXPATH)
 
         userName = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[1]/div[1]/div/h6')
         personName = userName.text
 
         ageLocation = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[2]/span')
         personAgeLocation = ageLocation.text
+
+        personSubscriber = ""
+        try:
+            subscriber = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[2]/div/span/span/span/div/div/b')
+            personSubscriber = subscriber.text
+        except NoSuchElementException:
+            personSubscriber = ""
+
+        personLastActive = ""
+        try:
+            lastActive = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[4]/span')
+            personLastActive = lastActive.text
+        except NoSuchElementException:
+            personLastActive = ""
+
+        personBannerHeading = ""
+        try:
+            bannerHeading = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[6]/blockquote/h2')
+            personBannerHeading = bannerHeading.text
+        except NoSuchElementException:
+            personBannerHeading = ""
+
+        personBannerText = ""
+        try:
+            bannerText = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[6]/blockquote/div/div/span')
+            personBannerText = bannerText.text
+        except NoSuchElementException:
+            personBannerText = ""
 
         try:
             summary = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/section[1]/div/div/div/div[1]/span')    
@@ -198,7 +236,11 @@ def scanProfilePage():
 
         # Set an explicit wait of 5 seconds for the carousel button to be clickable
         carouselCloseButtonXPATH = '//*[@id="modalHeader"]/button/span'
-        photo_carousel_close_button = driver.find_element(By.XPATH, carouselCloseButtonXPATH)
+        try:
+            wait = WebDriverWait(driver, 5)
+            photo_carousel_close_button = wait.until(EC.element_to_be_clickable((By.XPATH, carouselCloseButtonXPATH)))
+        except StaleElementReferenceException:
+            photo_carousel_close_button = driver.find_element(By.XPATH, carouselCloseButtonXPATH)
 
         image_count = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/span')
         no_of_images = image_count.text # '1/5'
@@ -230,25 +272,39 @@ def scanProfilePage():
 
         photo_carousel_close_button.click()
 
-        userProfiles.append( (profilePage, personName, personAgeLocation, personSummary, imageList) )
+        userProfiles.append( (profilePage, personName, personAgeLocation, personSubscriber, personLastActive, personBannerHeading, personBannerText, personSummary, imageList) )
 
-        print(f'Page scan for {personName} Success!')
+        print(f'{userNumber}/{userCount} Page scan for {personName} Success!')
 
     except Exception:
         # something failed ... move on ..
-        print(f'Page scan for {personName} failure! ... move on!')
+        print(f'{userNumber}/{userCount} Page scan for {personName} failure! ... move on!')
 
+
+userNumber = 0
+userCount = len(userList)
+
+startTime = time.time()
+todaysDate = date.today()
 
 for testUser in userList:
 
+    userNumber += 1
     profilePage = testUser[1]
+
     driver.get(profilePage)
 
-    scanProfilePage()
-   
+    scanProfilePage(userNumber, userCount)
+
+
+endTime = time.time()
+elapsedTime = time.strftime("%H:%M:%S", time.gmtime(endTime - startTime))
+
+print(todaysDate.strftime('# Run Date: %A, %B %d, %Y'))
+print(f"# Run Time: {elapsedTime}")
 
 # Save the userProfiles to a local file
-fileName = 'matchProfiles.txt'
+fileName = 'matchLists/matchProfiles.txt'
 with open(fileName, "wb") as fp:   #Pickling
     pickle.dump(userProfiles, fp)
 
