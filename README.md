@@ -140,3 +140,7 @@ Also, you really need to clean this repo! You are saving stuff you do not need t
 Let's do some repo clean up, shall we ... OK ... bunch of useless stuff deleted. 
 
 OK repo now cleaned up.
+
+## Monday, July 31, 2023
+
+Added a bunch more code for run time information. Things are looking good!
