@@ -16,93 +16,87 @@ import pickle
 
 import time
 
-userList = [
-    ("Boyanna", "https://www.match.com/profile/jjLX_J8ZrFwriTXuFyuoyQ2"),
-    ("Pat", "https://www.match.com/profile/W5eSN9DQ38U8umJ82C---g2"),
-    ("St", "https://www.match.com/profile/4T33D_27J2hcEoPsgTU0aA2"),
-    ("Im", "https://www.match.com/profile/xrb0-ZB6LHYG_IhUqPODug2"),
-    ("Rita", "https://www.match.com/profile/nhwdQ6YppvWJHY1B_qVCNA2"),
-    ("Charlie", "https://www.match.com/profile/TWaXmmkeDcmidIS2aISfPg2"),
-    ("Monica", "https://www.match.com/profile/VlqUyWrdoGo6FYYZsfOfjA2"),
-    ("Karen", "https://www.match.com/profile/ycWfFU8usvIYvY6jcn0FvA2"),
-    ("Rose", "https://www.match.com/profile/3M5shM941vGRKAlF0lD2cg2"),
-    ("Linda","https://www.match.com/profile/ebunOUTetc9TrOfjDu6D-A2"),
-    ("Sondra" ,"https://www.match.com/profile/mwS4rT4q-DDi0Zl8XR40FA2"),
-    ("Raluca", "https://www.match.com/profile/FVsmTW6T2i5YeLzMZQAjsQ2"),
-    ("Christin", "https://www.match.com/profile/1OZ-5Yxvdn78OMi7R15eJQ2"),
-    ("Angela", "https://www.match.com/profile/U6yqKwhgr_QGXl9dAgooJA2"),
-    ("Catherine", "https://www.match.com/profile/6N1l1hfUUSuyMWdIqOm4pQ2"),
-    ("Shannan", "https://www.match.com/profile/xHc4aGtJAreA1FHiNInBPA2")
-]
-
 chromeOptions = ChromeOptions()
 chromeOptions.headless = True
 chromeOptions.binary_location = '/snap/bin/brave'
 chromeOptions.add_argument('--remote-debugging-port=9224') 
 driver = webdriver.Chrome(options=chromeOptions)
 
+targetSearchPages = [
+    ('Top Picks' ,     'https://www.match.com/search?sortBy=1',  True),
+    ('Photo Count' ,   'https://www.match.com/search?sortBy=2',  True),
+    ('Age' ,           'https://www.match.com/search?sortBy=3',  False),
+    ('Activity Date' , 'https://www.match.com/search?sortBy=4',  True),
+    ('Newest First' ,  'https://www.match.com/search?sortBy=6',  True),
+    ('Mutual Search' , 'https://www.match.com/search?sortBy=9',  True),
+    ('Reverse Search' ,'https://www.match.com/search?sortBy=10', True),
+    ('Distance' ,      'https://www.match.com/search?sortBy=11', True)
+]
+ 
+userList = []
+profileIDS = []   
+    
+# Load up one of the specific search pages, then load
+# the profiles into a list
+def scanSearchPage():
 
-generateNewList = True
+    # select all the "css-1trsig2" css selectors 
+    profiles = driver.find_elements(By.CLASS_NAME, "css-1trsig2")
 
-if generateNewList:
+    for profile in profiles:
 
-    userList = []
-    profileIDS = []
+        try:
 
-    searchPage = "https://www.match.com/search"
-    searchPage = "https://www.match.com/search/mutual"
-    searchPage = "https://www.match.com/search?sortBy=11"
-   
-    driver.get(searchPage)
-    driver.implicitly_wait(5)
+            url = profile.get_attribute("href")
+            urlParts = url.split("?")
+            profilePage =urlParts[0]
 
-    def scanPage():
+            profilePageParts = profilePage.split("/")
+            profileId = profilePageParts[-1]
 
-        # select all the "css-1trsig2" css selectors 
-        profiles = driver.find_elements(By.CLASS_NAME, "css-1trsig2")
+          # imageUrl = profile.find_element(By.CLASS_NAME, "css-css-103b9rp").get_attribute("src")
+            personName = profile.find_element(By.CLASS_NAME, "css-1jab1x0").text
+            personAgeLocation = profile.find_element(By.CLASS_NAME, "css-3g75q9").text
+            personAgeLocationHidden = profile.find_element(By.CLASS_NAME, "css-17ertmd").text
+            images = profile.find_element(By.CLASS_NAME, "css-1r6f8km").text
 
-        for profile in profiles:
+            # only load profiles we have not yet loaded
+            if not profileId in profileIDS:
+                userList.append( (personName, profilePage, profileId, personAgeLocation, personAgeLocationHidden, images) )
+                profileIDS.append(profileId)
 
-            try:
+        except NoSuchElementException:
+            print('NoSuchElementException!')
 
-                url = profile.get_attribute("href")
-                urlParts = url.split("?")
-                profilePage =urlParts[0]
-
-                profilePageParts = profilePage.split("/")
-                profileId = profilePageParts[-1]
-
-                personName = profile.find_element(By.CLASS_NAME, "css-1jab1x0").text
-                personAgeLocation = profile.find_element(By.CLASS_NAME, "css-3g75q9").text
-                personAgeLocationHidden = profile.find_element(By.CLASS_NAME, "css-17ertmd").text
-
-                if not profileId in profileIDS:
-                    userList.append( (personName, profilePage, profileId, personAgeLocation, personAgeLocationHidden) )
-                    profileIDS.append(profileId)
-
-            except NoSuchElementException:
-                print('NoSuchElementException!')
-
-            except Exception:
-                print('Exception!')
+        except Exception:
+            print('Exception!')
 
 
+# Launch the scan of all the target search pages ...
+for tsPage in targetSearchPages:
 
-    for _ in range(5):
-        scanPage()
-        driver.execute_script("window.scrollBy(0,2000)","")
+    searchPage = tsPage[1]
+    scanThisPage = tsPage[2]
 
-    # Let's save this list, shall we ...
-    # Save the userProfiles to a local file
-    # fileName = 'matchUserList.txt'
-    # with open(fileName, "wb") as fp:   
-    #     pickle.dump(userList, fp)
+    if scanThisPage == True:
 
-    print(len(userList))
+        driver.get(searchPage)
+
+        for _ in range(5):
+            scanSearchPage()
+            driver.execute_script("window.scrollBy(0,2000)","")
+
+# Let's save this list, shall we ...
+# Save the userProfiles to a local file
+fileName = 'matchUserList.txt'
+with open(fileName, "wb") as fp:   
+    pickle.dump(userList, fp)
+
+# 269 ... 
+print(len(userList))
 
 # This will store all the metadata we want on the user.
 userProfiles = []
-
 
 def scanProfilePage_():
 
@@ -180,6 +174,8 @@ def scanProfilePage_():
 
 def scanProfilePage():
 
+    personName = ""
+
     try: 
 
         # Set an explicit wait of 10 seconds for the carousel button to be clickable
@@ -240,7 +236,7 @@ def scanProfilePage():
 
     except Exception:
         # something failed ... move on ..
-        print("Page scan failure! ... move on!")
+        print(f'Page scan for {personName} failure! ... move on!')
 
 
 for testUser in userList:

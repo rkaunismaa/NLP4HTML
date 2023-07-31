@@ -28,14 +28,17 @@ for user in userProfiles:
     for image in imageList:
 
         url = image[0]
-        urlParts = url.split("/")
-        iName = profileFolder + "/" + urlParts[-1]
-
+       
         res = requests.get(url, stream = True)
 
         if res.status_code == 200:
+
+            urlParts = url.split("/")
+            iName = profileFolder + "/" + urlParts[-1]
+
             with open(iName,'wb') as f:
                 shutil.copyfileobj(res.raw, f)
+                
             print('Image sucessfully Downloaded: ',iName)
         else:
             print('Image Couldn\'t be retrieved')
