@@ -4,7 +4,7 @@ import shutil
 import os
 
 # Save the userProfiles to a local file
-fileName = 'matchLists/matchProfiles.txt' #1
+fileName = 'matchLists/matchProfiles_20230731_2.txt' 
 
 # fileName = 'matchUserList.txt'
 
