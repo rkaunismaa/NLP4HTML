@@ -8,8 +8,13 @@ from datetime import date
 
 from MatchFunctions import *
 
+# What we start with ...
 matchUsers = 'matchLists/matchUserList.txt'
 matchProfiles = 'matchLists/matchProfiles.txt' 
+
+# What we finish with ...
+missedUsersFn = 'matchLists/missedUsers.txt'
+missedProfilesFn = 'matchLists/missedProfiles.txt'
 
 with open(matchUsers, "rb") as input_file:
     users = pickle.load(input_file)
@@ -38,10 +43,9 @@ for user in users:
     if (not found):
         missedUsers.append( (userName, userUrl) )
 
-fileName = 'matchLists/missedUsers.txt'
-with open(fileName, "wb") as fp:   
+# Persist these missed users into a file
+with open(missedUsersFn, "wb") as fp:   
     pickle.dump(missedUsers, fp)
-
 
 chromeOptions = ChromeOptions()
 chromeOptions.headless = True
@@ -76,9 +80,8 @@ elapsedTime = time.strftime("%H:%M:%S", time.gmtime(endTime - startTime))
 print(todaysDate.strftime('# Run Date: %A, %B %d, %Y'))
 print(f"# Run Time: {elapsedTime}")
 
-# Save the userProfiles to a local file
-fileName = 'matchLists/missedProfiles.txt'
-with open(fileName, "wb") as fp:   #Pickling
+# Save the missed userProfiles to a local file
+with open(missedProfilesFn, "wb") as fp:   #Pickling
     pickle.dump(userProfiles, fp)
 
 print("Match Success!")
