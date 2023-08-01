@@ -35,6 +35,19 @@ ALTER TABLE `MatchDb`.`Users`
 ALTER TABLE `MatchDb`.`Users` 
 CHANGE COLUMN `ScanDateTime` `ScanDateTime` DATETIME NOT NULL ;
 
+ALTER TABLE `MatchDb`.`Users` 
+CHANGE COLUMN `idUsers` `idUsers` INT NOT NULL AUTO_INCREMENT ;
+
+ALTER TABLE `MatchDb`.`Images` 
+CHANGE COLUMN `idImages` `idImages` INT NOT NULL AUTO_INCREMENT ;
+
+ALTER TABLE `MatchDb`.`Users` 
+CHANGE COLUMN `MiniEssayTitle` `MiniEssayTitle` VARCHAR(64) NULL DEFAULT NULL ,
+CHANGE COLUMN `MiniEssayContent` `MiniEssayContent` VARCHAR(256) NULL DEFAULT NULL ;
+
+
+
+
 
 
 
