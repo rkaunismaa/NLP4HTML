@@ -88,7 +88,7 @@ for tsPage in targetSearchPages:
         # Set an implicit wait of 5 seconds
         driver.implicitly_wait(5)
 
-        for _ in range(5):
+        for _ in range(6):
             scanSearchPage()
             driver.execute_script("window.scrollBy(0,2000)","")
             driver.implicitly_wait(5)
