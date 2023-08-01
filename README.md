@@ -152,3 +152,5 @@ Grabbed the missed profiles. Then pulled down the images. I next want to work on
 Now let's load the profile data into a local mysql database. I will use the local running instance of MySql and store the database into a local matchDb folder.
 
 Right. To load into mysql, I need to switch back to the nlp4html conda environment ...
+
+OK. Nice! Got all of the profile data loaded into mysql!

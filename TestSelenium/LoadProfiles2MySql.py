@@ -51,6 +51,14 @@ for profile in profiles:
     with conn.cursor() as cursor:
         insertQuery = f'INSERT INTO Users (ScanDateTime, Url, FirstName, AgeLocation, Subscriber, LastOnline, MiniEssayTitle, MiniEssayContent, Summary) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'
         cursor.execute(insertQuery, valueS)
+        userInsertId = cursor.lastrowid
+
+    images = profile[8]
+    for image in images:
+        valueS = tuple([userInsertId, image[0]])
+        with conn.cursor() as cursor:
+            insertQuery = f'INSERT INTO Images (idUsers, Url) VALUES (%s, %s)'
+            cursor.execute(insertQuery, valueS)
 
 conn.commit()
 conn.close()
