@@ -144,3 +144,7 @@ OK repo now cleaned up.
 ## Monday, July 31, 2023
 
 Added a bunch more code for run time information. Things are looking good!
+
+## Tuesday, August 1, 2023
+
+Grabbed the missed profiles. Then pulled down the images. I next want to work on some interface for viewing the data and images, and assignining some kind of rating to the profile.
