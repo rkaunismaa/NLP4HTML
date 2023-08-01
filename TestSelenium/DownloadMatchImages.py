@@ -4,7 +4,7 @@ import shutil
 import os
 
 # Save the userProfiles to a local file
-fileName = 'matchLists/matchProfiles_20230731_2.txt' 
+fileName = 'matchLists/masterProfiles.txt' 
 
 # fileName = 'matchUserList.txt'
 
@@ -23,7 +23,7 @@ for user in userProfiles:
     if not os.path.exists(profileFolder):
         os.makedirs(profileFolder)
 
-    imageList = user[4]
+    imageList = user[8]
 
     for image in imageList:
 

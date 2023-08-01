@@ -11,6 +11,8 @@ from MatchFunctions import *
 # What we start with ...
 matchUsers = 'matchLists/matchUserList.txt'
 matchProfiles = 'matchLists/matchProfiles.txt' 
+# override to test stuff ...
+matchProfiles = 'matchLists/masterProfiles.txt' 
 
 # What we finish with ...
 missedUsersFn = 'matchLists/missedUsers.txt'
@@ -44,8 +46,8 @@ for user in users:
         missedUsers.append( (userName, userUrl) )
 
 # Persist these missed users into a file
-with open(missedUsersFn, "wb") as fp:   
-    pickle.dump(missedUsers, fp)
+# with open(missedUsersFn, "wb") as fp:   
+#     pickle.dump(missedUsers, fp)
 
 chromeOptions = ChromeOptions()
 chromeOptions.headless = True
