@@ -65,7 +65,7 @@ Switched to a newly created conda environment called 'nlp4html' Gonna see if I a
 
 So yeah, I do get a little further, but I STILL cannot connect to mysql20230720 from python. Sigh ... Gonna install mysql server to kauwitb ... 
 
-OMG What a fucking idiot!! I was having these problems because I had named my python file 'mysql.py' .... DUH! ... I can't beleive how fucking stupid that is!!
+OMG What a fucking idiot!! I was having these problems because I had named my python file 'mysql.py' .... DUH! ... I can't believe how fucking stupid that is!!
 
 ## Monday, July 24, 2023
 
@@ -153,4 +153,4 @@ Now let's load the profile data into a local mysql database. I will use the loca
 
 Right. To load into mysql, I need to switch back to the nlp4html conda environment ...
 
-OK. Nice! Got all of the profile data loaded into mysql!
+OK. Nice! Got all of the profile data loaded into mysql! A few more tweaks to the sql code.

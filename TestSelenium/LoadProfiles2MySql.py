@@ -46,10 +46,14 @@ scanDateTime = datetime.strptime('2023-08-01 08:01:01', '%Y-%m-%d %H:%M:%S')
 for profile in profiles:
 
     isSubscriber = (profile[3] == 'Subscriber')
-    values = [ scanDateTime, profile[0], profile[1], profile[2], isSubscriber, profile[4], profile[5], profile[6], profile[7] ]
+    url = profile[0]
+    matchUserId = url.split("/")[-1]
+   # matchUserId = urlParts[-1]
+    
+    values = [ matchUserId, url, profile[1], profile[2], isSubscriber, profile[4], profile[5], profile[6], profile[7], scanDateTime ]
     valueS = tuple(values) 
     with conn.cursor() as cursor:
-        insertQuery = f'INSERT INTO Users (ScanDateTime, Url, FirstName, AgeLocation, Subscriber, LastOnline, MiniEssayTitle, MiniEssayContent, Summary) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'
+        insertQuery = f'INSERT INTO Users (MatchUserId, Url, FirstName, AgeLocation, Subscriber, LastOnline, MiniEssayTitle, MiniEssayContent, Summary, ScanDateTime) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
         cursor.execute(insertQuery, valueS)
         userInsertId = cursor.lastrowid
 
@@ -62,3 +66,5 @@ for profile in profiles:
 
 conn.commit()
 conn.close()
+
+print('MySql Success!')

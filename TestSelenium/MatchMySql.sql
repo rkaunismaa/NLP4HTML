@@ -46,6 +46,15 @@ CHANGE COLUMN `MiniEssayTitle` `MiniEssayTitle` VARCHAR(64) NULL DEFAULT NULL ,
 CHANGE COLUMN `MiniEssayContent` `MiniEssayContent` VARCHAR(256) NULL DEFAULT NULL ;
 
 
+/*
+We should probably have the Match User Id in its own field, 
+and move the ScanDateTime field to the end of the table
+*/
+ALTER TABLE `MatchDb`.`Users` 
+ADD COLUMN `MatchUserId` VARCHAR(64) NOT NULL AFTER `idUsers`,
+CHANGE COLUMN `ScanDateTime` `ScanDateTime` DATETIME NOT NULL AFTER `Summary`;
+
+
 
 
 
