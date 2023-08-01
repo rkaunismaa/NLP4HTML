@@ -148,3 +148,5 @@ Added a bunch more code for run time information. Things are looking good!
 ## Tuesday, August 1, 2023
 
 Grabbed the missed profiles. Then pulled down the images. I next want to work on some interface for viewing the data and images, and assignining some kind of rating to the profile.
+
+Now let's load the profile data into a local mysql database. I will use the local running instance of MySql and store the database into a local matchDb folder.
