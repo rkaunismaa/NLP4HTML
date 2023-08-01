@@ -3,6 +3,11 @@ import requests
 import shutil
 import os
 
+import time
+from datetime import date
+
+from MatchFunctions import *
+
 matchUsers = 'matchLists/matchUserList.txt'
 matchProfiles = 'matchLists/matchProfiles.txt' 
 
@@ -36,6 +41,47 @@ for user in users:
 fileName = 'matchLists/missedUsers.txt'
 with open(fileName, "wb") as fp:   
     pickle.dump(missedUsers, fp)
+
+
+chromeOptions = ChromeOptions()
+chromeOptions.headless = True
+chromeOptions.binary_location = '/snap/bin/brave'
+chromeOptions.add_argument('--remote-debugging-port=9224') 
+driver = webdriver.Chrome(options=chromeOptions)
+
+userNumber = 0
+userCount = len(missedUsers)
+
+# This will store all the metadata we want on the user.
+userProfiles = []
+
+startTime = time.time()
+todaysDate = date.today()
+
+for testUser in missedUsers:
+
+    userNumber += 1
+    profilePage = testUser[1]
+
+    driver.get(profilePage)
+
+    # scanProfilePage(userNumber, userCount)
+    scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage)
+
+driver.quit()
+
+endTime = time.time()
+elapsedTime = time.strftime("%H:%M:%S", time.gmtime(endTime - startTime))
+
+print(todaysDate.strftime('# Run Date: %A, %B %d, %Y'))
+print(f"# Run Time: {elapsedTime}")
+
+# Save the userProfiles to a local file
+fileName = 'matchLists/missedProfiles.txt'
+with open(fileName, "wb") as fp:   #Pickling
+    pickle.dump(userProfiles, fp)
+
+print("Match Success!")
 
 
 
