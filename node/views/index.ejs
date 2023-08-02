@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+</head>
+<body>
+    <h1>User Data</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Summary</th>
+        </tr>
+        <% users.forEach((user) => { %>
+        <tr>
+            <td><%= user.MatchUserId %></td>
+            <td><%= user.FirstName %></td>
+            <td><%= user.AgeLocation %></td>
+            <td><%= user.Summary %></td>
+        </tr>
+        <% }); %>
+    </table>
+</body>
+</html>

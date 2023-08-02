@@ -167,3 +167,10 @@ Damn! Is there anything ChatGpt can't help me to solve? I was going through the 
 
 This installs the mysql module for use by node =>  npm install mysql
 
+OK Nice! Got a simple node file to pull stuff from the MatchDb. Next step is to display this to the user in the html page.
+
+And Again! ChatGPT points me in the right direction! I got express to connect to the db, pull from the users table, and display this to the user! 
+
+npm install express ejs 
+
+No way would I be this far in my efforts without chatgpt! ....If I had stuck to 'reading the manuals' ... damn! 
