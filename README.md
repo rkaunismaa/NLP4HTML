@@ -158,3 +158,7 @@ OK. Nice! Got all of the profile data loaded into mysql! A few more tweaks to th
 OK. Gonna go with node.js for the web development side of things. I haven't worked with node in a while, but yeah, it should be fun to get back to this side of the development life cycle ... !
 
 docker pull node ... damn! 1Billion+ downloads!! 
+
+## Wednesday, August 2, 2023
+
+Ran another scan of match. Moving onto creating a web site for this data using node.
