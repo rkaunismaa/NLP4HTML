@@ -164,3 +164,6 @@ docker pull node ... damn! 1Billion+ downloads!!
 Ran another scan of match. Moving onto creating a web site for this data using node.
 
 Damn! Is there anything ChatGpt can't help me to solve? I was going through the node stuff at w3schools and wanted to see if I could display images in an html page chatgpt had created. The page displays the images no problem if I simply open it with a browser, but when I served the page up through node.js, none of the images showed. Whelp, I asked chatgpt about it, and it provided the correct answer! Damn, like seriously, the need to deeply understand code has gone WAY down. You need to be able to understand what it generates, but no longer do you need to crank it all out yourself! 
+
+This installs the mysql module for use by node =>  npm install mysql
+
