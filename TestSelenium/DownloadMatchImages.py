@@ -2,11 +2,11 @@ import pickle
 import requests
 import shutil
 import os
+from os.path import exists
 
 # Save the userProfiles to a local file
 fileName = 'matchLists/masterProfiles.txt' 
-
-# fileName = 'matchUserList.txt'
+fileName = 'matchLists/matchProfiles_20230802.txt' 
 
 with open(fileName, "rb") as input_file:
     userProfiles = pickle.load(input_file)
@@ -28,19 +28,25 @@ for user in userProfiles:
     for image in imageList:
 
         url = image[0]
-       
-        res = requests.get(url, stream = True)
+        urlParts = url.split("/")
+        iName = profileFolder + "/" + urlParts[-1]
 
-        if res.status_code == 200:
-
-            urlParts = url.split("/")
-            iName = profileFolder + "/" + urlParts[-1]
-
-            with open(iName,'wb') as f:
-                shutil.copyfileobj(res.raw, f)
-
-            print('Image sucessfully Downloaded: ',iName)
+        # only download if the file does not exist ...
+        if exists(iName):
+            print(f'{url} => Image already downloaded!')
         else:
-            print('Image Couldn\'t be retrieved')
+            res = requests.get(url, stream = True)
+
+            if res.status_code == 200:
+
+                urlParts = url.split("/")
+                iName = profileFolder + "/" + urlParts[-1]
+
+                with open(iName,'wb') as f:
+                    shutil.copyfileobj(res.raw, f)
+
+                print(f'{url} => Image sucessfully Downloaded!')
+            else:
+                print(f'{url} => Could not be retrieved')
 
 
