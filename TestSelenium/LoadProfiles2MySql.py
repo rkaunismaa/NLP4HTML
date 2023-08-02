@@ -38,7 +38,7 @@ if purgeTable:
 
     conn.commit()
 
-profileFile = 'matchLists/matchProfiles_20230802.txt'
+profileFile = 'matchLists/masterProfiles_20230802.txt'
 with open(profileFile, "rb") as input_file:
     profiles = pickle.load(input_file)
 

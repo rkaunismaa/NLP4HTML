@@ -8,15 +8,13 @@ from datetime import date
 
 from MatchFunctions import *
 
-# What we start with ...
-matchUsers = 'matchLists/matchUserList.txt'
-matchProfiles = 'matchLists/matchProfiles.txt' 
-# override to test stuff ...
-matchProfiles = 'matchLists/masterProfiles.txt' 
+# What we read from ...
+matchUsers = 'matchLists/matchUserList_20230802.txt'
+matchProfiles = 'matchLists/matchProfiles_20230802.txt' 
 
-# What we finish with ...
-missedUsersFn = 'matchLists/missedUsers.txt'
-missedProfilesFn = 'matchLists/missedProfiles.txt'
+# What we are writing to ...
+missedUsersFn = 'matchLists/missedUsers_20230802.txt'
+missedProfilesFn = 'matchLists/missedProfiles_20230802.txt'
 
 with open(matchUsers, "rb") as input_file:
     users = pickle.load(input_file)

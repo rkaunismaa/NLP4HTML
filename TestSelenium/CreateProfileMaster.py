@@ -1,10 +1,10 @@
 import pickle
 
 # What we start with ...
-matchProfiles = 'matchLists/matchProfiles.txt' 
-missedProfilesFn = 'matchLists/missedProfiles.txt'
+matchProfiles = 'matchLists/matchProfiles_20230802.txt' 
+missedProfilesFn = 'matchLists/missedProfiles_20230802.txt'
 
-masterProfilesFn = 'matchLists/masterProfiles.txt'
+masterProfilesFn = 'matchLists/masterProfiles_20230802.txt'
 
 with open(matchProfiles, "rb") as input_file:
     profiles = pickle.load(input_file)
