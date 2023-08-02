@@ -38,11 +38,11 @@ if purgeTable:
 
     conn.commit()
 
-profileFile = 'matchLists/masterProfiles_20230801.txt'
+profileFile = 'matchLists/matchProfiles_20230802.txt'
 with open(profileFile, "rb") as input_file:
     profiles = pickle.load(input_file)
 
-scanDateTime = datetime.strptime('2023-08-01 08:01:01', '%Y-%m-%d %H:%M:%S')
+scanDateTime = datetime.strptime('2023-08-02 08:01:01', '%Y-%m-%d %H:%M:%S')
 for profile in profiles:
 
     isSubscriber = (profile[3] == 'Subscriber')
