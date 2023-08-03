@@ -184,3 +184,7 @@ Whelp, this has proven to be harder than I thought. The window pops up, with the
 3:16pm ... ok ... still struggling with this. damn ... 
 
 5:18pm ... meh ... don't want to do this anymore. Will continue later ... 
+
+6:37pm ... gonna get back to learning about node.js from [Introduction to Node.js](https://nodejs.dev/en/learn/introduction-to-nodejs/)
+
+[Express Web Framework](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs) seems like a good a place as any to start looking into Express.
