@@ -1,27 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Data</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>User Data</h1>
     <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Summary</th>
-        </tr>
-        <% users.forEach((user) => { %>
-        <tr>
-            <td><%= user.MatchUserId %></td>
-            <td><%= user.FirstName %></td>
-            <td><%= user.AgeLocation %></td>
-            <td><%= user.Summary %></td>
-        </tr>
-        <% }); %>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age / Location</th>
+        <th>Last On Line</th>
+        <th>Mini Essay Title</th>
+        <th>Mini Essay Content</th>
+        <th>Summary</th>
+      </tr>
+      <% users.forEach((user) => { %>
+      <tr>
+        <td>
+          <a href="#" class="user-link" data-user-id="<%= user.MatchUserId %>"
+            ><%= user.MatchUserId %></a
+          >
+        </td>
+        <td><%= user.FirstName %></td>
+        <td><%= user.AgeLocation %></td>
+        <td><%= user.LastOnLine %></td>
+        <td><%= user.MiniEssayTitle %></td>
+        <td><%= user.MiniEssayContent %></td>
+        <td><%= user.Summary %></td>
+      </tr>
+      <tr>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+      </tr>
+      <% }); %>
     </table>
-</body>
+
+    <script>
+      // JavaScript code to handle the popup window
+      document.addEventListener("DOMContentLoaded", function () {
+
+        const userLinks = document.querySelectorAll(".user-link");
+
+        // this adds an event listener to each MatchUserId link in the above table ... 
+        // and when you click it, it fires this code ...
+        userLinks.forEach(function (link) {
+          link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const userId = this.dataset.userId;
+            openPopupWindow(userId);
+          });
+        });
+
+        function openPopupWindow(userId) {
+
+          // so this path is incorrect ... and yet, this thing seems to hit the right folder, because it gets the correct number of links ... 
+          const imageUrl = `/images/${userId}`;
+
+          // Open a new popup window
+          const popupWindow = window.open(
+            "",
+            "popupWindow",
+            "width=800,height=600"
+          );
+
+          // Get images associated with the user from the server
+          fetchImages(imageUrl)
+            .then(function (images) {
+
+              // Generate HTML for the popup window with the images
+              const imagesHtml = images
+                .map(function (image) {
+                  return `<img src="${imageUrl}/${image}" alt="User ${userId} Image">`;
+                })
+                .join("");
+
+              // Inject the images into the popup window
+              popupWindow.document.body.innerHTML = imagesHtml;
+
+            })
+            .catch(function (error) {
+              console.error("Error fetching images:", error);
+              popupWindow.close();
+            });
+        }
+
+        function fetchImages(url) {
+          return fetch(url).then(function (response) {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          });
+        }
+      });
+    </script>
+  </body>
 </html>

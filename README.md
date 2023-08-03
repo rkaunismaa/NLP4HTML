@@ -174,3 +174,11 @@ And Again! ChatGPT points me in the right direction! I got express to connect to
 npm install express ejs 
 
 No way would I be this far in my efforts without chatgpt! ....If I had stuck to 'reading the manuals' ... damn! 
+
+## Thursday, August 3, 2023
+
+Continuing to work through the match user grid. I asked ChatGPT how to change the user.id field in the grid into a hyperlink, which will open a popup window with the images for that user ... it provided a very detailed response. Damn, this work has become so easy to do! ... 
+
+Whelp, this has proven to be harder than I thought. The window pops up, with the correct number of images we want to show, but the images are not showing.
+
+3:16pm ... ok ... still struggling with this. damn ... 
