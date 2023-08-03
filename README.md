@@ -191,4 +191,4 @@ Whelp, this has proven to be harder than I thought. The window pops up, with the
 
 Nice! I CAN use TypeScript if I want for my javascript development in node.
 
-Yeah. The above tutorial is gonna be super helpful!
+Yeah. The above tutorial is gonna be super helpful! Resume [here](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment) tomorrow ..
