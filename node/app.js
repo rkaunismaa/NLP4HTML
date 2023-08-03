@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require("path");
 
 // Serve static files from the 'matchImages' directory
-app.use(express.static("public"));
+app.use(express.static("images"));
 
 // Replace these configuration values with your actual database settings
 const dbConfig = {

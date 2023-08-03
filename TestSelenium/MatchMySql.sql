@@ -57,8 +57,3 @@ CHANGE COLUMN `ScanDateTime` `ScanDateTime` DATETIME NOT NULL AFTER `Summary`;
 
 
 
-
-
-
-
-
