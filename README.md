@@ -200,3 +200,5 @@ Continuing to go through [Express web framework (Node.js/Javascrip)](https://dev
 The tutorial uses MongoDB, but I am going to use MySQL, just because I already know how to use it, and I know I can get it to work.
 
 So I created the target LocalLibraryDB database in MySQL. Moving onto the routes part of the app.
+
+Ok Nice! All the controller boilerplate stuff is done and tested! Moving onto Displaying Library data!
