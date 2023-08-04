@@ -196,3 +196,7 @@ Yeah. The above tutorial is gonna be super helpful! Resume [here](https://develo
 ## Friday, August 4, 2023
 
 Continuing to go through [Express web framework (Node.js/Javascrip)](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs)
+
+The tutorial uses MongoDB, but I am going to use MySQL, just because I already know how to use it, and I know I can get it to work.
+
+So I created the target LocalLibraryDB database in MySQL. Moving onto the routes part of the app.
