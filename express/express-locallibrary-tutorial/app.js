@@ -7,6 +7,9 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
+// I added this ... 
+const catalogRouter = require('./routes/catalog'); // Import routes for "catalog" area of this site
+
 const app = express();
 
 // view engine setup
@@ -21,6 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+// I also added this ...
+app.use('/catalog', catalogRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
