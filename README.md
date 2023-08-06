@@ -218,3 +218,10 @@ OK done with the Database part of the tutorial. I need to implement something li
 Wait ... I've been calling it wrong. Mongoose is the ORM to MongoDB ... it is NOT the db! ... duh ... and Mongoose ONLY supports MongoDB ... 
 
 OK ... gonna go with Sequelize, cuz why not, am I right?! ...
+
+npm install --save sequelize
+
+Hmm ... I ran npm install mysql a while back to provide access to mysql, but apparently that package was published 4 years ago. I am going to run ...
+
+npm install mysql2
+
