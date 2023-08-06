@@ -203,6 +203,8 @@ So I created the target LocalLibraryDB database in MySQL. Moving onto the routes
 
 Ok Nice! All the controller boilerplate stuff is done and tested! Moving onto [Displaying Library data](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data)!
 
-# Sunday, August 6, 2023
+## Sunday, August 6, 2023
 
 Continuing with [Displaying Library Data](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data)
+
+OK.The tutorial uses mongoosedb, but I want to use MySql. I am at [Home Page](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data/Home_page) in the tutorial, and of course, it is supposed to work, but does not. So, gotta figure out how to bake in the MySql goodness into this app ...
