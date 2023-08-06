@@ -12,6 +12,25 @@ const catalogRouter = require('./routes/catalog'); // Import routes for "catalog
 
 const app = express();
 
+// MySQL START
+// Open our connection to MySQL here ...
+// https://www.w3schools.com/nodejs/nodejs_mysql.asp
+const mysql = require('mysql');
+
+const dbConnection = mysql.createConnection({
+  host: "127.0.0.1",
+  user: "root",
+  password: "12345",
+  database : "LocalLibraryDB"
+});
+
+dbConnection.connect(function(err) {
+  if (err) throw err;
+  console.log("MySQL Connected!");
+});
+// MySQL START
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
