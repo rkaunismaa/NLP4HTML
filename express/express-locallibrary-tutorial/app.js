@@ -15,20 +15,41 @@ const app = express();
 // MySQL START
 // Open our connection to MySQL here ...
 // https://www.w3schools.com/nodejs/nodejs_mysql.asp
-const mysql = require('mysql');
+// const conn = require('mysql2');
 
-const dbConnection = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "12345",
-  database : "LocalLibraryDB"
+// const dBConnection = conn.createConnection({
+//   host: "127.0.0.1",
+//   user: "root",
+//   password: "12345",
+//   database : "LocalLibraryDB"
+// });
+
+// dbConnection.connect(function(err) {
+//   if (err) throw err;
+//   console.log("MySQL Connected!");
+// });
+// MySQL END
+
+// https://www.digitalocean.com/community/tutorials/how-to-use-sequelize-with-node-js-and-mysql
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize(
+ 'LocalLibraryDB',
+ 'root',
+ '12345',
+  {
+    host: '127.0.0.1',
+    dialect: 'mysql'
+  }
+);
+sequelize.authenticate().then(() => {
+   console.log('Connection has been established successfully.');
+}).catch((error) => {
+   console.error('Unable to connect to the database: ', error);
 });
 
-dbConnection.connect(function(err) {
-  if (err) throw err;
-  console.log("MySQL Connected!");
-});
-// MySQL START
+
+
+
 
 
 // view engine setup
