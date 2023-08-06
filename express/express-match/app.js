@@ -9,6 +9,24 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+
+// MySQL START
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "127.0.0.1",
+  user: "root",
+  password: "12345",
+  database : "LocalLibraryDB"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("MySQL Connected!");
+});
+// MySQL END
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
