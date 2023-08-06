@@ -202,3 +202,7 @@ The tutorial uses MongoDB, but I am going to use MySQL, just because I already k
 So I created the target LocalLibraryDB database in MySQL. Moving onto the routes part of the app.
 
 Ok Nice! All the controller boilerplate stuff is done and tested! Moving onto [Displaying Library data](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data)!
+
+# Sunday, August 6, 2023
+
+Continuing with [Displaying Library Data](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data)
