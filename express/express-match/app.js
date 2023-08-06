@@ -10,6 +10,28 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 
+// https://www.digitalocean.com/community/tutorials/how-to-use-sequelize-with-node-js-and-mysql
+
+const sequelize = require("sequelize");
+
+// this next stuff blows up!
+const seqConnection = new sequelize(
+ 'LocalLibraryDB',
+ 'root',
+ '12345',
+  {
+    host: '127.0.0.1',
+    dialect: 'mysql'
+  }
+);
+
+// Sequelize END
+
+
+
+
+
+
 // MySQL START
 var mysql = require('mysql');
 

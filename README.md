@@ -226,3 +226,5 @@ Hmm ... I ran npm install mysql a while back to provide access to mysql, but app
 npm install mysql2
 
 7:15pm ok ... ran 'express express-match --view=pug' in the 'express' folder. I am right away going to test this Sequelize stuff in there to see if it works. 
+
+7:30pm Installed mysql2 to express-match. It works. Now gonna try Sequelize ...
