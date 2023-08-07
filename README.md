@@ -234,3 +234,10 @@ npm install mysql2
 To get 'npm run serverstart' to spin up without errors, I had to install mysql2@3.2.0. Now I am going to see if it actually works, meaning, can I get it to pull back data?
 
 Hmm interesting ... there is a tool created by Sequelize called [Sequelize-Auto](https://github.com/sequelize/sequelize-auto) that can scan an existing db for you and create the models for all tables ... yeah, gonna give that a go right now. 
+
+npm install sequelize-auto
+
+Jeeze. Took a while to figure out how to run the damn thing! ... You need to set the path to the command to run it ... like so ..
+
+./node_modules/sequelize-auto/bin/sequelize-auto -o 'models' -d MatchDb -h 127.0.0.1 -u root -p 3306 -x 12345 -e mysql
+

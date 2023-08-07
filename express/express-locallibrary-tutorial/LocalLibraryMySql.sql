@@ -43,3 +43,8 @@ FOREIGN KEY (idGenre) REFERENCES Genre(idGenre);
 ALTER TABLE LocalLibraryDB.BookInstance
 ADD CONSTRAINT FK_BookBookInstance
 FOREIGN KEY (idBook) REFERENCES Book(idBook);
+
+ALTER TABLE LocalLibraryDB.Author AUTO_INCREMENT=1;
+ALTER TABLE LocalLibraryDB.Book AUTO_INCREMENT=1;
+ALTER TABLE LocalLibraryDB.BookInstance AUTO_INCREMENT=1;
+ALTER TABLE LocalLibraryDB.Genre AUTO_INCREMENT=1;
