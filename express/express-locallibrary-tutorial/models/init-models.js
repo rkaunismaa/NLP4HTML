@@ -10,12 +10,12 @@ function initModels(sequelize) {
   var BookInstance = _BookInstance(sequelize, DataTypes);
   var Genre = _Genre(sequelize, DataTypes);
 
-  Book.belongsTo(Author, { as: "idAuthor_Author", foreignKey: "idAuthor"});
-  Author.hasMany(Book, { as: "Books", foreignKey: "idAuthor"});
-  BookInstance.belongsTo(Book, { as: "idBook_Book", foreignKey: "idBook"});
-  Book.hasMany(BookInstance, { as: "BookInstances", foreignKey: "idBook"});
-  Book.belongsTo(Genre, { as: "idGenre_Genre", foreignKey: "idGenre"});
-  Genre.hasMany(Book, { as: "Books", foreignKey: "idGenre"});
+  Book.belongsTo(Author, { as: "idAuthor_Author", foreignKey: "idAuthor" });
+  Author.hasMany(Book, { as: "Books", foreignKey: "idAuthor" });
+  BookInstance.belongsTo(Book, { as: "idBook_Book", foreignKey: "idBook" });
+  Book.hasMany(BookInstance, { as: "BookInstances", foreignKey: "idBook" });
+  Book.belongsTo(Genre, { as: "idGenre_Genre", foreignKey: "idGenre" });
+  Genre.hasMany(Book, { as: "Books", foreignKey: "idGenre" });
 
   return {
     Author,
