@@ -1,4 +1,4 @@
-// const Genre = require("../models/genre");
+const Genre = require("../models/Genre");
 const asyncHandler = require("express-async-handler");
 
 // Display a list of all Genres

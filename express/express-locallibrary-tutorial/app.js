@@ -31,6 +31,7 @@ const dbConnection = new sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD
   },
 });
 
+// Test the connection ... 
 dbConnection.authenticate().then(() => {
    console.log('Connection from Sequelize to MySQL has been established successfully!');
 }).catch((error) => {
@@ -40,6 +41,8 @@ dbConnection.authenticate().then(() => {
 // I am totally guessing this is what I need to do here ... 
 const initModels = require('./models/init-models')
 const models = initModels(dbConnection)
+
+// models.Book.count({}).then()
 
 // Sequelize END
 
