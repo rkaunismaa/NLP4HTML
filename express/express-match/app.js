@@ -25,13 +25,20 @@ const seqConnection = new sequelize(
   }
 );
 
+// try {
+//   await seqConnection.authenticate();
+//   console.log('Connection has been established successfully.');
+// } catch (error) {
+//   console.error('Unable to connect to the database:', error);
+// }
+
 // Sequelize END
 
 
 
 
 
-
+// This stuff below WORKS! ... DON'T CHANGE IT!!
 // MySQL START
 var mysql = require('mysql');
 

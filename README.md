@@ -227,4 +227,10 @@ npm install mysql2
 
 7:15pm ok ... ran 'express express-match --view=pug' in the 'express' folder. I am right away going to test this Sequelize stuff in there to see if it works. 
 
-7:30pm Installed mysql2 to express-match. It works. Now gonna try Sequelize ...
+7:30pm Installed mysql2 to express-match. It works. Now gonna try Sequelize ... 
+
+## Monday, August 7, 2023
+
+To get 'npm run serverstart' to spin up without errors, I had to install mysql2@3.2.0. Now I am going to see if it actually works, meaning, can I get it to pull back data?
+
+Hmm interesting ... there is a tool created by Sequelize called Sequelize-Auto that can scan an existing db for you and create the models for all tables ... yeah, gonna give that a go right now. 
