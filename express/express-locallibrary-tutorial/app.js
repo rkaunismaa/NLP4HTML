@@ -17,18 +17,20 @@ const app = express();
 const dbConfig = require("./config/dbconfig.js");
 const sequelize = require("sequelize");
 
-// const dbConnection = new sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-//   host: dbConfig.HOST,
-//   dialect: dbConfig.dialect,
-//   operationsAliases: false,
-//   pool: {
-//     max: dbConfig.pool.max,
-//     min: dbConfig.pool.min,
-//     acquire: dbConfig.pool.acquire,
-//     idle: dbConfig.pool.idle,
-//   },
-// });
+const dbConnection = new sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+  host: dbConfig.HOST,
+  dialect: dbConfig.dialect,
+  operationsAliases: false,
+  pool: {
+    max: dbConfig.pool.max,
+    min: dbConfig.pool.min,
+    acquire: dbConfig.pool.acquire,
+    idle: dbConfig.pool.idle,
+  },
+});
 
+const initModels = require('./models/init-models')
+const models = initModels(dbConnection)
 
 
 // https://www.digitalocean.com/community/tutorials/how-to-use-sequelize-with-node-js-and-mysql
@@ -49,19 +51,19 @@ const sequelize = require("sequelize");
 // Sequelize END
 
 // MySQL START
-var mysql = require('mysql');
+// var mysql = require('mysql');
 
-var con = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "12345",
-  database : "LocalLibraryDB"
-});
+// var con = mysql.createConnection({
+//   host: "127.0.0.1",
+//   user: "root",
+//   password: "12345",
+//   database : "LocalLibraryDB"
+// });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("MySQL Connected!");
-});
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("MySQL Connected!");
+// });
 // MySQL END
 
 // view engine setup
