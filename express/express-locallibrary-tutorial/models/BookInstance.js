@@ -49,3 +49,6 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
 };
+
+
+// const countDocuments = await BookInstance.countDocuments();

@@ -1,14 +1,14 @@
-var DataTypes = require("sequelize").DataTypes;
-var _Author = require("./Author");
-var _Book = require("./Book");
-var _BookInstance = require("./BookInstance");
-var _Genre = require("./Genre");
+const DataTypes = require("sequelize").DataTypes;
+const _Author = require("./Author");
+const _Book = require("./Book");
+const _BookInstance = require("./BookInstance");
+const _Genre = require("./Genre");
 
 function initModels(sequelize) {
-  var Author = _Author(sequelize, DataTypes);
-  var Book = _Book(sequelize, DataTypes);
-  var BookInstance = _BookInstance(sequelize, DataTypes);
-  var Genre = _Genre(sequelize, DataTypes);
+  const Author = _Author(sequelize, DataTypes);
+  const Book = _Book(sequelize, DataTypes);
+  const BookInstance = _BookInstance(sequelize, DataTypes);
+  const Genre = _Genre(sequelize, DataTypes);
 
   Book.belongsTo(Author, { as: "idAuthor_Author", foreignKey: "idAuthor" });
   Author.hasMany(Book, { as: "Books", foreignKey: "idAuthor" });
