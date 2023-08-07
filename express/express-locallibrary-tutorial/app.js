@@ -12,6 +12,8 @@ const catalogRouter = require("./routes/catalog"); // Import routes for "catalog
 
 const app = express();
 
+
+
 // Sequelize START
 
 const dbConfig = require("./config/dbconfig.js");
@@ -29,26 +31,20 @@ const dbConnection = new sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD
   },
 });
 
+dbConnection.authenticate().then(() => {
+   console.log('Connection from Sequelize to MySQL has been established successfully!');
+}).catch((error) => {
+   console.error('Unable to connect to the database: ', error);
+});
+
+// I am totally guessing this is what I need to do here ... 
 const initModels = require('./models/init-models')
 const models = initModels(dbConnection)
 
-
-// https://www.digitalocean.com/community/tutorials/how-to-use-sequelize-with-node-js-and-mysql
-
-// const sequelize = require("sequelize");
-
-// // this next stuff blows up!
-// const seqConnection = new sequelize(
-//  'LocalLibraryDB',
-//  'root',
-//  '12345',
-//   {
-//     host: '127.0.0.1',
-//     dialect: 'mysql'
-//   }
-// );
-
 // Sequelize END
+
+
+
 
 // MySQL START
 // var mysql = require('mysql');
