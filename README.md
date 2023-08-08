@@ -243,3 +243,13 @@ Jeeze. Took a while to figure out how to run the damn thing! ... You need to set
 ./node_modules/sequelize-auto/bin/sequelize-auto -o 'models' -d MatchDb -h 127.0.0.1 -u root -p 3306 -x 12345 -e mysql
 
 2:54pm yup ... need to get a better understanding, so will dive into [Server-side webiste programming](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps) Still struggling with some unknowns ... sigh.
+
+express untouched-app ... use this as a reference of an untouched express app ... 
+
+6:29pm All the source code for the Express Local Libary can be found [here](https://github.com/mdn/express-locallibrary-tutorial)
+
+## Tuesday, Autust 8, 2023
+
+Yeah, [Node.js Rest APIs example with Express, Sequelize & MySQL](https://www.bezkoder.com/node-js-express-sequelize-mysql/) is a VERY useful 'How do I use Express, MySQL, and Sequelize in a web app?' link ... 
+
+Yeah ... initialize the db in the model init.js file .. not the app.js!

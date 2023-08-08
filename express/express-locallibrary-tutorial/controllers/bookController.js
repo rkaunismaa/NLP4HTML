@@ -26,19 +26,19 @@ exports.index = asyncHandler(async (req, res, next) => {
   // ]);
 
   // Get details of books, book instances, authors and genre counts (in parallel)
-  // const [
-  //   numBooks,
-  //   numBookInstances,
-  //   numAvailableBookInstances,
-  //   numAuthors,
-  //   numGenres,
-  // ] = await Promise.all([
-  //   Book.count({}).then(),
-  //   Book.count({}).then(),
-  //   Book.count({}).then(),
-  //   Book.count({}).then(),
-  //   Book.count({}).then()
-  // ]);
+  const [
+    numBooks,
+    numBookInstances,
+    numAvailableBookInstances,
+    numAuthors,
+    numGenres,
+  ] = await Promise.all([
+    Book.count({}).then(1),
+    Book.count({}).then(2),
+    Book.count({}).then(3),
+    Book.count({}).then(4),
+    Book.count({}).then(5)
+  ]);
 
 
   
