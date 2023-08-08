@@ -34,12 +34,15 @@ const _Book = require("./Book");
 const _BookInstance = require("./BookInstance");
 const _Genre = require("./Genre");
 
+const thisSucks = "This really sucks!!";
+
 // const db = {};
 // db.sequelize = sequelize;
 // db.dbConnection = dbConnection
 // Sequelize END
 
 function initModels(sequelize) {
+
   const Author = _Author(sequelize, DataTypes);
   const Book = _Book(sequelize, DataTypes);
   const BookInstance = _BookInstance(sequelize, DataTypes);
@@ -56,13 +59,11 @@ function initModels(sequelize) {
     Author,
     Book,
     BookInstance,
-    Genre,
+    Genre
   };
+
 }
 
-// initModels(sequelize)
-
 module.exports = initModels;
-// module.exports.initModels = initModels;
-// module.exports.default = initModels;
-// module.exports.db = db
+module.exports.initModels = initModels;
+module.exports.default = initModels;

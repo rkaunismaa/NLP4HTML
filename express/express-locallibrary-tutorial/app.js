@@ -12,35 +12,52 @@ const catalogRouter = require("./routes/catalog"); // Import routes for "catalog
 
 const app = express();
 
-
-
 // Sequelize START
 
 const dbConfig = require("./config/dbconfig.js");
 const sequelize = require("sequelize");
 
-const dbConnection = new sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
-  operationsAliases: false,
-  pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle,
-  },
-});
+const dbConnection = new sequelize(
+  dbConfig.DB,
+  dbConfig.USER,
+  dbConfig.PASSWORD,
+  {
+    host: dbConfig.HOST,
+    dialect: dbConfig.dialect,
+    operationsAliases: false,
+    pool: {
+      max: dbConfig.pool.max,
+      min: dbConfig.pool.min,
+      acquire: dbConfig.pool.acquire,
+      idle: dbConfig.pool.idle,
+    },
+  }
+);
 
-// Test the connection ... 
-dbConnection.authenticate().then(() => {
-   console.log('Connection from Sequelize to MySQL has been established successfully!');
-}).catch((error) => {
-   console.error('Unable to connect to the database: ', error);
-});
+// Test the connection ...
+dbConnection
+  .authenticate()
+  .then(() => {
+    console.log(
+      "Connection from Sequelize to MySQL has been established successfully!"
+    );
+  })
+  .catch((error) => {
+    console.error("Unable to connect to the database: ", error);
+  });
 
-// I am totally guessing this is what I need to do here ... 
-const initModels = require('./models/init-models')
-const models = initModels(dbConnection)
+// I am totally guessing this is what I need to do here ...
+const initModels = require("./models/init-models");
+const models = initModels(dbConnection);
+
+// This method DOES fire, but returns a Promise ...
+// models.Author.count();
+// models.Book.count();
+// models.BookInstance.count();
+// models.Genre.count();
+
+// const bookCount = models.Book.count() ;
+// console.log(bookCount)
 
 // models.Book.count({}).then()
 
@@ -57,7 +74,6 @@ const models = initModels(dbConnection)
 //   .catch((err) => {
 //     console.log("Failed to sync db: " + err.message);
 //   });
-
 
 // MySQL START
 // var mysql = require('mysql');
