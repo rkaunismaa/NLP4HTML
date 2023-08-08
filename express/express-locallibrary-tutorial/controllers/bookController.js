@@ -1,7 +1,11 @@
-const Book = require("../models/Book");
-const Author = require("../models/Author");
-const Genre = require("../models/Genre");
-const BookInstance = require("../models/BookInstance");
+// const Book = require("../models/Book");
+// const Author = require("../models/Author");
+// const Genre = require("../models/Genre");
+// const BookInstance = require("../models/BookInstance");
+
+const models = require('../models/init-models')
+
+
 
 const asyncHandler = require("express-async-handler");
 
@@ -9,7 +13,12 @@ const asyncHandler = require("express-async-handler");
 //   res.send("NOT IMPLEMENTED: Site Home Page");
 // });
 
+exports.count = asyncHandler(async (req, res, next) => {
+  res.send(5);
+});
+
 exports.index = asyncHandler(async (req, res, next) => {
+
   // Get details of books, book instances, authors and genre counts (in parallel)
   // const [
   //   numBooks,
@@ -33,11 +42,12 @@ exports.index = asyncHandler(async (req, res, next) => {
     numAuthors,
     numGenres,
   ] = await Promise.all([
-    Book.count({}).then(1),
-    Book.count({}).then(2),
-    Book.count({}).then(3),
-    Book.count({}).then(4),
-    Book.count({}).then(5)
+    models.Book.count({}).then(),
+    //1,
+    2,
+    3,
+    4, 
+    5
   ]);
 
 
@@ -78,6 +88,7 @@ exports.index = asyncHandler(async (req, res, next) => {
     author_count: numAuthors,
     genre_count: numGenres,
   });
+
 });
 
 // Display a list of all Books

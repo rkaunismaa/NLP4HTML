@@ -1,34 +1,43 @@
+// const DataTypes = require("sequelize").DataTypes;
+// const _Author = require("./Author");
+// const _Book = require("./Book");
+// const _BookInstance = require("./BookInstance");
+// const _Genre = require("./Genre");
+
+// I added this Sequelize stuff ...
+// Sequelize START
+// const dbConfig = require("../config/dbconfig.js");
+// const Sequelize = require("sequelize");
+
+// const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+//   host: dbConfig.HOST,
+//   dialect: dbConfig.dialect,
+//   operationsAliases: false,
+//   pool: {
+//     max: dbConfig.pool.max,
+//     min: dbConfig.pool.min,
+//     acquire: dbConfig.pool.acquire,
+//     idle: dbConfig.pool.idle,
+//   },
+// });
+
+// // Test the connection ... 
+// sequelize.authenticate().then(() => {
+//    console.log('Connection from Sequelize to MySQL has been established successfully!');
+// }).catch((error) => {
+//    console.error('Unable to connect to the database: ', error);
+// });
+
 const DataTypes = require("sequelize").DataTypes;
 const _Author = require("./Author");
 const _Book = require("./Book");
 const _BookInstance = require("./BookInstance");
 const _Genre = require("./Genre");
 
-// Sequelize START
-const dbConfig = require("./config/dbconfig.js");
-const sequelize = require("sequelize");
-
-const dbConnection = new sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
-  operationsAliases: false,
-  pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle,
-  },
-});
-
-// Test the connection ... 
-dbConnection.authenticate().then(() => {
-   console.log('Connection from Sequelize to MySQL has been established successfully!');
-}).catch((error) => {
-   console.error('Unable to connect to the database: ', error);
-});
-
+// const db = {};
+// db.sequelize = sequelize;
+// db.dbConnection = dbConnection
 // Sequelize END
-
 
 function initModels(sequelize) {
   const Author = _Author(sequelize, DataTypes);
@@ -50,6 +59,10 @@ function initModels(sequelize) {
     Genre,
   };
 }
+
+// initModels(sequelize)
+
 module.exports = initModels;
-module.exports.initModels = initModels;
-module.exports.default = initModels;
+// module.exports.initModels = initModels;
+// module.exports.default = initModels;
+// module.exports.db = db
