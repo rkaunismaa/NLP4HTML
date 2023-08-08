@@ -258,4 +258,8 @@ Yeah ... initialize the db in the model init.js file .. not the app.js!
 
 3:45pm So mess with the 'express-match' express generated project. It only has had the models stuff dumped in, all the originally generated code remains.
 
-4:03 Hmmm actually, I am going to pull down [this](https://github.com/bezkoder/nodejs-express-sequelize-mysql.git) repo, and play with it. It is a sample app with all these pieces.I am not going to pull it into this repo just yet, but I may ...
+4:03pm Hmmm actually, I am going to pull down [this](https://github.com/bezkoder/nodejs-express-sequelize-mysql.git) repo, and play with it. It is a sample app with all these pieces.I am not going to pull it into this repo just yet, but I may ...
+
+7:37pm Actually, what I think is the best way to learn how to properly wire up the db with express is to go through the LocalLibrary example, [from the start](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs), and use Mongoose/MongoDB ... I will create this in the ExpressGenerator sub folder.
+
+express express-locallibrary-tutorial --view=pug
