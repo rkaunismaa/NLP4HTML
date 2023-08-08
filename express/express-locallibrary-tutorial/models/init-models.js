@@ -4,6 +4,32 @@ const _Book = require("./Book");
 const _BookInstance = require("./BookInstance");
 const _Genre = require("./Genre");
 
+// Sequelize START
+const dbConfig = require("./config/dbconfig.js");
+const sequelize = require("sequelize");
+
+const dbConnection = new sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+  host: dbConfig.HOST,
+  dialect: dbConfig.dialect,
+  operationsAliases: false,
+  pool: {
+    max: dbConfig.pool.max,
+    min: dbConfig.pool.min,
+    acquire: dbConfig.pool.acquire,
+    idle: dbConfig.pool.idle,
+  },
+});
+
+// Test the connection ... 
+dbConnection.authenticate().then(() => {
+   console.log('Connection from Sequelize to MySQL has been established successfully!');
+}).catch((error) => {
+   console.error('Unable to connect to the database: ', error);
+});
+
+// Sequelize END
+
+
 function initModels(sequelize) {
   const Author = _Author(sequelize, DataTypes);
   const Book = _Book(sequelize, DataTypes);
