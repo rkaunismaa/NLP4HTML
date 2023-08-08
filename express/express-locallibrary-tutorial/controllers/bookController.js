@@ -42,7 +42,7 @@ exports.index = asyncHandler(async (req, res, next) => {
     numAuthors,
     numGenres,
   ] = await Promise.all([
-    models.Book.count({}).then(),
+    models.Book.count({}).exec(),
     //1,
     2,
     3,
