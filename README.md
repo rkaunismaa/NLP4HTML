@@ -255,3 +255,5 @@ Yeah, [Node.js Rest APIs example with Express, Sequelize & MySQL](https://www.be
 Yeah ... initialize the db in the model init.js file .. not the app.js!
 
 3:32pm OK. Step back, and try to do something real simple with Express, and MySQL connected to, say, MatchDB ...this Sequelize stuff with the LocalLibrary app is taking too long to get going, and I need to start with something simpler, WITHOUT any Sequelize crap ...
+
+3:45pm So mess with the 'express-match' express generated project. It only has had the models stuff dumped in, all the originally generated code remains.
