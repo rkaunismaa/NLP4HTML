@@ -277,3 +277,5 @@ Starting here [Express Tutorial Part 3: Using a Database (with Mongoose)](https:
 npm i mongoose@5.13.20
 
 So it looks like we are able to connect to the local version of MongoDB using mongoose. Nice! So far, ALL we have done is add the code to the app.js to connect to the database. We have not defined models, views or controllers. The next step is to create our models, so lets to that and test to see if it works. 
+
+2:36pm Create the models, now ready to download the [populatedb.js](https://raw.githubusercontent.com/mdn/express-locallibrary-tutorial/main/populatedb.js) script to pump some dummy data into the db. If this works, then we are in great shape!
