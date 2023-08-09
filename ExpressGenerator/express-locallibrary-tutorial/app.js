@@ -1,13 +1,16 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 
-var app = express();
+// we added this after we had created ./routes/catalog ...
+const catalogRouter = require("./routes/catalog");
+
+const app = express();
 
 // First test of our locally installed mongodb
 // Set up mongoose connection
@@ -37,6 +40,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+// this was added after we had create /routes/catalog.js
+app.use("/catalog", catalogRouter); // Add catalog routes to the middleware chain
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
