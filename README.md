@@ -287,3 +287,5 @@ node populatedb "mongodb://127.0.0.1:27017/local_library"
 Moving onto [Express Tutorial Part 4: Routes and controllers](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes)
 
 Notice the order in which we create these objects. We create the db, then added the tables, then we created the 4 models for those 4 tables, then the controllers for each of those models, then just one catalog.js route file in the routes folder, then update the app.js.
+
+3:45pm [Express Tutorial Part 5: Displaying library data](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data)
