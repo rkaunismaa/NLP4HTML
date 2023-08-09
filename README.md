@@ -290,4 +290,6 @@ Notice the order in which we create these objects. We create the db, then added 
 
 3:45pm [Express Tutorial Part 5: Displaying library data](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data) We now move onto creating the views.
 
-4:32pm So now at the point where the home page is correctly pulling back the record counts of each table. This is the part I was UNABLE to get to work with MySQL and Sequelize. 
+4:32pm So now at the point where the home page is correctly pulling back the record counts of each table. This is the part I was UNABLE to get to work with MySQL and Sequelize. I fired up the current code into a new 'JustTheHomePageWorks' branch of the repo.
+
+4:58pm So the part I find confusing is we open the connection to the db in app.js? Hmm interesting ... changing the name of the connection from 'mongoose' to 'GFY' does NOT break the home page from spinning up with the correct numbers!
