@@ -263,3 +263,17 @@ Yeah ... initialize the db in the model init.js file .. not the app.js!
 7:37pm Actually, what I think is the best way to learn how to properly wire up the db with express is to go through the LocalLibrary example, [from the start](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs), and use Mongoose/MongoDB ... I will create this in the ExpressGenerator sub folder.
 
 express express-locallibrary-tutorial --view=pug
+
+## Wednesday, August 9, 2023
+
+Starting here [Express Tutorial Part 3: Using a Database (with Mongoose)](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose)
+
+[Install MongoDB Community Edition on Ubuntu](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/)
+
+1:33pm docker pull mongo .... cuz why not?! Instead of loading it locally, use the docker image ... right?!
+
+2:24pm so using the default version of mongoose(7.4.2 ... published 6 days ago) fails! ... but using an older release works!
+
+npm i mongoose@5.13.20
+
+So it looks like we are able to connect to the local version of MongoDB using mongoose. Nice! So far, ALL we have done is add the code to the app.js to connect to the database. We have not defined models, views or controllers. The next step is to create our models, so lets to that and test to see if it works. 
