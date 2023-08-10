@@ -293,3 +293,9 @@ Notice the order in which we create these objects. We create the db, then added 
 4:32pm So now at the point where the home page is correctly pulling back the record counts of each table. This is the part I was UNABLE to get to work with MySQL and Sequelize. I fired up the current code into a new 'JustTheHomePageWorks' branch of the repo.
 
 4:58pm So the part I find confusing is we open the connection to the db in app.js? Hmm interesting ... changing the name of the connection from 'mongoose' to 'GFY' does NOT break the home page from spinning up with the correct numbers!
+
+## Thursday, August 10, 2023
+
+11:33am Reading [Requiring modules in Node.js: Everything you need to know](https://www.freecodecamp.org/news/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8/) My lack of understanding about Node.js is the reason why I am struggling with the essentials.
+
+2:19pm OK. Crap, I got this sequelize, mysql stuff to work! DAMN that took a long time to get going! ... 

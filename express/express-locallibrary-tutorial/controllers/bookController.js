@@ -3,9 +3,7 @@
 // const Genre = require("../models/Genre");
 // const BookInstance = require("../models/BookInstance");
 
-const models = require('../models/init-models')
-
-
+const db = require('../models/init-models');
 
 
 const asyncHandler = require("express-async-handler");
@@ -21,64 +19,20 @@ const asyncHandler = require("express-async-handler");
 exports.index = asyncHandler(async (req, res, next) => {
 
   // Get details of books, book instances, authors and genre counts (in parallel)
-  // const [
-  //   numBooks,
-  //   numBookInstances,
-  //   numAvailableBookInstances,
-  //   numAuthors,
-  //   numGenres,
-  // ] = await Promise.all([
-  //   Book.countDocuments({}).exec(),
-  //   BookInstance.countDocuments({}).exec(),
-  //   BookInstance.countDocuments({ Status: "Available" }).exec(),
-  //   Author.countDocuments({}).exec(),
-  //   Genre.countDocuments({}).exec(),
-  // ]);
-
-  // Get details of books, book instances, authors and genre counts (in parallel)
   const [
     numBooks,
     numBookInstances,
     numAvailableBookInstances,
     numAuthors,
-    numGenres,
+    numGenres
   ] = await Promise.all([
-    Book.count({}).exec(),
-    //1,
-    2,
-    3,
-    4, 
-    5
+    //Book.count({}).exec(),
+    db.models.Book.count({}),
+    db.models.BookInstance.count({}),
+    db.models.BookInstance.count({}),
+    db.models.Author.count({}),
+    db.models.Genre.count({}),
   ]);
-
-
-  
-
-
-
-
-
-
-
-
-
-  // const [
-  //   numBooks,
-  //   numBookInstances,
-  //   numAvailableBookInstances,
-  //   numAuthors,
-  //   numGenres,
-  // ] = await Promise.all([
-  //   1,
-  //   2,
-  //   3,
-  //   4,
-  //   5,
-  // ]);
-
-
-
-
 
 
   res.render("index", {

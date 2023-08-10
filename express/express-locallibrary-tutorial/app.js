@@ -14,41 +14,43 @@ const app = express();
 
 // Sequelize START
 
-const dbConfig = require("./config/dbconfig.js");
-const sequelize = require("sequelize");
+// const dbConfig = require("./config/dbconfig.js");
+// const sequelize = require("sequelize");
 
-const dbConnection = new sequelize(
-  dbConfig.DB,
-  dbConfig.USER,
-  dbConfig.PASSWORD,
-  {
-    host: dbConfig.HOST,
-    dialect: dbConfig.dialect,
-    operationsAliases: false,
-    pool: {
-      max: dbConfig.pool.max,
-      min: dbConfig.pool.min,
-      acquire: dbConfig.pool.acquire,
-      idle: dbConfig.pool.idle,
-    },
-  }
-);
+// const dbConnection = new sequelize(
+//   dbConfig.DB,
+//   dbConfig.USER,
+//   dbConfig.PASSWORD,
+//   {
+//     host: dbConfig.HOST,
+//     dialect: dbConfig.dialect,
+//     operationsAliases: false,
+//     pool: {
+//       max: dbConfig.pool.max,
+//       min: dbConfig.pool.min,
+//       acquire: dbConfig.pool.acquire,
+//       idle: dbConfig.pool.idle,
+//     },
+//   }
+// );
 
-// Test the connection ...
-dbConnection
-  .authenticate()
-  .then(() => {
-    console.log(
-      "Connection from Sequelize to MySQL has been established successfully!"
-    );
-  })
-  .catch((error) => {
-    console.error("Unable to connect to the database: ", error);
-  });
+// // Test the connection ...
+// dbConnection
+//   .authenticate()
+//   .then(() => {
+//     console.log(
+//       "Connection from Sequelize to MySQL has been established successfully!"
+//     );
+//   })
+//   .catch((error) => {
+//     console.error("Unable to connect to the database: ", error);
+//   });
 
 // I am totally guessing this is what I need to do here ...
-const initModels = require("./models/init-models");
-const models = initModels(dbConnection);
+// Hmmm the working code in the folder /ExpressGenerator/express-locallibrary-tutorial does NOT do anything like this! ...
+// It does NOT make any require into the models! ...suggesting strongly that this is not needed here!
+// const initModels = require("./models/init-models");
+// const models = initModels(dbConnection);
 
 // This method DOES fire, but returns a Promise ...
 // models.Author.count();
