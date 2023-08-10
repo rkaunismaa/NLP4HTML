@@ -39,9 +39,7 @@ const _Book = require("./Book");
 const _BookInstance = require("./BookInstance");
 const _Genre = require("./Genre");
 
-// const db = {};
-// db.sequelize = sequelize;
-// db.dbConnection = dbConnection
+
 // Sequelize END
 
 function initModels(sequelize) {

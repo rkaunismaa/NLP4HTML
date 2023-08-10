@@ -5,15 +5,10 @@
 
 const db = require('../models/init-models');
 
-
 const asyncHandler = require("express-async-handler");
 
 // exports.index = asyncHandler(async (req, res, next) => {
 //   res.send("NOT IMPLEMENTED: Site Home Page");
-// });
-
-// exports.count = asyncHandler(async (req, res, next) => {
-//   res.send(5);
 // });
 
 exports.index = asyncHandler(async (req, res, next) => {
@@ -33,7 +28,6 @@ exports.index = asyncHandler(async (req, res, next) => {
     db.models.Author.count({}),
     db.models.Genre.count({}),
   ]);
-
 
   res.render("index", {
     title: "Local Library Home",
