@@ -311,3 +311,15 @@ sudo systemctl start mongod
 [Express Tutorial Part 5: Displaying library data](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data) Resuming from here ...
 
 6:02pm ok done the above. Next [Express Tutorial Part 6: Working with forms](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
+
+## Friday, August 11, 2023
+
+2:23pm Starting with Part 6 ... looks like we need the express-validator ...
+
+npm install express-validator
+
+Hmm docs say the minimum supported node.js version for the latestes release of express-validator (7.0.1) is 14+.  
+
+Ok ... spun up the new add genre code and the app fails on the express validator code. Time to downgrade to an older version ... 
+
+npm install express-validator@6.15.0 .... this spins up without errors. 
