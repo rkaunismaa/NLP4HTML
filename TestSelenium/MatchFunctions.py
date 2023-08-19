@@ -6,6 +6,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 from selenium.webdriver.firefox.options import Options as FireFoxOptions
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.chrome.service import Service as ChromeService
 
 from selenium.webdriver.common.by import By
 

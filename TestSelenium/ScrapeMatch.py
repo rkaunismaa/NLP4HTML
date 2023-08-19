@@ -6,6 +6,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 from selenium.webdriver.firefox.options import Options as FireFoxOptions
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.chrome.service import Service as ChromeService
 
 from selenium.webdriver.common.by import By
 
@@ -15,15 +16,44 @@ from selenium.webdriver.support import expected_conditions as EC
 import pickle
 
 import time
+import datetime
 from datetime import date
 
 from MatchFunctions import *
 
+todaysDate = date.today()
+startTime = time.time()
+
+now = datetime.datetime.now()
+yyymmdd_hhmm = now.strftime('%Y-%m-%d--%H-%M')
+
+chromedriver_path = '/usr/local/bin/chromedriver'
+chromeService = ChromeService(executable_path=chromedriver_path)
+
 chromeOptions = ChromeOptions()
 chromeOptions.headless = True
-chromeOptions.binary_location = '/snap/bin/brave'
+chromeOptions.binary_location = '/usr/bin/brave-browser'
 chromeOptions.add_argument('--remote-debugging-port=9224') 
-driver = webdriver.Chrome(options=chromeOptions)
+
+driver = webdriver.Chrome(options = chromeOptions,  service=chromeService)
+
+# driver.quit()
+
+# chromeOptions = ChromeOptions()
+# # chromeOptions.headless = True
+# # chromeOptions.binary_location = '/snap/bin/brave'
+# chromeOptions.binary_location = '/usr/bin/google-chrome'
+# chromeOptions.add_argument('--remote-debugging-port=9224') 
+# driver = webdriver.Chrome(options=chromeOptions)
+
+# driver = webdriver.Chrome(executable_path='/usr/bin/brave-browser')
+
+# chromeOptions = ChromeOptions()
+# # chromeOptions.headless = True
+# # chromeOptions.binary_location = '/snap/bin/brave'
+# chromeOptions.binary_location = '/usr/bin/brave-browser'
+# chromeOptions.add_argument('--remote-debugging-port=9224') 
+# driver = webdriver.Chrome(options=chromeOptions)
 
 targetSearchPages = [
     ('Top Picks' ,     'https://www.match.com/search?sortBy=1',  True),
@@ -62,7 +92,7 @@ for tsPage in targetSearchPages:
 
 # Let's save this list, shall we ...
 # Save the userProfiles to a local file
-fileName = 'matchLists/matchUserList_20230802.txt'
+fileName = 'matchLists/matchUserList_' + yyymmdd_hhmm + '.txt'
 with open(fileName, "wb") as fp:   
     pickle.dump(userList, fp)
 
@@ -75,8 +105,8 @@ userProfiles = []
 userNumber = 0
 userCount = len(userList)
 
-startTime = time.time()
-todaysDate = date.today()
+# startTime = time.time()
+# todaysDate = date.today()
 
 for testUser in userList:
 
@@ -96,7 +126,7 @@ print(todaysDate.strftime('# Run Date: %A, %B %d, %Y'))
 print(f"# Run Time: {elapsedTime}")
 
 # Save the userProfiles to a local file
-fileName = 'matchLists/matchProfiles_20230802.txt'
+fileName = 'matchLists/matchProfiles_' + yyymmdd_hhmm + '.txt'
 with open(fileName, "wb") as fp:   #Pickling
     pickle.dump(userProfiles, fp)
 

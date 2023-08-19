@@ -323,3 +323,29 @@ Hmm docs say the minimum supported node.js version for the latestes release of e
 Ok ... spun up the new add genre code and the app fails on the express validator code. Time to downgrade to an older version ... 
 
 npm install express-validator@6.15.0 .... this spins up without errors. 
+
+## Friday, August 18, 2023
+
+8:35am ... re-running a scan of match, just to see if there are new accounts...
+
+Try to run ScrapeMatch.py, and get errors with the chrome driver ... I think I need to get the latest chrome driver, then re-try.
+
+8:49am OK ... at this point, I think I am just going to create a new conda environment dedicated to all things Selenium ...
+
+9:13am ... created a new 'selenium' conda environment with selenium and scrapy ... trying it now ... hmm Nope! ... gonna grab the chromium driver at ..
+
+[chromdriver](https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/linux64/chromedriver-linux64.zip).
+
+I followed the install directions from [here](https://tecadmin.net/setup-selenium-chromedriver-on-ubuntu/) Hmm , still nope ... gonna reboot, then try it again.
+
+Nope. Still bitching about not finding the driver "Unable to obtain working Selenium Manager binary"  . Looking [here](https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/) for a solution ...
+
+Killed the chromedriver file I had installed to /usr/bin ... 
+
+[Chromedriver](https://googlechromelabs.github.io/chrome-for-testing/)
+
+5:13pm Damn ... turned off the system, ate, came back, tried selenium with Chrome and it works! Then changed to Brave ... and it too works! ... Slight change to the code ... DAMN that took way to long to get going!! ... ok ... time to try scraping match ... oh yeah, I installed chrome today and whacked brave and reinstalled brave, but not from snap .. 
+
+6:19pm ... running the match scan now ... why not download the images as you scan the pages? ... also, write the console log out to another file ... also, capture the information re if they have already liked you ... 
+
+8:22pm ... new scrape of match. As of now, there are 368 profile image folders!

@@ -1,10 +1,11 @@
 import pickle
 
-# What we start with ...
-matchProfiles = 'matchLists/matchProfiles_20230802.txt' 
-missedProfilesFn = 'matchLists/missedProfiles_20230802.txt'
-
-masterProfilesFn = 'matchLists/masterProfiles_20230802.txt'
+# What we are reading from  ...
+runDateEnding = '_2023-08-18--17-38.txt'
+matchProfiles = 'matchLists/matchProfiles' + runDateEnding
+missedProfilesFn = 'matchLists/missedProfiles' + runDateEnding
+# What we are writing to ...
+masterProfilesFn = 'matchLists/masterProfiles' + runDateEnding
 
 with open(matchProfiles, "rb") as input_file:
     profiles = pickle.load(input_file)

@@ -9,12 +9,13 @@ from datetime import date
 from MatchFunctions import *
 
 # What we read from ...
-matchUsers = 'matchLists/matchUserList_20230802.txt'
-matchProfiles = 'matchLists/matchProfiles_20230802.txt' 
+runDateEnding = '_2023-08-18--17-38.txt'
+matchUsers = 'matchLists/matchUserList' + runDateEnding
+matchProfiles = 'matchLists/matchProfiles' + runDateEnding
 
 # What we are writing to ...
-missedUsersFn = 'matchLists/missedUsers_20230802.txt'
-missedProfilesFn = 'matchLists/missedProfiles_20230802.txt'
+missedUsersFn = 'matchLists/missedUsers' + runDateEnding
+missedProfilesFn = 'matchLists/missedProfiles' + runDateEnding
 
 with open(matchUsers, "rb") as input_file:
     users = pickle.load(input_file)
@@ -47,11 +48,21 @@ for user in users:
 # with open(missedUsersFn, "wb") as fp:   
 #     pickle.dump(missedUsers, fp)
 
+# chromeOptions = ChromeOptions()
+# chromeOptions.headless = True
+# chromeOptions.binary_location = '/snap/bin/brave'
+# chromeOptions.add_argument('--remote-debugging-port=9224') 
+# driver = webdriver.Chrome(options=chromeOptions)
+
+chromedriver_path = '/usr/local/bin/chromedriver'
+chromeService = ChromeService(executable_path=chromedriver_path)
+
 chromeOptions = ChromeOptions()
 chromeOptions.headless = True
-chromeOptions.binary_location = '/snap/bin/brave'
+chromeOptions.binary_location = '/usr/bin/brave-browser'
 chromeOptions.add_argument('--remote-debugging-port=9224') 
-driver = webdriver.Chrome(options=chromeOptions)
+
+driver = webdriver.Chrome(options = chromeOptions,  service=chromeService)
 
 userNumber = 0
 userCount = len(missedUsers)
