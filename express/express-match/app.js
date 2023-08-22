@@ -34,25 +34,21 @@ const seqConnection = new sequelize(
 
 // Sequelize END
 
-
-
-
-
 // This stuff below WORKS! ... DON'T CHANGE IT!!
 // MySQL START
-var mysql = require('mysql');
+// var mysql = require('mysql');
 
-var con = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "12345",
-  database : "LocalLibraryDB"
-});
+// var con = mysql.createConnection({
+//   host: "127.0.0.1",
+//   user: "root",
+//   password: "12345",
+//   database : "LocalLibraryDB"
+// });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("MySQL Connected!");
-});
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("MySQL Connected!");
+// });
 // MySQL END
 
 
