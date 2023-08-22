@@ -24,3 +24,9 @@ This is what I did to get the page showing the user details grid to show up ...
  npm i express-async-handler
 
  4) To the /routes/users.js file, in the existing router.get method (/* GET users listing. */), I commented out the existing res.send code, and added a require to the usersController.js file. 
+
+ 5) In the usersController.js file, in the 'exports.user_list = ...' method, I commented out the boilerplate ' res.send("NOT IMPLEMENTED: Users List");' method, and added the default code to send back all the users ...
+
+ So now, the work is trying to figure out how to create the user list template using pug ... ugh ... The code in the /ExpressGenerator/express-locallibrary-tutorial has a lot of pug examples in the /view folder ... use this as your guide. ... Right, to run this site, you first need to spin up the mongodb with ... 
+
+ sudo systemctl start mongod
