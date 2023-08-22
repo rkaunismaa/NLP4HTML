@@ -6,6 +6,8 @@ from os.path import exists
 
 # Save the userProfiles to a local file
 fileName = 'matchLists/masterProfiles_2023-08-18--17-38.txt' 
+fileName = 'matchLists/masterProfiles_2023-08-21--08-54.txt' 
+
 
 with open(fileName, "rb") as input_file:
     userProfiles = pickle.load(input_file)

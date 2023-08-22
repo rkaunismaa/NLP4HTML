@@ -58,7 +58,7 @@ driver = webdriver.Chrome(options = chromeOptions,  service=chromeService)
 targetSearchPages = [
     ('Top Picks' ,     'https://www.match.com/search?sortBy=1',  True),
     ('Photo Count' ,   'https://www.match.com/search?sortBy=2',  True),
-    ('Age' ,           'https://www.match.com/search?sortBy=3',  False),
+    ('Age' ,           'https://www.match.com/search?sortBy=3',  True),
     ('Activity Date' , 'https://www.match.com/search?sortBy=4',  True),
     ('Newest First' ,  'https://www.match.com/search?sortBy=6',  True),
     ('Mutual Search' , 'https://www.match.com/search?sortBy=9',  True),
@@ -70,6 +70,8 @@ userList = []
 profileIDS = []   
 profileCount = 0
 exceptionCount = 0
+
+scanDepth = 20
 
 # Launch the scan of all the target search pages ...
 for tsPage in targetSearchPages:
@@ -84,7 +86,7 @@ for tsPage in targetSearchPages:
         # Set an implicit wait of 5 seconds
         driver.implicitly_wait(5)
 
-        for _ in range(8):
+        for _ in range(scanDepth):
             # scanSearchPage()
             scanSearchPage(driver, profileIDS, userList)
             driver.execute_script("window.scrollBy(0,2000)","")

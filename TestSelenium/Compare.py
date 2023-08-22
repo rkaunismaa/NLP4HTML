@@ -9,7 +9,7 @@ from datetime import date
 from MatchFunctions import *
 
 # What we read from ...
-runDateEnding = '_2023-08-18--17-38.txt'
+runDateEnding = '_2023-08-21--08-54.txt'
 matchUsers = 'matchLists/matchUserList' + runDateEnding
 matchProfiles = 'matchLists/matchProfiles' + runDateEnding
 
