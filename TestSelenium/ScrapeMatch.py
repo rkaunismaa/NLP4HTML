@@ -1,3 +1,5 @@
+# conda activate selenium
+
 from selenium import webdriver
 
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
@@ -71,7 +73,7 @@ profileIDS = []
 profileCount = 0
 exceptionCount = 0
 
-scanDepth = 20
+scanDepth = 24
 
 # Launch the scan of all the target search pages ...
 for tsPage in targetSearchPages:

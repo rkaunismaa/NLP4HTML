@@ -2,6 +2,8 @@ import pickle
 
 # What we are reading from  ...
 runDateEnding = '_2023-08-21--08-54.txt'
+runDateEnding = '_2023-08-23--07-40.txt'
+
 matchProfiles = 'matchLists/matchProfiles' + runDateEnding
 missedProfilesFn = 'matchLists/missedProfiles' + runDateEnding
 # What we are writing to ...

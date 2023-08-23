@@ -1,3 +1,5 @@
+# conda activate selenium
+
 import pickle
 import requests
 import shutil
@@ -10,6 +12,8 @@ from MatchFunctions import *
 
 # What we read from ...
 runDateEnding = '_2023-08-21--08-54.txt'
+runDateEnding = '_2023-08-23--07-40.txt'
+
 matchUsers = 'matchLists/matchUserList' + runDateEnding
 matchProfiles = 'matchLists/matchProfiles' + runDateEnding
 

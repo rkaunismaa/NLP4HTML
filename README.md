@@ -363,3 +363,7 @@ Killed the chromedriver file I had installed to /usr/bin ...
 ## Tuesday, August 22, 2023
 
 1:07pm Continuing with creating MyMatch ...
+
+## Wednesday, August 23, 2023
+
+Rescraped match stuff. 

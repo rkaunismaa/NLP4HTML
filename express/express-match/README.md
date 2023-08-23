@@ -30,3 +30,7 @@ This is what I did to get the page showing the user details grid to show up ...
  So now, the work is trying to figure out how to create the user list template using pug ... ugh ... The code in the /ExpressGenerator/express-locallibrary-tutorial has a lot of pug examples in the /view folder ... use this as your guide. ... Right, to run this site, you first need to spin up the mongodb with ... 
 
  sudo systemctl start mongod
+
+ 6) Add the code to hit the db and send back all the users in the exports.user_list method of /controllers/usersController.js
+
+ 7) Add a new '
