@@ -34,3 +34,8 @@ This is what I did to get the page showing the user details grid to show up ...
  6) Add the code to hit the db and send back all the users in the exports.user_list method of /controllers/usersController.js
 
  7) Add a new '
+
+ ## Wednesday, August 23, 2023
+
+ 11:50am Rescraped match data and images. Loaded into MySQL. Working on finessing the users listing page. 
+

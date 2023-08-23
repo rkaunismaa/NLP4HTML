@@ -1,16 +1,35 @@
 const db = require('../models/init-models');
 const asyncHandler = require("express-async-handler");
 
+const { Op } = require("sequelize");
+
 // Display a list of all Users
 exports.user_list = asyncHandler(async (req, res, next) => {
   
   // res.send("NOT IMPLEMENTED: Users List");
 
-  const allUsers = await db.models.Users.findAll( {
+  // const allUsers = await db.models.Users.findAll( {
+  //   where: {
+  //     Subscriber: 1
+  //   }
+  // });
+
+
+  const allUsers = await db.models.Users.findAll(  {
     where: {
-      Subscriber: 1
+      [Op.or]: [
+        { Subscriber: {[Op.eq]: 1 } },
+        { LastOnline: {[Op.ne]: ''}} 
+      ]
     }
   });
+
+
+
+  
+
+
+
   
   res.render("user_list", { user_list: allUsers });
 

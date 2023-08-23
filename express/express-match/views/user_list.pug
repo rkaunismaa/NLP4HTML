@@ -1,13 +1,29 @@
 extends layout
 
 block content
-  h1= title
+  //- h1= title
 
-  ul
-  each user in user_list
-    li
-      a(href=user.Url) #{user.FirstName} 
-      | #{user.AgeLocation} |  (#{user.Summary})
+  //- ul
+  //- each user in user_list
+  //-   li
+  //-     a(href=user.Url) #{user.FirstName} 
+  //-     | #{user.AgeLocation} |  (#{user.Summary})
 
-  else
-    li There are no users.
+  //- else
+  //-   li There are no users.
+  
+  table(style='width:100%', border='1')
+    tr
+      th Id
+      th AgeLocation 
+      th LastOnline
+      th Summary
+
+    each user in user_list 
+      tr 
+        td 
+          a(href=user.Url) #{user.FirstName}
+        td #{user.AgeLocation} 
+        td #{user.LastOnline} 
+        td #{user.Summary} 
+

@@ -366,4 +366,4 @@ Killed the chromedriver file I had installed to /usr/bin ...
 
 ## Wednesday, August 23, 2023
 
-Rescraped match stuff. 
+Rescraped match data and images.
