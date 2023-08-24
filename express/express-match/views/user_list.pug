@@ -17,13 +17,16 @@ block content
       th Id
       th AgeLocation 
       th LastOnline
+      th MiniEssay
       th Summary
 
     each user in user_list 
       tr 
         td 
           a(href=user.Url) #{user.FirstName}
-        td #{user.AgeLocation} 
+        td 
+          a(href='/users/showImages/' + user.MatchUserId) #{user.AgeLocation} 
         td #{user.LastOnline} 
+        td #{user.MiniEssayTitle} : #{user.MiniEssayContent} 
         td #{user.Summary} 
 

@@ -1,5 +1,6 @@
 const db = require('../models/init-models');
 const asyncHandler = require("express-async-handler");
+const fs = require('fs');
 
 const { Op } = require("sequelize");
 
@@ -14,7 +15,6 @@ exports.user_list = asyncHandler(async (req, res, next) => {
   //   }
   // });
 
-
   const allUsers = await db.models.Users.findAll(  {
     where: {
       [Op.or]: [
@@ -24,16 +24,32 @@ exports.user_list = asyncHandler(async (req, res, next) => {
     }
   });
 
-
-
-  
-
-
-
-  
   res.render("user_list", { user_list: allUsers });
 
 });
+
+exports.show_images = asyncHandler(async (req, res, next) => {
+
+  matchUserId = req.params.MatchUserId ;
+
+  // generate the list of file names
+  //const images = fs.readdirSync('/images/D6056eiH_oM-UZNn2IPWIw2/');
+  imageFolder = '/images/' + matchUserId + '/';
+
+  var images = [];
+
+  fs.readdirSync('./public' + imageFolder).forEach(function(file) {
+    images.push(imageFolder + file);
+});
+
+// const images2 = ['asdf', 'bsre'] ;
+
+  // console.log(images);
+
+  res.render("images", { matchUserId: matchUserId, images : images });
+
+});
+
 
 
 

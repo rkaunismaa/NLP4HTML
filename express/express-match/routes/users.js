@@ -3,13 +3,13 @@ var router = express.Router();
 
 const users_controller = require("../controllers/usersController");
 
-// /* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   // res.send('respond with a resource');
-
-//   router.get("/books", book_controller.book_list);
-
+// For this method, we do not need to hit the database, so no controller method needed,
+// just do everything in here ...
+// router.get('/showImages/:MatchUserId', function(req, res, next) {
+//   res.send('ShowImages for MatchUserId => ' + req.params.MatchUserId);
 // });
+
+router.get("/showImages/:MatchUserId", users_controller.show_images) ;
 
 router.get("/", users_controller.user_list);
 

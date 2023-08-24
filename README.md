@@ -367,3 +367,7 @@ Killed the chromedriver file I had installed to /usr/bin ...
 ## Wednesday, August 23, 2023
 
 Rescraped match data and images.
+
+## Thursday, August 24, 2023
+
+Display the match user images in the MyMatch list. Next, I just need to point to the desired folder, instead of the /public/images folder ...

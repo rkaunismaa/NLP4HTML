@@ -39,3 +39,8 @@ This is what I did to get the page showing the user details grid to show up ...
 
  11:50am Rescraped match data and images. Loaded into MySQL. Working on finessing the users listing page. 
 
+ 1:01pm ok nice. User grid data is showing nicely. The next step is to add a link to open a popup window that will display the images for the user.
+
+## Thursday, August 24, 2023
+
+3:30pm Damn, that took a long time! Finally got the images page to spin up! ...
