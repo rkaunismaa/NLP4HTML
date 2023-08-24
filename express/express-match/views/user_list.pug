@@ -14,19 +14,25 @@ block content
   
   table(style='width:100%', border='1')
     tr
-      th Id
+      th id
+      th Name
       th AgeLocation 
+      th Rating
       th LastOnline
+      th Subscriber
       th MiniEssay
       th Summary
 
     each user in user_list 
       tr 
+        td #{user.idUsers}
         td 
           a(href=user.Url) #{user.FirstName}
         td 
           a(href='/users/showImages/' + user.MatchUserId) #{user.AgeLocation} 
+        td #{user.Rating}
         td #{user.LastOnline} 
+        td #{user.Subscriber} 
         td #{user.MiniEssayTitle} : #{user.MiniEssayContent} 
         td #{user.Summary} 
 

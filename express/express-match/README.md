@@ -44,3 +44,9 @@ This is what I did to get the page showing the user details grid to show up ...
 ## Thursday, August 24, 2023
 
 3:30pm Damn, that took a long time! Finally got the images page to spin up! ...
+
+[This](https://www.sitepoint.com/a-beginners-guide-to-pug/) was a helpful resource!
+
+Next Steps are to add a rating scale to the image page, and allow the user to rate this person, then save this ratings back to the database.
+
+I also want to add at the top of the userlist page the ability to control what gets sent back to the user. Right now I tweak the query in the usersController.js file, which works, but is inefficient. 

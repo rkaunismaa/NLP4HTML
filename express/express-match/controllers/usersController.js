@@ -9,20 +9,33 @@ exports.user_list = asyncHandler(async (req, res, next) => {
   
   // res.send("NOT IMPLEMENTED: Users List");
 
+  const allUsers = await db.models.Users.findAll({});
+
   // const allUsers = await db.models.Users.findAll( {
   //   where: {
   //     Subscriber: 1
   //   }
   // });
 
-  const allUsers = await db.models.Users.findAll(  {
-    where: {
-      [Op.or]: [
-        { Subscriber: {[Op.eq]: 1 } },
-        { LastOnline: {[Op.ne]: ''}} 
-      ]
-    }
-  });
+  // const allUsers = await db.models.Users.findAll(  {
+  //   where: {
+  //     [Op.or]: [
+  //       { Subscriber: {[Op.eq]: 1 } },
+  //       { LastOnline: {[Op.ne]: ''}} 
+  //     ]
+  //   }
+  // });
+
+
+  // const allUsers = await db.models.Users.findAll(  {
+  //   where: {
+  //     [Op.and]: [
+  //       { Subscriber: {[Op.eq]: 0 } },
+  //       { LastOnline: {[Op.eq]: ''}} 
+  //     ]
+  //   }
+  // });
+
 
   res.render("user_list", { user_list: allUsers });
 
@@ -31,6 +44,12 @@ exports.user_list = asyncHandler(async (req, res, next) => {
 exports.show_images = asyncHandler(async (req, res, next) => {
 
   matchUserId = req.params.MatchUserId ;
+
+const user = await db.models.Users.findOne( {
+    where: {
+      MatchUserId: matchUserId
+    }
+  });
 
   // generate the list of file names
   //const images = fs.readdirSync('/images/D6056eiH_oM-UZNn2IPWIw2/');
@@ -46,7 +65,7 @@ exports.show_images = asyncHandler(async (req, res, next) => {
 
   // console.log(images);
 
-  res.render("images", { matchUserId: matchUserId, images : images });
+  res.render("images", { matchUserId: matchUserId, images : images, firstName : user.FirstName, ageLocation : user.AgeLocation, rating : user.Rating });
 
 });
 
