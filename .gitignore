@@ -14,3 +14,5 @@ package.json
 package-lock.json
 
 express/express-locallibrary-tutorial/config/
+
+express/express-match/public/images

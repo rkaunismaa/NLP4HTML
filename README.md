@@ -371,3 +371,5 @@ Rescraped match data and images.
 ## Thursday, August 24, 2023
 
 Display the match user images in the MyMatch list. Next, I just need to point to the desired folder, instead of the /public/images folder ...
+
+Meh ... just move the images into the target folder and be done with this for now! ... and exclude them from git.
