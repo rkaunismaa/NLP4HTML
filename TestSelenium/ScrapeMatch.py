@@ -59,12 +59,12 @@ driver = webdriver.Chrome(options = chromeOptions,  service=chromeService)
 
 targetSearchPages = [
     ('Top Picks' ,     'https://www.match.com/search?sortBy=1',  True),
-    ('Photo Count' ,   'https://www.match.com/search?sortBy=2',  True),
+    ('Photo Count' ,   'https://www.match.com/search?sortBy=2',  False),
     ('Age' ,           'https://www.match.com/search?sortBy=3',  True),
     ('Activity Date' , 'https://www.match.com/search?sortBy=4',  True),
     ('Newest First' ,  'https://www.match.com/search?sortBy=6',  True),
-    ('Mutual Search' , 'https://www.match.com/search?sortBy=9',  True),
-    ('Reverse Search' ,'https://www.match.com/search?sortBy=10', True),
+    ('Mutual Search' , 'https://www.match.com/search?sortBy=9',  False),
+    ('Reverse Search' ,'https://www.match.com/search?sortBy=10', False),
     ('Distance' ,      'https://www.match.com/search?sortBy=11', True)
 ]
  
@@ -91,7 +91,7 @@ for tsPage in targetSearchPages:
         for _ in range(scanDepth):
             # scanSearchPage()
             scanSearchPage(driver, profileIDS, userList)
-            driver.execute_script("window.scrollBy(0,2000)","")
+            driver.execute_script("window.scrollBy(0,1000)","")
             driver.implicitly_wait(5)
 
 # Let's save this list, shall we ...
