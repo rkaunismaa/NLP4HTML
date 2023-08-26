@@ -1,7 +1,6 @@
-// Initialize the connection to the db here ... START
-const Sequelize = require("sequelize");
-const DataTypes = require("sequelize").DataTypes;
+// Sequelize START
 const dbConfig = require("../config/dbconfig.js");
+const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
@@ -27,17 +26,19 @@ sequelize
     console.error("Unable to connect to the database: ", error);
   });
 
-// Initialize the connection to the db here ... END
+  // Sequelize END
 
-const _Assessment = require("./Assessment");
-const _Images = require("./Images");
-const _Users = require("./Users");
+var DataTypes = require("sequelize").DataTypes;
+
+var _Assessment = require("./Assessment");
+var _Images = require("./Images");
+var _Users = require("./Users");
 
 function initModels(sequelize) {
 
-  const Assessment = _Assessment(sequelize, DataTypes);
-  const Images = _Images(sequelize, DataTypes);
-  const Users = _Users(sequelize, DataTypes);
+  var Assessment = _Assessment(sequelize, DataTypes);
+  var Images = _Images(sequelize, DataTypes);
+  var Users = _Users(sequelize, DataTypes);
 
   return {
     Assessment,
@@ -50,7 +51,6 @@ function initModels(sequelize) {
 // module.exports.initModels = initModels;
 // module.exports.default = initModels;
 
-
 const models = initModels(sequelize)
 
 const db = {};
@@ -59,3 +59,5 @@ db.sequelize = sequelize;
 db.models = models;
 
 module.exports = db;
+
+

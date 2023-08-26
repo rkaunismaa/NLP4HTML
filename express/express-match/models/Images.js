@@ -14,6 +14,10 @@ module.exports = function(sequelize, DataTypes) {
     Url: {
       type: DataTypes.STRING(256),
       allowNull: false
+    },
+    Message: {
+      type: DataTypes.STRING(512),
+      allowNull: true
     }
   }, {
     sequelize,

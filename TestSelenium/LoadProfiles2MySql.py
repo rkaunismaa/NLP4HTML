@@ -42,13 +42,14 @@ if purgeTable:
 
 profileFile = 'matchLists/masterProfiles_20230802.txt'
 profileFile = 'matchLists/matchProfiles_2023-08-23--07-40.txt'
-
+profileFile = 'matchLists/MatchProfilesMasterList.txt'
 
 with open(profileFile, "rb") as input_file:
     profiles = pickle.load(input_file)
 
 scanDateTime = datetime.strptime('2023-08-02 08:01:01', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2023-08-23 07:40:00', '%Y-%m-%d %H:%M:%S')
+scanDateTime = datetime.strptime('2023-08-25 08:13:00', '%Y-%m-%d %H:%M:%S')
 for profile in profiles:
 
     isSubscriber = (profile[3] == 'Subscriber')
@@ -65,9 +66,9 @@ for profile in profiles:
 
     images = profile[8]
     for image in images:
-        valueS = tuple([userInsertId, image[0]])
+        valueS = tuple([userInsertId, image[0], image[1]])
         with conn.cursor() as cursor:
-            insertQuery = f'INSERT INTO Images (idUsers, Url) VALUES (%s, %s)'
+            insertQuery = f'INSERT INTO Images (idUsers, Url, Message) VALUES (%s, %s, %s)'
             cursor.execute(insertQuery, valueS)
 
 conn.commit()

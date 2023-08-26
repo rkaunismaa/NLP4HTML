@@ -32,11 +32,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     MiniEssayTitle: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(256),
       allowNull: true
     },
     MiniEssayContent: {
-      type: DataTypes.STRING(256),
+      type: DataTypes.STRING(512),
       allowNull: true
     },
     Summary: {

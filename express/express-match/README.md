@@ -52,3 +52,7 @@ Next Steps are to add a rating scale to the image page, and allow the user to ra
 I also want to add at the top of the userlist page the ability to control what gets sent back to the user. Right now I tweak the query in the usersController.js file, which works, but is inefficient. 
 
 Hmmm there is probably a way to send ALL the data to the user, and then tweak what is shown on the client and NOT make another call back to the server for a new user list ...
+
+## Saturday, August 25, 2023
+
+3:56pm rescanned stuff this morning, added a Message field into the Images table for any message from the user for the given image. 
