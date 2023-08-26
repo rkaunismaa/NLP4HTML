@@ -87,7 +87,7 @@ for (let i = 0; i < fsiLength; i++) {
   fullImageName[1] = imageNote;
 }
 
-  res.render("images", { matchUserId: matchUserId, fileSystemimages : fileSystemimages, firstName : user.FirstName, ageLocation : user.AgeLocation, rating : user.Rating });
+  res.render("images", { idUserId : idUserId, matchUserId: matchUserId, fileSystemimages : fileSystemimages, firstName : user.FirstName, ageLocation : user.AgeLocation, rating : user.Rating });
 
 });
 
