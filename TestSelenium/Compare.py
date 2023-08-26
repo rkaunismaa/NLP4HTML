@@ -6,6 +6,7 @@ import shutil
 import os
 
 import time
+import datetime
 from datetime import date
 
 from MatchFunctions import *
@@ -15,12 +16,22 @@ runDateEnding = '_2023-08-21--08-54.txt'
 runDateEnding = '_2023-08-23--07-40.txt'
 runDateEnding = '_2023-08-25--08-13.txt'
 
-matchUsers = 'matchLists/matchUserList' + runDateEnding
-matchProfiles = 'matchLists/matchProfiles' + runDateEnding
+# matchUsers = 'matchLists/matchUserList' + runDateEnding
+# matchProfiles = 'matchLists/matchProfiles' + runDateEnding
+
+# override ... names are fixed!
+matchUsers = 'matchLists/MatchUsers.txt' 
+matchProfiles = 'matchLists/MatchProfiles.txt'
 
 # What we are writing to ...
-missedUsersFn = 'matchLists/missedUsers' + runDateEnding
-missedProfilesFn = 'matchLists/missedProfiles' + runDateEnding
+# missedUsersFn = 'matchLists/missedUsers' + runDateEnding
+# missedProfilesFn = 'matchLists/missedProfiles' + runDateEnding
+
+# override ...
+now = datetime.datetime.now()
+yyymmdd_hhmm = now.strftime('%Y-%m-%d--%H-%M')
+missedUsersFn = 'matchLists/missedUsers' + yyymmdd_hhmm + '.txt'
+missedProfilesFn = 'matchLists/missedProfiles' + yyymmdd_hhmm + '.txt'
 
 with open(matchUsers, "rb") as input_file:
     users = pickle.load(input_file)
