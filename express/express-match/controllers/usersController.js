@@ -36,36 +36,58 @@ exports.user_list = asyncHandler(async (req, res, next) => {
   //   }
   // });
 
-
-  res.render("user_list", { user_list: allUsers });
+res.render("user_list", { user_list: allUsers });
 
 });
 
 exports.show_images = asyncHandler(async (req, res, next) => {
 
-  matchUserId = req.params.MatchUserId ;
+  idUserId = req.params.id ;
 
-const user = await db.models.Users.findOne( {
-    where: {
-      MatchUserId: matchUserId
-    }
-  });
+  const [
+    user,
+    images
+  ] = await Promise.all([
+    db.models.Users.findByPk(idUserId),
+    db.models.Images.findAll( {
+      where: {
+        idUsers: idUserId
+      }
+    })
+  ]);
+
+  matchUserId = user.MatchUserId ;
 
   // generate the list of file names
-  //const images = fs.readdirSync('/images/D6056eiH_oM-UZNn2IPWIw2/');
   imageFolder = '/images/' + matchUserId + '/';
-
-  var images = [];
+  var fileSystemimages = [];
 
   fs.readdirSync('./public' + imageFolder).forEach(function(file) {
-    images.push(imageFolder + file);
+    fsName = imageFolder + file ;
+    imageNote = '';
+    fileSystemimages.push([fsName, imageNote]);
 });
 
-// const images2 = ['asdf', 'bsre'] ;
+fsiLength = fileSystemimages.length;
+for (let i = 0; i < fsiLength; i++) {
 
-  // console.log(images);
+  fullImageName = fileSystemimages[i];
+  fullImageNameParts = fullImageName[0].split('/');
+  fsImageName = fullImageNameParts[fullImageNameParts.length -1];
+  // Scan images for this name
+  imageNote = '' ;
+  // Mark our selected genres as checked.
+  for (const image of images) {
+    url = image.Url;
+    message = image.Message;
+    if (url.endsWith(fsImageName)) {
+      imageNote = message;
+    }
+  }
+  fullImageName[1] = imageNote;
+}
 
-  res.render("images", { matchUserId: matchUserId, images : images, firstName : user.FirstName, ageLocation : user.AgeLocation, rating : user.Rating });
+  res.render("images", { matchUserId: matchUserId, fileSystemimages : fileSystemimages, firstName : user.FirstName, ageLocation : user.AgeLocation, rating : user.Rating });
 
 });
 
@@ -97,6 +119,7 @@ exports.index = asyncHandler(async (req, res, next) => {
     author_count: numAuthors,
     genre_count: numGenres,
   });
+
 });
 
 

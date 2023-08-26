@@ -6,7 +6,10 @@ block content
   h2 #{ageLocation}
   h2 Rating=#{rating}
 
-  each image in images
-   img(src=image, alt='asfd')
+  each image in fileSystemimages
+    div
+      img(src=image[0], alt=image[1])
+      h4 #{image[1]}
+      
    
     

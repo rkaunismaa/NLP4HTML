@@ -9,7 +9,7 @@ const users_controller = require("../controllers/usersController");
 //   res.send('ShowImages for MatchUserId => ' + req.params.MatchUserId);
 // });
 
-router.get("/showImages/:MatchUserId", users_controller.show_images) ;
+router.get("/showImages/:id", users_controller.show_images) ;
 
 router.get("/", users_controller.user_list);
 

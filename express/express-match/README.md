@@ -56,3 +56,7 @@ Hmmm there is probably a way to send ALL the data to the user, and then tweak wh
 ## Saturday, August 25, 2023
 
 3:56pm rescanned stuff this morning, added a Message field into the Images table for any message from the user for the given image. 
+
+4:11pm meh ... moved images into the desired /public/images folder, backing up the original images folder by renaming it to images_August_26_2023.
+
+6:28pm ok nice. I now have the images being displayed with any existing note. 
