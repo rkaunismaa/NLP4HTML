@@ -13,6 +13,7 @@ from MatchFunctions import *
 # What we read from ...
 runDateEnding = '_2023-08-21--08-54.txt'
 runDateEnding = '_2023-08-23--07-40.txt'
+runDateEnding = '_2023-08-25--08-13.txt'
 
 matchUsers = 'matchLists/matchUserList' + runDateEnding
 matchProfiles = 'matchLists/matchProfiles' + runDateEnding
@@ -49,8 +50,8 @@ for user in users:
         missedUsers.append( (userName, userUrl) )
 
 # Persist these missed users into a file
-# with open(missedUsersFn, "wb") as fp:   
-#     pickle.dump(missedUsers, fp)
+with open(missedUsersFn, "wb") as fp:   
+    pickle.dump(missedUsers, fp)
 
 # chromeOptions = ChromeOptions()
 # chromeOptions.headless = True

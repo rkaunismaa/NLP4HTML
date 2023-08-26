@@ -106,12 +106,15 @@ driver = webdriver.Chrome(options = chromeOptions,  service=chromeService)
 yyymmdd_hhmm = '_2023-08-25--08-13' # This has the MOST USERS OF ALL THE UserList files! Consider it a master list!
 # file we read the users from ...
 usersFileName = 'matchLists/matchUserList' + yyymmdd_hhmm + '.txt'
-# file we write their profiles into ...
-profilesFileName = 'matchLists/matchProfiles_' + yyymmdd_hhmm + '.txt'
 
 # open the source users file
 with open(usersFileName, "rb") as input_file:
     userList = pickle.load(input_file)
+
+# file we write their profiles into ...
+profilesFileName = 'matchLists/matchProfiles' + yyymmdd_hhmm + '.txt'
+# with open(profilesFileName, "rb") as fp:   
+#     userProfiles = pickle.load(fp)
 
 # This will store all the metadata we want on the user.
 userProfiles = []
@@ -127,15 +130,26 @@ for testUser in userList:
     userNumber += 1
     profilePage = testUser[1]
 
-    driver.get(profilePage)
+    # only scan once ...
+    found = False
+    for profile in userProfiles:
+        profileUrl = profile[0]
+        if profileUrl == profilePage:
+            found = True
+        if found:
+            break
 
-    # scanProfilePage(userNumber, userCount)
-    scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage)
+    if (not found):
 
-    # save the userProfiles to a local file
-    if (userNumber % 25) == 0 :
-        with open(profilesFileName, "wb") as fp:   #Pickling
-            pickle.dump(userProfiles, fp)
+        driver.get(profilePage)
+
+        # scanProfilePage(userNumber, userCount)
+        scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage)
+
+        # save the userProfiles to a local file
+        if (userNumber % 25) == 0 :
+            with open(profilesFileName, "wb") as fp:   #Pickling
+                pickle.dump(userProfiles, fp)
 
 endTime = time.time()
 elapsedTime = time.strftime("%H:%M:%S", time.gmtime(endTime - startTime))

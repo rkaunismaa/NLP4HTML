@@ -8,6 +8,8 @@ from os.path import exists
 fileName = 'matchLists/masterProfiles_2023-08-18--17-38.txt' 
 fileName = 'matchLists/masterProfiles_2023-08-21--08-54.txt' 
 fileName = 'matchLists/masterProfiles_2023-08-23--07-40.txt'
+fileName = 'matchLists/matchProfiles_2023-08-25--08-13.txt'
+fileName = 'matchLists/masterProfiles_2023-08-25--08-13.txt'
 
 with open(fileName, "rb") as input_file:
     userProfiles = pickle.load(input_file)
@@ -40,8 +42,8 @@ for user in userProfiles:
 
             if res.status_code == 200:
 
-                urlParts = url.split("/")
-                iName = profileFolder + "/" + urlParts[-1]
+                # urlParts = url.split("/")
+                # iName = profileFolder + "/" + urlParts[-1]
 
                 with open(iName,'wb') as f:
                     shutil.copyfileobj(res.raw, f)
