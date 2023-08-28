@@ -4,7 +4,12 @@ block content
 
   h1 (#{idUserId}) #{firstName}
   h2 #{ageLocation}
-  h2 Rating=#{rating}
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='rating') Rating:
+      input#name.form-control(type='text', name='rating' value=(undefined===rating ? '' : rating))
+    button.btn.btn-primary(type='submit') Submit
 
   each image in fileSystemimages
     div

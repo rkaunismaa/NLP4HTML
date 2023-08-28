@@ -1,5 +1,6 @@
 const db = require('../models/init-models');
 const asyncHandler = require("express-async-handler");
+const { body, validationResult } = require("express-validator");
 const fs = require('fs');
 
 const { Op } = require("sequelize");
@@ -90,6 +91,49 @@ for (let i = 0; i < fsiLength; i++) {
   res.render("images", { idUserId : idUserId, matchUserId: matchUserId, fileSystemimages : fileSystemimages, firstName : user.FirstName, ageLocation : user.AgeLocation, rating : user.Rating });
 
 });
+
+
+// Post back for the user rating
+exports.show_images_post = [
+
+   // Validate and sanitize fields.
+   body("rating", "Rating must not be empty.")
+   .trim()
+   .isLength({ min: 1 })
+   .escape(),
+
+  // Process request after validation and sanitization.
+  asyncHandler(async (req, res, next) => {
+
+    idUserId = req.params.id ;
+
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+
+    // UPDATE MatchDb.Users
+    // SET Rating=5
+    // WHERE idUsers=192
+    rating = req.body.rating;
+    sqlQuery = 'UPDATE Users Set Rating=' + rating + ' WHERE idUsers=' + idUserId;
+
+    console.log(sqlQuery);
+
+    const [results, metadata] = await db.sequelize.query(sqlQuery);
+
+  })
+
+
+];
+
+
+
+
+
+
+
+
+
+
 
 
 

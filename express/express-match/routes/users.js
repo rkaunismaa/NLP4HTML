@@ -11,6 +11,10 @@ const users_controller = require("../controllers/usersController");
 
 router.get("/showImages/:id", users_controller.show_images) ;
 
+// The route signature and method is specified here, 
+// along with the controller and controller method you want to target ...
+router.post("/showImages/:id", users_controller.show_images_post) ;
+
 router.get("/", users_controller.user_list);
 
 module.exports = router;

@@ -53,10 +53,15 @@ I also want to add at the top of the userlist page the ability to control what g
 
 Hmmm there is probably a way to send ALL the data to the user, and then tweak what is shown on the client and NOT make another call back to the server for a new user list ...
 
-## Saturday, August 25, 2023
+## Saturday, August 26, 2023
 
 3:56pm rescanned stuff this morning, added a Message field into the Images table for any message from the user for the given image. 
 
 4:11pm meh ... moved images into the desired /public/images folder, backing up the original images folder by renaming it to images_August_26_2023.
 
 6:28pm ok nice. I now have the images being displayed with any existing note. 
+
+## Monday, August 28, 2023
+
+3:57pm Adding the rating to the user images page.
+6:14pm ok got the rating stuff working. Yeah, it could be improved, but the functionality is there.

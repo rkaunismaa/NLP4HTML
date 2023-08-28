@@ -377,3 +377,7 @@ Meh ... just move the images into the target folder and be done with this for no
 ## Saturday, August 26, 2023
 
 More tweaks to the MyMatch site ... it's now displaying any existing note for each image. 
+
+## Monday, August 28, 2023
+
+Yup, even more tweaks to MyMatch ... gonna add the ability to rate users pictures from 1 to 5 ...
