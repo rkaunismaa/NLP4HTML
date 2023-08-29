@@ -381,3 +381,17 @@ More tweaks to the MyMatch site ... it's now displaying any existing note for ea
 ## Monday, August 28, 2023
 
 Yup, even more tweaks to MyMatch ... gonna add the ability to rate users pictures from 1 to 5 ...
+
+## Tuesday, August 29, 2023
+
+3:29pm Rate more users in MyMatch. Now am thinking of seeing if I can identify accounts from the same user. How would I compare the images in one folder to the images in another folder, and then come up with some probability that it's the same user?? This is what I am going to start working on ...and yeah, so much for this 'nlp4html' stuff I was originally going towards. The primary issue with most nlp tasks is that IF I work with any LLM, I can't work with it locally, cuz I only have 8gb of vram. Image stuff is way less resource intensive, so that's why I want to try this, to see what I can do and learn. 
+
+3:42pm Hmmm ... 'DeepFace' looks like it's worth looking into. 
+
+3:51pm OK that's interesting. I already have a DeepFace folder on my /Data drive! ... and it already has the 'Labelled Faces in the Wild' dataset! Nice! It's dated around August 2022 ... 
+
+4:03pm OK ... time to spin up a new conda environment to begin my examination of face recognition applications, starting with, I guess, DeepFace ... Hmm, DeepFace is maintained by just one dude ... and it does NOT use pytorch, it uses tensorflow ... ugh. 
+
+Wow ... so FaceBook also has DeepFace which is NOT the same (of course) as this one dude above ...
+
+4:26pm ... so a reasonable place to start is to spin up one of the notebooks from the book Machine Learning with PyTorch and SciKit Learn by Sebastian Raschka. Chapter 14 has some good stuff to on computer vision and 'smile classification' which I am now going to look into. 
