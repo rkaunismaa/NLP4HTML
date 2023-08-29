@@ -10,7 +10,7 @@ exports.user_list = asyncHandler(async (req, res, next) => {
   
   // res.send("NOT IMPLEMENTED: Users List");
 
-  // const allUsers = await db.models.Users.findAll({});
+   // const allUsers = await db.models.Users.findAll({});
 
   const allUsers = await db.models.Users.findAll( {
     where: {
