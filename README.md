@@ -395,3 +395,7 @@ Yup, even more tweaks to MyMatch ... gonna add the ability to rate users picture
 Wow ... so FaceBook also has DeepFace which is NOT the same (of course) as this one dude above ...
 
 4:26pm ... so a reasonable place to start is to spin up one of the notebooks from the book Machine Learning with PyTorch and SciKit Learn by Sebastian Raschka. Chapter 14 has some good stuff to on computer vision and 'smile classification' which I am now going to look into. 
+
+4:47pm Sigh ... looks like something is broken locally with cuda ... and docker. 
+
+5:08pm so running a conda environment with pytorch is working with the gpu ... so the problem IS with docker ... good to know!
