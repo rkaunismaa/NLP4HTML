@@ -16,7 +16,11 @@ missedProfilesFn = 'matchLists/missedProfiles2023-08-26--09-48.txt'
 # What we are writing to ...
 masterProfilesFn = 'matchLists/MatchProfilesMasterList.txt' 
 
-
+# The final thing ...
+matchProfiles = 'matchLists/MatchProfilesMasterList.txt' 
+missedProfilesFn = 'matchLists/NewProfiles_2023-08-30--10-25.txt'
+# What we are writing to ...
+masterProfilesFn = 'matchLists/MatchProfilesMasterList_2023-08-30--10-25.txt' 
 
 with open(matchProfiles, "rb") as input_file:
     profiles = pickle.load(input_file)
