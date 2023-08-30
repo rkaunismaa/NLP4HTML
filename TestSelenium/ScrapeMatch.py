@@ -57,16 +57,17 @@ driver = webdriver.Chrome(options = chromeOptions,  service=chromeService)
 # chromeOptions.add_argument('--remote-debugging-port=9224') 
 # driver = webdriver.Chrome(options=chromeOptions)
 
-targetSearchPages = [
-    ('Top Picks' ,     'https://www.match.com/search?sortBy=1',  True),
-    ('Photo Count' ,   'https://www.match.com/search?sortBy=2',  False),
-    ('Age' ,           'https://www.match.com/search?sortBy=3',  True),
-    ('Activity Date' , 'https://www.match.com/search?sortBy=4',  True),
-    ('Newest First' ,  'https://www.match.com/search?sortBy=6',  True),
-    ('Mutual Search' , 'https://www.match.com/search?sortBy=9',  False),
-    ('Reverse Search' ,'https://www.match.com/search?sortBy=10', False),
-    ('Distance' ,      'https://www.match.com/search?sortBy=11', True)
-]
+# now set in MatchFunctions.py ...
+# targetSearchPages = [
+#     ('Top Picks' ,     'https://www.match.com/search?sortBy=1',  True),
+#     ('Photo Count' ,   'https://www.match.com/search?sortBy=2',  True),
+#     ('Age' ,           'https://www.match.com/search?sortBy=3',  True),
+#     ('Activity Date' , 'https://www.match.com/search?sortBy=4',  True),
+#     ('Newest First' ,  'https://www.match.com/search?sortBy=6',  True),
+#     ('Mutual Search' , 'https://www.match.com/search?sortBy=9',  True),
+#     ('Reverse Search' ,'https://www.match.com/search?sortBy=10', True),
+#     ('Distance' ,      'https://www.match.com/search?sortBy=11', True)
+# ]
  
 userList = []
 profileIDS = []   

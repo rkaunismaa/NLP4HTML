@@ -18,6 +18,54 @@ import pickle
 import time
 from datetime import date
 
+# Match Search pages
+targetSearchPages = [
+    ('Top Picks' ,     'https://www.match.com/search?sortBy=1',  True),
+    ('Photo Count' ,   'https://www.match.com/search?sortBy=2',  True),
+    ('Age' ,           'https://www.match.com/search?sortBy=3',  True),
+    ('Activity Date' , 'https://www.match.com/search?sortBy=4',  True),
+    ('Newest First' ,  'https://www.match.com/search?sortBy=6',  True),
+    ('Mutual Search' , 'https://www.match.com/search?sortBy=9',  True),
+    ('Reverse Search' ,'https://www.match.com/search?sortBy=10', True),
+    ('Distance' ,      'https://www.match.com/search?sortBy=11', True)
+]
+
+def createNewDriver():
+
+    try :
+
+        chromedriver_path = '/usr/local/bin/chromedriver'
+        chromeService = ChromeService(executable_path=chromedriver_path)
+
+        chromeOptions = ChromeOptions()
+        chromeOptions.headless = True
+        chromeOptions.binary_location = '/usr/bin/brave-browser'
+        chromeOptions.add_argument('--remote-debugging-port=9224') 
+
+        driver = webdriver.Chrome(options = chromeOptions,  service=chromeService)
+
+    except Exception :
+
+        # something failed, return nothing
+        driver = None 
+
+    return driver
+
+def scanProfiles4MatchId(profileMaster, matchId):
+
+    bFound = False
+    for profile in profileMaster:
+        profilePage = profile[0]
+        ppSplit = profilePage.split('/')
+        ppId = ppSplit[-1]
+
+        if (ppId == matchId):
+            bFound = True
+            break
+    
+    return bFound
+
+
 # Scan a match search page
 def scanSearchPage(driver, profileIDS, userList):
 

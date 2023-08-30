@@ -399,3 +399,9 @@ Wow ... so FaceBook also has DeepFace which is NOT the same (of course) as this 
 4:47pm Sigh ... looks like something is broken locally with cuda ... and docker. 
 
 5:08pm so running a conda environment with pytorch is working with the gpu ... so the problem IS with docker ... good to know!
+
+## Wednesday, August 30, 2023
+
+9:02am Create python code to only scrape new match accounts.
+
+11:05 new stuff scrapped. I gotta clean up the code! ... it's a real 'just get it done' mess! ...

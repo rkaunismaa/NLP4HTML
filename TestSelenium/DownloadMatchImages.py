@@ -13,6 +13,8 @@ fileName = 'matchLists/masterProfiles_2023-08-25--08-13.txt'
 
 fileName = 'matchLists/MatchProfilesMasterList.txt'
 
+fileName = 'matchLists/NewProfiles_2023-08-30--10-25.txt'
+
 with open(fileName, "rb") as input_file:
     userProfiles = pickle.load(input_file)
 
