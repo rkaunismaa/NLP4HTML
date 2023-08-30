@@ -18,7 +18,8 @@ block content
       th Name
       th AgeLocation 
       th Rating
-      th LastOnline
+      th LastOnline 
+      th Scan Date Time
       th Subscriber
       th MiniEssay
       th Summary
@@ -31,7 +32,8 @@ block content
         td 
           a(href='/users/showImages/' + user.idUsers) #{user.AgeLocation} 
         td #{user.Rating}
-        td #{user.LastOnline} 
+        td #{user.LastOnline}
+        td #{user.ScanDateTime}
         td #{user.Subscriber} 
         td #{user.MiniEssayTitle} : #{user.MiniEssayContent} 
         td #{user.Summary} 

@@ -13,9 +13,9 @@ exports.user_list = asyncHandler(async (req, res, next) => {
    // const allUsers = await db.models.Users.findAll({});
 
   const allUsers = await db.models.Users.findAll( {
-    where: {
-      Rating: 0
-    }
+    order:[  
+      ['idUsers', 'DESC']
+    ],
   });
 
   // const allUsers = await db.models.Users.findAll(  {
