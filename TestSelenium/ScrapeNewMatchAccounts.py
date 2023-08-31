@@ -1,3 +1,5 @@
+# conda activate selenium
+
 import pickle
 
 import time
@@ -6,8 +8,10 @@ from datetime import date
 
 from MatchFunctions import *
 
-# Master Profile list
+# Master Profile list ... always specify the most recent master list last!
 fnProfileMaster = 'matchLists/MatchProfilesMasterList.txt'
+fnProfileMaster = 'matchLists/MatchProfilesMasterList_2023-08-30--10-25.txt'
+
 with open(fnProfileMaster, "rb") as input_file:
     profileMaster = pickle.load(input_file)
 

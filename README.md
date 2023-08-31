@@ -407,3 +407,13 @@ Wow ... so FaceBook also has DeepFace which is NOT the same (of course) as this 
 9:02am Create python code to only scrape new match accounts.
 
 11:05 new stuff scrapped. I gotta clean up the code! ... it's a real 'just get it done' mess! ...
+
+2:05pm going through more ratings, I am convinced there are some dulicate accounts! And I want to work on a way to identify them! ...
+
+## Thursday, August 31, 2023
+
+9:58am A new version of Brave was installed, going from Chromium 116.0.5845.96 to 116.0.5845.163 ... I wonder if this has broken the ability for selenium to scrape match ... gonna test that righ now.
+
+Dammit! Yup, scraping with selenium, which depends on the chromium driver, now fails! Time to see if I can get the latest driver.
+
+[ChromeDriver](https://chromedriver.chromium.org/home) Dammit! I am currently NOT seeing any driver for 116.0.5845.163 !
