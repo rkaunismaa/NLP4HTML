@@ -74,6 +74,7 @@ def scanSearchPage(driver, profileIDS, userList):
 
     for profile in profiles:
 
+        personName = ''
         try:
 
             url = profile.get_attribute("href")
@@ -83,19 +84,47 @@ def scanSearchPage(driver, profileIDS, userList):
             profilePageParts = profilePage.split("/")
             profileId = profilePageParts[-1]
 
-            imageUrl = profile.find_element(By.CLASS_NAME, "css-103b9rp").get_attribute("src")
-            personName = profile.find_element(By.CLASS_NAME, "css-1jab1x0").text
-            personAgeLocation = profile.find_element(By.CLASS_NAME, "css-3g75q9").text
-            personAgeLocationHidden = profile.find_element(By.CLASS_NAME, "css-17ertmd").text
-            images = profile.find_element(By.CLASS_NAME, "css-1r6f8km").text
+            try:
+                imageUrl = profile.find_element(By.CLASS_NAME, "css-103b9rp").get_attribute("src")
+            except NoSuchElementException:
+                print('imageUrl NoSuchElementException!')
+                imageUrl = ''
+
+            try:
+                personName = profile.find_element(By.CLASS_NAME, "css-1jab1x0").text
+            except NoSuchElementException:
+                print('personName NoSuchElementException!')
+                personName = ''
+
+            try:
+                personAgeLocation = profile.find_element(By.CLASS_NAME, "css-3g75q9").text
+            except NoSuchElementException:
+                print('personAgeLocation NoSuchElementException!')
+                personAgeLocation = ''
+
+            try:
+                personAgeLocationHidden = profile.find_element(By.CLASS_NAME, "css-17ertmd").text
+            except NoSuchElementException:
+                print('personAgeLocationHidden NoSuchElementException!')
+                personAgeLocationHidden = ''
+
+            try:
+                images = profile.find_element(By.CLASS_NAME, "css-1r6f8km").text
+            except NoSuchElementException:
+                print('images NoSuchElementException!')
+                images = ''
 
             # only load profiles we have not yet loaded
             if not profileId in profileIDS:
                 userList.append( (personName, profilePage, profileId, personAgeLocation, personAgeLocationHidden, imageUrl, images) )
                 profileIDS.append(profileId)
+                print(f'New User {personName} => {profileId} added to userList!')
+            else:
+                print(f'We have already scanned {personName} => {profileId}!')
+            
 
         except NoSuchElementException:
-            print('NoSuchElementException!')
+            print(f'{personName} => NoSuchElementException!')
 
         except Exception:
             print('Exception!')

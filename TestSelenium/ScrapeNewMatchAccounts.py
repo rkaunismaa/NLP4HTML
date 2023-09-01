@@ -57,11 +57,19 @@ if (driver is not None) :
     newUserList = []
     for user in userList:
 
+        personName = user[0]
+        profileId = user[2]
+
         bExists = scanProfiles4MatchId(profileMaster, user[2])
         if not bExists:
+            print(f'New User {personName} => {profileId} added to the NewUsers List!')
             newUserList.append(user)
+        else:
+            print(f'User {personName} => {profileId} is already in the Master List!')
 
-        # Save the userProfiles to a local file
+    print(f'There are {len(newUserList)} new users!')
+    
+    # Save the userProfiles to a local file
     fnNewUsers = 'matchLists/NewUsers_' + yyymmdd_hhmm + '.txt'
     with open(fnNewUsers, "wb") as fp:   #Pickling
         pickle.dump(newUserList, fp)

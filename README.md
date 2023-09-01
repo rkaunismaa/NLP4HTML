@@ -417,3 +417,16 @@ Wow ... so FaceBook also has DeepFace which is NOT the same (of course) as this 
 Dammit! Yup, scraping with selenium, which depends on the chromium driver, now fails! Time to see if I can get the latest driver.
 
 [ChromeDriver](https://chromedriver.chromium.org/home) Dammit! I am currently (10:20am) NOT seeing any driver for 116.0.5845.163 !
+
+## Friday, Sept 1, 2023
+
+4:13pm Still no Stable 116.0.5845.163 of the chrome driver available. I am going to kill the current chrome driver in /usr/local/bin and replace it with the current Beta 117.0.5938.35 version to see if that fixes things ... but just out of curiosity, gonna try to run /TestSelenium/ScrapeNewMatchAccounts.py under the conda selenium environment to see if things magically work today ...
+
+4:18pm WOW! No runtime glitch! so yeah, gonna actually try to run that notebook ... instead of just breaking in the code that creates the driver.
+
+4:23pm Nice! It DOES work!! WTF?! ... yesterday, it was not working!! Meh whatever ... this is good! ... so running that notebook now just cuz I can ... 
+
+4:37pm So I think the takeaway is IF a new version of Brave is installed, THEN reboot the system if you want to continue using selenium!
+
+5:26pm Made some tweaks to the ScrapeNewMatchAccounts.py code and MatchFunctions.py ...
+
