@@ -36,8 +36,8 @@ yyymmdd_hhmm = now.strftime('%Y-%m-%d--%H-%M')
 # usersFileName = 'matchLists/matchUserList' + yyymmdd_hhmm + '.txt'
 
 # Let's use the NewUsers file, 
-# NewUsers_2023-08-30--10-25.txt
-yyymmdd_hhmm = '2023-08-30--10-25' # This has the MOST USERS OF ALL THE UserList files! Consider it a master list!
+# NewUsers_2023-09-03--12-21.txt
+yyymmdd_hhmm = '2023-09-03--12-21' # This should be the most recently created new user list!
 # file we read the users from ...
 usersFileName = 'matchLists/NewUsers_' + yyymmdd_hhmm + '.txt'
 

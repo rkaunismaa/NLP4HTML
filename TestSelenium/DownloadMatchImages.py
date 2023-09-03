@@ -15,6 +15,9 @@ fileName = 'matchLists/MatchProfilesMasterList.txt'
 
 fileName = 'matchLists/NewProfiles_2023-08-30--10-25.txt'
 
+fileName = 'matchLists/NewProfiles_2023-09-03--12-21.txt'
+
+
 with open(fileName, "rb") as input_file:
     userProfiles = pickle.load(input_file)
 
@@ -45,9 +48,6 @@ for user in userProfiles:
             res = requests.get(url, stream = True)
 
             if res.status_code == 200:
-
-                # urlParts = url.split("/")
-                # iName = profileFolder + "/" + urlParts[-1]
 
                 with open(iName,'wb') as f:
                     shutil.copyfileobj(res.raw, f)

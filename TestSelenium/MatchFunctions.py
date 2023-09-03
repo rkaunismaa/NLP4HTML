@@ -145,44 +145,45 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage):
         except StaleElementReferenceException:
             photo_carousel_button = driver.find_element(By.XPATH, carouselButtonXPATH)
 
-        userName = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[1]/div[1]/div/h6')
-        personName = userName.text
-
-        ageLocation = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[2]/span')
-        personAgeLocation = ageLocation.text
-
-        personSubscriber = ""
         try:
-            subscriber = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[2]/div/span/span/span/div/div/b')
-            personSubscriber = subscriber.text
+            personName = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[1]/div[1]/div/h6').text
         except NoSuchElementException:
+            print('personName NoSuchElementException!')
+            personName = ""
+        try:
+            personAgeLocation = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[2]/span').text
+        except NoSuchElementException:
+            print('personAgeLocation NoSuchElementException!')
+            personAgeLocation = ""
+        
+        try:
+            personSubscriber = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[2]/div/span/span/span/div/div/b').text
+        except NoSuchElementException:
+            print('personSubscriber NoSuchElementException!')
             personSubscriber = ""
 
-        personLastActive = ""
         try:
-            lastActive = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[4]/span')
-            personLastActive = lastActive.text
+            personLastActive = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[4]/span').text
         except NoSuchElementException:
+            print('personLastActive NoSuchElementException!')
             personLastActive = ""
 
-        personBannerHeading = ""
         try:
-            bannerHeading = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[6]/blockquote/h2')
-            personBannerHeading = bannerHeading.text
+            personBannerHeading = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[6]/blockquote/h2').text
         except NoSuchElementException:
+            print('personBannerHeading NoSuchElementException!')
             personBannerHeading = ""
 
-        personBannerText = ""
         try:
-            bannerText = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[6]/blockquote/div/div/span')
-            personBannerText = bannerText.text
+            personBannerText = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[6]/blockquote/div/div/span').text
         except NoSuchElementException:
+            print('personBannerText NoSuchElementException!')
             personBannerText = ""
 
         try:
-            summary = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/section[1]/div/div/div/div[1]/span')    
-            personSummary = summary.text    
+            personSummary = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/section[1]/div/div/div/div[1]/span').text    
         except NoSuchElementException:
+            print('personSummary NoSuchElementException!')
             personSummary = ""
 
         photo_carousel_button.click()
