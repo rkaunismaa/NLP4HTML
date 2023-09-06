@@ -38,6 +38,10 @@ yyymmdd_hhmm = now.strftime('%Y-%m-%d--%H-%M')
 # Let's use the NewUsers file, 
 # NewUsers_2023-09-03--12-21.txt
 yyymmdd_hhmm = '2023-09-03--12-21' # This should be the most recently created new user list!
+yyymmdd_hhmm = '2023-09-06--16-14'
+
+
+
 # file we read the users from ...
 usersFileName = 'matchLists/NewUsers_' + yyymmdd_hhmm + '.txt'
 
