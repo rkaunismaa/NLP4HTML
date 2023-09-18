@@ -1,5 +1,11 @@
 # conda activate selenium
 
+# This scans the list of users from the search pages,
+# then compares it to the latest edition of the ...
+# MatchProfilesMasterList ...
+# and then generates the newest ...
+# NewUsers ... list ...
+
 import pickle
 
 import time
@@ -13,6 +19,7 @@ fnProfileMaster = 'matchLists/MatchProfilesMasterList.txt'
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2023-08-30--10-25.txt'
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2023-09-03--12-21.txt'
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2023-09-06--16-14.txt'
+fnProfileMaster = 'matchLists/MatchProfilesMasterList_2023-09-13--09-49.txt'
 
 with open(fnProfileMaster, "rb") as input_file:
     profileMaster = pickle.load(input_file)

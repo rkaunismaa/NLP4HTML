@@ -133,7 +133,15 @@ def scanSearchPage(driver, profileIDS, userList):
 # Scan the profile page of a user
 def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage):
 
-    personName = ""
+    # establish if this profile is still available
+    try:
+        profileNotAvailable = driver.find_element(By.XPATH, '//*[@id="mainContent"]/h2').text
+        if (profileNotAvailable == 'Profile not available') :
+            # Bogus profile! Bail!
+             print(profileNotAvailable)
+             return None
+    except NoSuchElementException:
+        personName = ""
 
     try: 
 
@@ -150,6 +158,7 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage):
         except NoSuchElementException:
             print('personName NoSuchElementException!')
             personName = ""
+
         try:
             personAgeLocation = driver.find_element(By.XPATH, '//*[@id="mainContent"]/article/div[2]/div[2]/div[2]/span').text
         except NoSuchElementException:
@@ -203,12 +212,14 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage):
 
         # user may only have one image, so no right button
         try:
-            photo_carousel_right_arrow_button = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/button[2]')
+            # photo_carousel_right_arrow_button = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/button[2]')
+            photo_carousel_right_arrow_button = driver.find_element(By.XPATH, '/html/body/div[4]/div/div/section/div/button[2]')
             nextImageButton = True
         except NoSuchElementException:                          
             nextImageButton = False
 
-        photo_carousel_image = driver.find_element(By.XPATH, '/html/body/div[5]/div/div/section/div/figure/div[2]/button/img')
+        # this has changed!
+        photo_carousel_image = driver.find_element(By.XPATH, '/html/body/div[4]/div/div/section/div/figure/div[2]/button/img')
 
         imageList = []
         for _ in range(totalImages):

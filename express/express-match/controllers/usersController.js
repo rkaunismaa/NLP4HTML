@@ -10,16 +10,16 @@ exports.user_list = asyncHandler(async (req, res, next) => {
   
   // res.send("NOT IMPLEMENTED: Users List");
 
-  const allUsers = await db.models.Users.findAll( {
-     order: [['Rating', 'DESC'],['FirstName','ASC']],
-   });
-
   // const allUsers = await db.models.Users.findAll( {
-  //   where: {
-  //     Rating: 0
-  //   },
-  //   order: [['idUsers', 'DESC']],
-  // });
+  //    order: [['Rating', 'DESC'],['FirstName','ASC']],
+  //  });
+
+  const allUsers = await db.models.Users.findAll( {
+    where: {
+      Rating: 0
+    },
+    order: [['idUsers', 'DESC']],
+  });
 
    // const allUsers = await db.models.Users.findAll({ order:[['FirstName','ASC']]});
 
