@@ -29,8 +29,6 @@ startTime = time.time()
 now = datetime.datetime.now()
 yyymmdd_hhmm = now.strftime('%Y-%m-%d--%H-%M')
 
-
-
 # yyymmdd_hhmm = '_2023-08-25--08-13' # This has the MOST USERS OF ALL THE UserList files! Consider it a master list!
 # # file we read the users from ...
 # usersFileName = 'matchLists/matchUserList' + yyymmdd_hhmm + '.txt'
@@ -41,6 +39,8 @@ yyymmdd_hhmm = '2023-09-03--12-21' # This should be the most recently created ne
 yyymmdd_hhmm = '2023-09-06--16-14'
 yyymmdd_hhmm = '2023-09-13--09-49'
 yyymmdd_hhmm = '2023-09-18--10-20'
+yyymmdd_hhmm = '2023-09-25--16-27'
+
 
 # file we read the users from ...
 usersFileName = 'matchLists/NewUsers_' + yyymmdd_hhmm + '.txt'

@@ -30,6 +30,7 @@ profileFile = 'matchLists/NewProfiles_2023-09-03--12-21.txt'
 profileFile = 'matchLists/NewProfiles_2023-09-06--16-14.txt'
 profileFile = 'matchLists/NewProfiles_2023-09-13--09-49.txt'
 profileFile = 'matchLists/NewProfiles_2023-09-18--10-20.txt'
+profileFile = 'matchLists/NewProfiles_2023-09-25--16-27.txt'
 
 with open(profileFile, "rb") as input_file:
     profiles = pickle.load(input_file)
@@ -42,6 +43,7 @@ scanDateTime = datetime.strptime('2023-09-03 12:21:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2023-09-06 16:14:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2023-09-13 09:49:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2023-09-18 10:20:00', '%Y-%m-%d %H:%M:%S')
+scanDateTime = datetime.strptime('2023-09-25 16:27:00', '%Y-%m-%d %H:%M:%S')
 
 for profile in profiles:
 
