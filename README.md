@@ -430,3 +430,11 @@ Dammit! Yup, scraping with selenium, which depends on the chromium driver, now f
 
 5:26pm Made some tweaks to the ScrapeNewMatchAccounts.py code and MatchFunctions.py ...
 
+## Friday, October 6, 2023
+
+7:03am Tried running ScrapeNewMatchAccounts.py and it isn't working, even though there are no run-time errors. I think I need to update the chromedriver.
+
+Hmmm tried it again, and now it works! No chrome driver update! ... 
+
+
+

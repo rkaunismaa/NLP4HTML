@@ -54,6 +54,11 @@ missedProfilesFn = 'matchLists/NewProfiles_2023-09-25--16-27.txt'
 # ... and write to this file ...
 masterProfilesFn = 'matchLists/MatchProfilesMasterList_2023-09-25--16-27.txt' 
 
+# Read from these 2 files ...
+matchProfiles = 'matchLists/MatchProfilesMasterList_2023-09-25--16-27.txt' 
+missedProfilesFn = 'matchLists/UpdatedNewProfiles_2023-10-06--07-12.txt'
+# ... and write to this file ...
+masterProfilesFn = 'matchLists/MatchProfilesMasterList_2023-10-06--07-12.txt' 
 
 
 with open(matchProfiles, "rb") as input_file:

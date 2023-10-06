@@ -1,20 +1,5 @@
 # conda activate selenium
 
-# from selenium import webdriver
-
-# from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
-
-# from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-
-# from selenium.webdriver.firefox.options import Options as FireFoxOptions
-# from selenium.webdriver.chrome.options import Options as ChromeOptions
-# from selenium.webdriver.chrome.service import Service as ChromeService
-
-# from selenium.webdriver.common.by import By
-
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-
 import pickle
 
 import time
@@ -42,20 +27,17 @@ yyymmdd_hhmm = '2023-09-18--10-20'
 yyymmdd_hhmm = '2023-09-25--16-27'
 yyymmdd_hhmm = '2023-10-06--07-12'
 
-# file we read the users from ...
-usersFileName = 'matchLists/NewUsers_' + yyymmdd_hhmm + '.txt'
+# failed profiles list ...
+usersFileName = 'matchLists/FailedProfiles_' + yyymmdd_hhmm + '.txt'
 
 # open the source users file
 with open(usersFileName, "rb") as input_file:
     userList = pickle.load(input_file)
 
-# file we write their profiles into ...
+# existing New Profiles we want to APPEND rescanned profiles into ...
 profilesFileName = 'matchLists/NewProfiles_' + yyymmdd_hhmm + '.txt'
-# with open(profilesFileName, "rb") as fp:   
-#     userProfiles = pickle.load(fp)
-
-# file we write the failed profiles into ...
-failedProfilesFileName = 'matchLists/FailedProfiles_' + yyymmdd_hhmm + '.txt'
+with open(profilesFileName, "rb") as fp:   
+    newProfiles = pickle.load(fp)
 
 # This will store all the metadata we want on the user.
 userProfiles = []
@@ -96,22 +78,22 @@ for testUser in userList:
             with open(profilesFileName, "wb") as fp:   #Pickling
                 pickle.dump(userProfiles, fp)
 
+
+# We now want to append to the newProfiles list the 
+# rescanned userProfiles
+updatedNewProfiles = newProfiles + userProfiles
+# and save ...
+updatedProfilesFileName = 'matchLists/UpdatedNewProfiles_' + yyymmdd_hhmm + '.txt'
+with open(updatedProfilesFileName, "wb") as fp:   #Pickling
+    pickle.dump(updatedNewProfiles, fp)
+
+print("Match Success!")
+
 endTime = time.time()
 elapsedTime = time.strftime("%H:%M:%S", time.gmtime(endTime - startTime))
 
 print(todaysDate.strftime('# Run Date: %A, %B %d, %Y'))
 print(f"# Run Time: {elapsedTime}")
-
-# Final save ...
-with open(profilesFileName, "wb") as fp:   #Pickling
-    pickle.dump(userProfiles, fp)
-
-# Final save ...
-if (len(failedProfiles) > 0) :
-    with open(failedProfilesFileName, "wb") as fp:   #Pickling
-        pickle.dump(failedProfiles, fp)
-
-print("Match Success!")
 
 driver.quit()
 

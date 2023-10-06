@@ -131,7 +131,7 @@ def scanSearchPage(driver, profileIDS, userList):
 
 
 # Scan the profile page of a user
-def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage):
+def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, failedProfiles, testUser):
 
     # establish if this profile is still available
     try:
@@ -226,8 +226,7 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage):
 
             image_src = photo_carousel_image.get_attribute("src")
             try:
-                photo_carousel_caption = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/div/span')
-                image_caption = photo_carousel_caption.text
+                image_caption = driver.find_element(By.XPATH, '//*[@id="lightbox-image-caption"]/div/span').text
             except NoSuchElementException:
                 image_caption = ""
 
@@ -242,5 +241,7 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage):
         print(f'{userNumber}/{userCount} Page scan for {personName} Success!')
 
     except Exception:
+
+        failedProfiles.append(testUser)
         # something failed ... move on ..
         print(f'{userNumber}/{userCount} Page scan for {personName} failure! ... move on!')
