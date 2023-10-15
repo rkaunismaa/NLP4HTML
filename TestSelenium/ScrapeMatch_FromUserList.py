@@ -1,19 +1,9 @@
 # conda activate selenium
 
-# from selenium import webdriver
-
-# from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
-
-# from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-
-# from selenium.webdriver.firefox.options import Options as FireFoxOptions
-# from selenium.webdriver.chrome.options import Options as ChromeOptions
-# from selenium.webdriver.chrome.service import Service as ChromeService
-
-# from selenium.webdriver.common.by import By
-
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
+# This reads from the most current NewUsers file,
+# and then scans the full profile of every new user, and saves
+# the data into NewProfiles file, and
+# the failed profiles into the FailedProfiles file.
 
 import pickle
 
@@ -41,6 +31,8 @@ yyymmdd_hhmm = '2023-09-13--09-49'
 yyymmdd_hhmm = '2023-09-18--10-20'
 yyymmdd_hhmm = '2023-09-25--16-27'
 yyymmdd_hhmm = '2023-10-06--07-12'
+yyymmdd_hhmm = '2023-10-15--11-39'
+
 
 # file we read the users from ...
 usersFileName = 'matchLists/NewUsers_' + yyymmdd_hhmm + '.txt'

@@ -436,5 +436,21 @@ Dammit! Yup, scraping with selenium, which depends on the chromium driver, now f
 
 Hmmm tried it again, and now it works! No chrome driver update! ... 
 
+## Sunday, October 15, 2023
+
+11:23am Trying scraping, now the driver does not load ... yeah, gonna update the driver. 
+
+[ChromeDriver](https://chromedriver.chromium.org/home) 
+
+[How to Setup Selenium with ChromeDriver on Ubuntu 22.04, 20.04 & 18.04](https://tecadmin.net/setup-selenium-chromedriver-on-ubuntu/)
+
+11:39am Nice! The new driver fixed the problem ... Selenium is now happily chugging away ... !
+
+12:23pm Update to all stuff mymatch.
+
+
+
+
+
 
 
