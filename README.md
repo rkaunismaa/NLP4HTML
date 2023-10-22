@@ -448,7 +448,11 @@ Hmmm tried it again, and now it works! No chrome driver update! ...
 
 12:23pm Update to all stuff mymatch.
 
+## Sunday, October 22, 2023
 
+6:35am Again, scraping fails cuz the driver does not load ... time again to update the driver!
+
+Sigh ... remember to use the selenium conda environment to run the scraping! That may have been the problem! But yeah, I did update the chromedriver.
 
 
 
