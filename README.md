@@ -454,6 +454,10 @@ Hmmm tried it again, and now it works! No chrome driver update! ...
 
 Sigh ... remember to use the selenium conda environment to run the scraping! That may have been the problem! But yeah, I did update the chromedriver.
 
+## Thursday, November 9, 2023
+
+Another chrome driver update.
+
 
 
 
