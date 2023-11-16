@@ -458,6 +458,10 @@ Sigh ... remember to use the selenium conda environment to run the scraping! Tha
 
 Another chrome driver update.
 
+## Thursday, November 16, 2023
+
+Looks like another chrome driver update is due ... did update, but was not using the selenium environment, which was probably the real problem from the start. Sigh ... jeeze, looking at the above notes and realize this ain't the first time!
+
 
 
 
