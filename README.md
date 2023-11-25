@@ -462,6 +462,15 @@ Another chrome driver update.
 
 Looks like another chrome driver update is due ... did update, but was not using the selenium environment, which was probably the real problem from the start. Sigh ... jeeze, looking at the above notes and realize this ain't the first time!
 
+## Saturday, November 25, 2023
+
+Dammit. Selenium wasnt working so I upgraded the selenium environment to the latest version and now the behavior has changed. Also, I downloaded and installed the 119.0.6045.105 version of the chrome drive.
+
+sudo mv chromedriver /usr/bin/chromedriver 
+sudo chown root:root /usr/bin/chromedriver 
+sudo chmod +x /usr/bin/chromedriver 
+
+
 
 
 

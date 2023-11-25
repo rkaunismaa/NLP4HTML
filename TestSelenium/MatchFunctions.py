@@ -38,7 +38,7 @@ def createNewDriver():
         chromeService = ChromeService(executable_path=chromedriver_path)
 
         chromeOptions = ChromeOptions()
-        chromeOptions.headless = True
+        # chromeOptions.headless = True
         chromeOptions.binary_location = '/usr/bin/brave-browser'
         chromeOptions.add_argument('--remote-debugging-port=9224') 
 
