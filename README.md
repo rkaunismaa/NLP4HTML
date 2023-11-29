@@ -470,6 +470,12 @@ Dammit. Selenium wasnt working so I upgraded the selenium environment to the lat
 2) sudo chown root:root /usr/bin/chromedriver 
 3) sudo chmod +x /usr/bin/chromedriver 
 
+## Wednesday, November 29, 2023
+
+Today a newer version of Brave got installed, and now Selenium works. Sigh. I did not change the chromedriver, it is still at version 119.0.6045.105. So keep all of this in mind! An update to Brave CAN break selenium! And yeah, I am using the newly built selenium conda environment.
+
+So now I am going to see if I can get the match stuff to fire ... Yup it works! Gonna do a full run through ... then, just for fun, I am going to install the latest release of Selenium from conda-forge and see if it breaks stuff. The current, working release, is 4.9.0 ... just in case you need to re-install it or build a new environment. 
+
 
 
 
