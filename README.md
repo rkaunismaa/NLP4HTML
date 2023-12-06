@@ -476,7 +476,13 @@ Today a newer version of Brave got installed, and now Selenium works. Sigh. I di
 
 So now I am going to see if I can get the match stuff to fire ... Yup it works! Gonna do a full run through ... then, just for fun, I am going to install the latest release of Selenium from conda-forge and see if it breaks stuff. The current, working release, is 4.9.0 ... just in case you need to re-install it or build a new environment. 
 
+OK ... selenium in the selenium environment has been updated to 4.15.2 ... gonna run a quick test to make sure nothing broke.
 
+Yup! Stuff still works! Nice!
+
+## Wednesday, December 6, 2023
+
+More scrapping. Brave is Version 1.60.125, Chromium 119.0.6045.199 ... this works. 
 
 
 
