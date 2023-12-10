@@ -484,6 +484,16 @@ Yup! Stuff still works! Nice!
 
 More scrapping. Brave is Version 1.60.125, Chromium 119.0.6045.199 ... this works. 
 
+## Sunday, December 10, 2023
+
+Brave has been updated to 1.61.101 Chromiim 120.0.6099.71
+
+I also downloaded the latest [ChromeDriver](https://googlechromelabs.github.io/chrome-for-testing/), which is 120.0.6099.71
+
+Gonna try scraping without updating the chrome driver ... Also, Selenium in the selenium conda environment is at version 4.15.2 ... current conda-forge version of selenium is 4.16.0 
+
+Yup, looks like everything still works! Nice!
+
 
 
 
