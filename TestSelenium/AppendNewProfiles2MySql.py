@@ -1,5 +1,8 @@
 # conda activate nlp4html
 
+# sudo systemctl start mysql
+
+
 import mysql.connector
 from datetime import datetime
 import pickle
@@ -56,6 +59,8 @@ profileFile = 'matchLists/UpdatedNewProfiles_2023-12-14--07-42.txt'
 
 profileFile = 'matchLists/UpdatedNewProfiles_2023-12-21--17-07.txt'
 
+profileFile = 'matchLists/UpdatedNewProfiles_2023-12-28--08-11.txt'
+
 with open(profileFile, "rb") as input_file:
     profiles = pickle.load(input_file)
 
@@ -79,6 +84,7 @@ scanDateTime = datetime.strptime('2023-11-29 13:57:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2023-12-10 14:29:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2023-12-14 07:42:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2023-12-21 17:07:00', '%Y-%m-%d %H:%M:%S')
+scanDateTime = datetime.strptime('2023-12-28 08:11:00', '%Y-%m-%d %H:%M:%S')
 
 for profile in profiles:
 
