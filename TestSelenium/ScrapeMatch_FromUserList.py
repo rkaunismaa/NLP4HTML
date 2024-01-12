@@ -45,6 +45,8 @@ yyymmdd_hhmm = '2023-12-21--17-07'
 yyymmdd_hhmm = '2023-12-28--08-11'
 
 yyymmdd_hhmm = '2024-01-05--11-42'
+yyymmdd_hhmm = '2024-01-12--06-36'
+
 
 # file we read the users from ...
 usersFileName = 'matchLists/NewUsers_' + yyymmdd_hhmm + '.txt'
