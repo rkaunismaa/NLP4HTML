@@ -494,6 +494,54 @@ Gonna try scraping without updating the chrome driver ... Also, Selenium in the 
 
 Yup, looks like everything still works! Nice!
 
+## Friday, January 26, 2024
+
+"Message: session not created: This version of ChromeDriver only supports Chrome version 119
+Current browser version is 121.1.62.153 with binary path /usr/bin/brave-browser"
+
+Scraping is now failing. A new brave browser was installed this morning. 
+
+Version:  1.62.153 
+Chromium: 121.0.6167.85
+
+This chromium version is listed as the stable version ... Version: 121.0.6167.85 (r1233107)
+
+https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chromedriver-linux64.zip
+
+I am going to try scraping with the latest chrome driver ... I am not sure if this will fix the problem ... but I am going to try
+
+I updated the driver and then tried to scrape, but it still fails. Gonna reboot then try again.
+
+Nope! Reboot but it still does not work. I think I need to install a different driver ... 
+
+Gonna try the Beta version of the chrome driver ... Version: 122.0.6261.6 (r1250580)
+
+https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/122.0.6261.6/linux64/chromedriver-linux64.zip
+
+Installed ... gonna try scraping again ... no reboot ...
+
+Hmm ... exact same error message .... gonna reboot, then try ...
+
+"Message: session not created: This version of ChromeDriver only supports Chrome version 119
+Current browser version is 121.0.6167.85 with binary path /usr/bin/brave-browser"
+
+Nope! Dammit. I guess I need to wait until the next version of the chromium driver is released.
+
+Actually, no, gonna pull down the Dev version .... Version: 123.0.6262.5 (r1251193)
+
+https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/123.0.6262.5/linux64/chromedriver-linux64.zip
+
+Nope! Same bloody message ! ...
+
+"Message: session not created: This version of ChromeDriver only supports Chrome version 119
+Current browser version is 121.0.6167.85 with binary path /usr/bin/brave-browser"
+
+Gonna reboot then try ... Nope! Again, the same message! I guess I got to wait until the next version of the chromium driver is released.
+
+
+
+
+
 
 
 
