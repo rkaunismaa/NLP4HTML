@@ -84,7 +84,8 @@ def createNewDriver():
     #     driver = None 
 
     # chromeService = ChromeService(executable_path='/usr/local/bin/chromedriver', port=9224)
-    chromeService = ChromeService(executable_path='/usr/local/bin/chromedriver')
+    # chromeService = ChromeService(executable_path='/usr/local/bin/chromedriver')
+    chromeService = ChromeService(executable_path='/usr/bin/chromedriver')
 
     chromeOptions = ChromeOptions()
     chromeOptions.binary_location = "/usr/bin/brave-browser"

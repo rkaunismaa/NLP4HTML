@@ -464,7 +464,7 @@ Looks like another chrome driver update is due ... did update, but was not using
 
 ## Saturday, November 25, 2023
 
-Dammit. Selenium wasnt working so I upgraded the selenium environment to the latest version and now the behavior has changed. Also, I downloaded and installed the 119.0.6045.105 version of the chrome drive.
+Dammit. Selenium wasnt working so I upgraded the selenium environment to the latest version and now the behavior has changed. Also, I downloaded and installed the 119.0.6045.105 version of the chrome driver.
 
 1) sudo mv chromedriver /usr/bin/chromedriver 
 2) sudo chown root:root /usr/bin/chromedriver 
@@ -538,6 +538,31 @@ Current browser version is 121.0.6167.85 with binary path /usr/bin/brave-browser
 
 Gonna reboot then try ... Nope! Again, the same message! I guess I got to wait until the next version of the chromium driver is released.
 
+## Tuesday, February 13, 2024
+
+Finally was able to install an older release of brave ... https://github.com/brave/brave-browser/releases?q=1.62.155&expanded=true
+
+Wow! ... I AM STILL GETTING THIS ERROR ... ! 
+
+Exception has occurred: SessionNotCreatedException       (note: full exception trace is shown but execution is paused at: _run_module_as_main)
+Message: session not created: This version of ChromeDriver only supports Chrome version 119
+Current browser version is 121.0.6167.85 with binary path /usr/bin/brave-browser
+
+WTF!??
+
+JFC! I can't beleive how fucking stupid I have been! ... I was using the instructions above ... 
+
+1) sudo mv chromedriver /usr/bin/chromedriver 
+2) sudo chown root:root /usr/bin/chromedriver 
+3) sudo chmod +x /usr/bin/chromedriver 
+
+... notice they instruct to move the chromedriver into the /usr/bin directory .... then look at your code to launch the webdriver ... 
+
+  chromeService = ChromeService(executable_path='/usr/local/bin/chromedriver')
+
+  NOTICE ANYTHING?! ... you've been using different locations for the fucking chromedriver!!! WHAT A FUCKING IDIOT!! ... 
+
+ chromeService = ChromeService(executable_path='/usr/bin/chromedriver')
 
 
 
