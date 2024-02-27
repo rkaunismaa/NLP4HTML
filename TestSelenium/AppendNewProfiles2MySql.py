@@ -69,6 +69,9 @@ profileFile = 'matchLists/UpdatedNewProfiles_2024-01-17--10-18.txt'
 profileFile = 'matchLists/UpdatedNewProfiles_2024-02-13--07-16.txt'
 profileFile = 'matchLists/UpdatedNewProfiles_2024-02-20--06-52.txt'
 profileFile = 'matchLists/UpdatedNewProfiles_2024-02-23--13-20.txt'
+profileFile = 'matchLists/UpdatedNewProfiles_2024-02-27--06-45.txt'
+
+
 
 
 
@@ -103,6 +106,7 @@ scanDateTime = datetime.strptime('2024-01-17 10:18:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2024-02-13 07:16:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2024-02-20 06:52:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2024-02-23 13:20:00', '%Y-%m-%d %H:%M:%S')
+scanDateTime = datetime.strptime('2024-02-27 06:45:00', '%Y-%m-%d %H:%M:%S')
 
 for profile in profiles:
 

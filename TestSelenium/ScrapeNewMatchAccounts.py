@@ -41,6 +41,7 @@ fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-01-12--06-36.txt'
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-01-17--10-18.txt'
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-02-13--07-16.txt'
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-02-20--06-52.txt'
+fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-02-23--13-20.txt'
 
 with open(fnProfileMaster, "rb") as input_file:
     profileMaster = pickle.load(input_file)
