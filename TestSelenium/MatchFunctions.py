@@ -211,9 +211,23 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
         if (profileNotAvailable == 'Profile not available') :
             # Bogus profile! Bail!
              print(profileNotAvailable)
+             failedProfiles.append((testUser, "Profile Not Available"))
              return None
     except NoSuchElementException:
         personName = ""
+
+    # <p>The requested URL was not found on this server.</p>
+    try:
+        # Use XPath to find the paragraph element containing the specified text
+        # urlNotFound = driver.find_element_by_xpath('//p[contains(text(), "The requested URL was not found on this server.")]')
+        urlNotFound = driver.find_element(By.XPATH, '//p[contains(text(), "The requested URL was not found on this server.")]')
+        if (urlNotFound.text == 'The requested URL was not found on this server.'):
+            # Bogus profile! Bail!
+             print(f'{userNumber}/{userCount} => {profilePage} URL is no longer found!')
+             failedProfiles.append((testUser, "URL Not Found"))
+             return None
+    except NoSuchElementException:
+        print('urlNotFound NoSuchElementException!')
 
     try: 
 
