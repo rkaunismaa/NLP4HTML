@@ -107,20 +107,6 @@ def createNewDriver():
     driver = webdriver.Chrome(service=chromeService, options=chromeOptions)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return driver
 
 def scanProfiles4MatchId(profileMaster, matchId):
