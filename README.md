@@ -564,6 +564,12 @@ JFC! I can't beleive how fucking stupid I have been! ... I was using the instruc
 
  chromeService = ChromeService(executable_path='/usr/bin/chromedriver')
 
+ ## Wednesday, March 6, 2024
+
+ Modifying the Match Users grid to include their first image. This is gonna take a while cuz I have completely forgotten express ... 
+
+ Visually scanning the previous notes above ... I am glad I took these notes, cuz they are pointing me in the right direction to get back into this stuff.
+
 
 
 

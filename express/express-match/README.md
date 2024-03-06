@@ -65,3 +65,7 @@ Hmmm there is probably a way to send ALL the data to the user, and then tweak wh
 
 3:57pm Adding the rating to the user images page.
 6:14pm ok got the rating stuff working. Yeah, it could be improved, but the functionality is there.
+
+## Wednesday, March 6, 2024
+
+3:13pm Adding the users first image to the users listing page.

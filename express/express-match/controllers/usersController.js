@@ -25,6 +25,15 @@ exports.user_list = asyncHandler(async (req, res, next) => {
     order: [['idUsers', 'DESC']],
   });
 
+  // Query the UsersView instead of the Users table ... 
+  // const allUsers__ = await db.models.UsersView.findAll( {
+  //   where: {
+  //     Rating: 0
+  //   },
+  //   order: [['idUsers', 'DESC']],
+  // });
+
+
    // const allUsers = await db.models.Users.findAll({ order:[['FirstName','ASC']]});
 
   // const allUsers = await db.models.Users.findAll( {

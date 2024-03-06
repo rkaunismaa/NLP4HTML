@@ -1,3 +1,4 @@
+// This file is not used but is kept here for reference purposes ...
 // Sequelize START
 const dbConfig = require("../config/dbconfig.js");
 const Sequelize = require("sequelize");
