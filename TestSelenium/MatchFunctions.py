@@ -215,6 +215,7 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
     except NoSuchElementException:
         print('urlNotFound NoSuchElementException!')
 
+
     try: 
 
         # Set an explicit wait of 10 seconds for the carousel button to be clickable

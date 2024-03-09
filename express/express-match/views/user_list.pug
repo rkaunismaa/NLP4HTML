@@ -11,16 +11,17 @@ block content
 
   //- else
   //-   li There are no users.
-  
+
+  //  img(src='/images/signal-2023-01-23-171951.jpeg', alt='sdf' style="width: 100px; height: auto;" ) 
+  // img(src='#{user.ImageURL}', alt='sdf', style='width: 100px; height: auto;' ) 
+
   table(style='width:100%', border='1')
     tr
       th id
-      th Name
-      th Age Location 
+      th Name / Age-Location 
       th Rating
-      th Last Online 
       th Scan Date Time
-      th Subscriber
+      th Image
       th Mini Essay
       th Summary
 
@@ -28,13 +29,11 @@ block content
       tr 
         td #{user.idUsers}
         td 
-          a(href=user.Url) #{user.FirstName}
-        td 
-          a(href='/users/showImages/' + user.idUsers) #{user.AgeLocation} 
+          a(href=user.Url) #{user.FirstName}   
+          a(href='/users/showImages/' + user.idUsers) #{user.AgeLocation}
         td #{user.Rating}
-        td #{user.LastOnline}
         td #{user.ScanDateTime}
-        td #{user.Subscriber} 
+        td
+          img(src=user.ImageURL , alt='sdf', style='width: 100px; height: auto;' ) 
         td #{user.MiniEssayTitle} : #{user.MiniEssayContent} 
         td #{user.Summary} 
-

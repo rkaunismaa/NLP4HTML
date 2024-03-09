@@ -33,16 +33,22 @@ const _Assessment = require("./Assessment");
 const _Images = require("./Images");
 const _Users = require("./Users");
 
+const _UsersView = require("./UsersView");
+
+
 function initModels(sequelize) {
 
   const Assessment = _Assessment(sequelize, DataTypes);
   const Images = _Images(sequelize, DataTypes);
   const Users = _Users(sequelize, DataTypes);
 
+  const UsersView = _UsersView(sequelize, DataTypes);
+
   return {
     Assessment,
     Images,
     Users,
+    UsersView,
   };
 }
 

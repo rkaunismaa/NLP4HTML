@@ -570,8 +570,18 @@ JFC! I can't beleive how fucking stupid I have been! ... I was using the instruc
 
  Visually scanning the previous notes above ... I am glad I took these notes, cuz they are pointing me in the right direction to get back into this stuff.
 
+## Saturday, March 9, 2024
 
+I am going to try to get the first image to show up in the match users grid ... 
 
+* https://sequelize.org/
+* https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Displaying_data
+* https://www.bezkoder.com/node-js-express-sequelize-mysql/
+* https://pugjs.org/api/getting-started.html
+
+I didn't realize that when I was displaying the users images, that I was not reading them locally, but pulling them down from the match site. I am going to try to get the images to display locally.
+
+JFC It works! I got the fucking image to display!!
 
 
 

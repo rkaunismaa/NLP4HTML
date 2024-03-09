@@ -18,7 +18,7 @@ exports.user_list = asyncHandler(async (req, res, next) => {
   //  });
 
   // All non rated users, sorted by newest into the db ...
-  const allUsers = await db.models.Users.findAll( {
+  const allUsers__ = await db.models.Users.findAll( {
     where: {
       Rating: 0
     },
@@ -26,12 +26,12 @@ exports.user_list = asyncHandler(async (req, res, next) => {
   });
 
   // Query the UsersView instead of the Users table ... 
-  // const allUsers__ = await db.models.UsersView.findAll( {
-  //   where: {
-  //     Rating: 0
-  //   },
-  //   order: [['idUsers', 'DESC']],
-  // });
+  const allUsers = await db.models.UsersView.findAll( {
+    // where: {
+    //   Rating: 5
+    // },
+    order: [['idUsers', 'DESC']],
+  });
 
 
    // const allUsers = await db.models.Users.findAll({ order:[['FirstName','ASC']]});

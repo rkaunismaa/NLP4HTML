@@ -19,6 +19,7 @@ yyymmdd_hhmm = now.strftime('%Y-%m-%d--%H-%M')
 
 # Master Profile list ... always specify the most recent master list last!
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-02-27--06-45.txt'
+fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-03-09--06-16.txt'
 
 with open(fnProfileMaster, "rb") as input_file:
     profileMaster = pickle.load(input_file)
@@ -45,6 +46,8 @@ if (driver is not None):
 
         # print(profilePage)
         userNumber += 1
+
+        print(userNumber, '/', userCount, profilePage)
 
         # load the profilePage ...
         driver.get(profilePage)
