@@ -583,6 +583,10 @@ I didn't realize that when I was displaying the users images, that I was not rea
 
 JFC It works! I got the fucking image to display!!
 
+## Sunday, March 10, 2024
+
+Update Brave this morning and of course now the scraping does not work ... time to back pedal on the version of Brave and then try it again.
+
 
 
 
