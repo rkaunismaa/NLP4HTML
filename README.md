@@ -587,6 +587,8 @@ JFC It works! I got the fucking image to display!!
 
 Update Brave this morning and of course now the scraping does not work ... time to back pedal on the version of Brave and then try it again.
 
+Nice! Looks like the correct chromium driver is available! ... 
 
+https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.111/linux64/chromedriver-linux64.zip
 
 
