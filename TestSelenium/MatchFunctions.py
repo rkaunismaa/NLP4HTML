@@ -295,6 +295,7 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
         photo_carousel_image = driver.find_element(By.XPATH, '/html/body/div[4]/div/div/section/div/figure/div[2]/button/img')
 
         imageList = []
+        userImageNo = 1
         for _ in range(totalImages):
 
             image_src = photo_carousel_image.get_attribute("src")
@@ -303,8 +304,9 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
             except NoSuchElementException:
                 image_caption = ""
 
-            imageList.append( (image_src, image_caption) )
+            imageList.append( (image_src, image_caption, userImageNo) )
             if nextImageButton:
+                userImageNo += 1
                 photo_carousel_right_arrow_button.click() 
 
         photo_carousel_close_button.click()
