@@ -75,7 +75,7 @@ profileFile = 'matchLists/UpdatedNewProfiles_2024-03-09--06-16.txt'
 profileFile = 'matchLists/UpdatedNewProfiles_2024-03-14--10-29.txt'
 profileFile = 'matchLists/UpdatedNewProfiles_2024-03-19--10-08.txt'
 profileFile = 'matchLists/UpdatedNewProfiles_2024-03-28--07-12.txt'
-
+profileFile = 'matchLists/UpdatedNewProfiles_2024-04-03--09-17.txt'
 
 
 with open(profileFile, "rb") as input_file:
@@ -115,7 +115,7 @@ scanDateTime = datetime.strptime('2024-03-09 06:16:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2024-03-14 10:29:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2024-03-19 10:08:00', '%Y-%m-%d %H:%M:%S')
 scanDateTime = datetime.strptime('2024-03-28 07:12:00', '%Y-%m-%d %H:%M:%S')
-
+scanDateTime = datetime.strptime('2024-04-03 09:17:00', '%Y-%m-%d %H:%M:%S')
 
 for profile in profiles:
 

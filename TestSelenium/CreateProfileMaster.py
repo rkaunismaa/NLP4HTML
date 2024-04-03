@@ -203,12 +203,17 @@ missedProfilesFn = 'matchLists/UpdatedNewProfiles_2024-03-19--10-08.txt'
 # ... and write to this file ...
 masterProfilesFn = 'matchLists/MatchProfilesMasterList_2024-03-19--10-08.txt' 
 
-
 # Read from these 2 files ...
 matchProfiles = 'matchLists/MatchProfilesMasterList_2024-03-19--10-08.txt' 
 missedProfilesFn = 'matchLists/UpdatedNewProfiles_2024-03-28--07-12.txt'
 # ... and write to this file ...
 masterProfilesFn = 'matchLists/MatchProfilesMasterList_2024-03-28--07-12.txt' 
+
+# Read from these 2 files ...
+matchProfiles = 'matchLists/MatchProfilesMasterList_2024-03-28--07-12.txt' 
+missedProfilesFn = 'matchLists/UpdatedNewProfiles_2024-04-03--09-17.txt'
+# ... and write to this file ...
+masterProfilesFn = 'matchLists/MatchProfilesMasterList_2024-04-03--09-17.txt' 
 
 
 with open(matchProfiles, "rb") as input_file:
