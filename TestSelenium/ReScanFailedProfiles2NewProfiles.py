@@ -52,6 +52,8 @@ yyymmdd_hhmm = '2024-03-14--10-29'
 yyymmdd_hhmm = '2024-03-19--10-08'
 yyymmdd_hhmm = '2024-03-28--07-12'
 yyymmdd_hhmm = '2024-04-03--09-17'
+yyymmdd_hhmm = '2024-04-10--18-18'
+
 
 # failed profiles list ...
 usersFileName = 'matchLists/FailedProfiles_' + yyymmdd_hhmm + '.txt'
@@ -92,7 +94,7 @@ for testUser in userList:
         if found:
             break
 
-    if (not found):
+    if ((not found) and (profilePage != 'Profile Not Available')):
 
         driver.get(profilePage)
 

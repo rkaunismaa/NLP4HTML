@@ -76,6 +76,7 @@ profileFile = 'matchLists/UpdatedNewProfiles_2024-03-14--10-29.txt'
 profileFile = 'matchLists/UpdatedNewProfiles_2024-03-19--10-08.txt'
 profileFile = 'matchLists/UpdatedNewProfiles_2024-03-28--07-12.txt'
 profileFile = 'matchLists/UpdatedNewProfiles_2024-04-03--09-17.txt'
+profileFile = 'matchLists/UpdatedNewProfiles_2024-04-10--18-18.txt'
 
 
 with open(profileFile, "rb") as input_file:
