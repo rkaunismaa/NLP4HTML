@@ -51,7 +51,7 @@ fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-03-28--07-12.txt'
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-04-03--09-17.txt'
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-04-10--18-18.txt'
 fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-04-17--08-36.txt'
-
+fnProfileMaster = 'matchLists/MatchProfilesMasterList_2024-04-25--17-00.txt'
 
 with open(fnProfileMaster, "rb") as input_file:
     profileMaster = pickle.load(input_file)
@@ -92,7 +92,7 @@ if (driver is not None) :
                 driver.implicitly_wait(5)
 
     # we are done with the driver. Close the driver.
-    driver.quit()
+    # driver.quit()
 
     # Scan through the userList, and determine which users 
     # are not found in the profileMaster, 

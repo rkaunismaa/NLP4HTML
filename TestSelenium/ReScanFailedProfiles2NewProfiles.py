@@ -55,6 +55,7 @@ yyymmdd_hhmm = '2024-04-03--09-17'
 yyymmdd_hhmm = '2024-04-10--18-18'
 yyymmdd_hhmm = '2024-04-17--08-36'
 yyymmdd_hhmm = '2024-04-25--17-00'
+yyymmdd_hhmm = '2024-05-03--10-08'
 
 # failed profiles list ...
 usersFileName = 'matchLists/FailedProfiles_' + yyymmdd_hhmm + '.txt'
@@ -124,6 +125,6 @@ elapsedTime = time.strftime("%H:%M:%S", time.gmtime(endTime - startTime))
 print(todaysDate.strftime('# Run Date: %A, %B %d, %Y'))
 print(f"# Run Time: {elapsedTime}")
 
-driver.quit()
+# driver.quit()
 
 
