@@ -242,6 +242,12 @@ missedProfilesFn = 'matchLists/UpdatedNewProfiles_2024-05-03--10-08.txt'
 # ... and write to this file ...
 masterProfilesFn = 'matchLists/MatchProfilesMasterList_2024-05-03--10-08.txt' 
 
+# Read from these 2 files ...
+matchProfiles = 'matchLists/MatchProfilesMasterList_2024-05-03--10-08.txt' 
+missedProfilesFn = 'matchLists/UpdatedNewProfiles_2024-05-08--08-09.txt'
+# ... and write to this file ...
+masterProfilesFn = 'matchLists/MatchProfilesMasterList_2024-05-08--08-09.txt' 
+
 
 with open(matchProfiles, "rb") as input_file:
     profiles = pickle.load(input_file)
