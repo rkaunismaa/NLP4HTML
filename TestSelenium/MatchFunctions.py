@@ -201,7 +201,7 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
         if (profileNotAvailable == 'Profile not available') :
             # Bogus profile! Bail!
              print(profileNotAvailable)
-             failedProfiles.append((testUser, "Profile Not Available"))
+             # failedProfiles.append((testUser, "Profile Not Available"))
              return None
     except NoSuchElementException:
         personName = ""
@@ -214,7 +214,7 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
         if (urlNotFound.text == 'The requested URL was not found on this server.'):
             # Bogus profile! Bail!
              print(f'{userNumber}/{userCount} => {profilePage} URL is no longer found!')
-             failedProfiles.append((testUser, "URL Not Found"))
+             # failedProfiles.append((testUser, "URL Not Found"))
              return None
     except NoSuchElementException:
         # print('urlNotFound NoSuchElementException!')

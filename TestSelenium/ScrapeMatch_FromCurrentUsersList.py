@@ -77,9 +77,10 @@ for testUser in userList:
     scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, failedProfiles, testUser)
 
     # save the userProfiles to a local file
-    if (userNumber % 25) == 0 :
+    if (userNumber % 10) == 0 :
         with open(profilesFileName, "wb") as fp:   #Pickling
             pickle.dump(userProfiles, fp)
+        failedProfiles = []
 
     if (len(failedProfiles) > 5) :
         break
