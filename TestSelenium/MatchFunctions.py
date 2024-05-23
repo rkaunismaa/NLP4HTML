@@ -304,7 +304,8 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
             wait.until(EC.visibility_of_element_located((By.XPATH, photo_carousel_image_XPATH)))
             photo_carousel_image = driver.find_element(By.XPATH, photo_carousel_image_XPATH)
         except StaleElementReferenceException:
-            photo_carousel_image = driver.find_element(By.XPATH, photo_carousel_image_XPATH)
+            # photo_carousel_image = driver.find_element(By.XPATH, photo_carousel_image_XPATH)
+            meh = True
 
         imageList = []
         userImageNo = 1
