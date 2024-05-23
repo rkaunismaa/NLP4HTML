@@ -15,8 +15,12 @@ from selenium.webdriver.support import expected_conditions as EC
 
 import pickle
 
+import os
+import glob
 import time
+
 from datetime import date
+from datetime import datetime
 
 # Match Search pages
 targetSearchPages = [
@@ -213,7 +217,8 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
              failedProfiles.append((testUser, "URL Not Found"))
              return None
     except NoSuchElementException:
-        print('urlNotFound NoSuchElementException!')
+        # print('urlNotFound NoSuchElementException!')
+        meh = False
 
 
     try: 
@@ -292,7 +297,14 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
             nextImageButton = False
 
         # this has changed!
-        photo_carousel_image = driver.find_element(By.XPATH, '/html/body/div[4]/div/div/section/div/figure/div[2]/button/img')
+        #photo_carousel_image = driver.find_element(By.XPATH, '/html/body/div[4]/div/div/section/div/figure/div[2]/button/img')
+        photo_carousel_image_XPATH = '/html/body/div[4]/div/div/section/div/figure/div[2]/button/img'
+        try:
+            wait = WebDriverWait(driver, 5)
+            wait.until(EC.visibility_of_element_located((By.XPATH, photo_carousel_image_XPATH)))
+            photo_carousel_image = driver.find_element(By.XPATH, photo_carousel_image_XPATH)
+        except StaleElementReferenceException:
+            photo_carousel_image = driver.find_element(By.XPATH, photo_carousel_image_XPATH)
 
         imageList = []
         userImageNo = 1
@@ -320,3 +332,28 @@ def scanProfilePage(userNumber, userCount, driver, userProfiles, profilePage, fa
         failedProfiles.append(testUser)
         # something failed ... move on ..
         print(f'{userNumber}/{userCount} Page scan for {personName} failure! ... move on!')
+
+
+# Thankyou ChatGPT! 
+# Wednesday, May 22, 2024
+def get_newest_file_creation_date(directory, file_prefix):
+    # Construct the search pattern with the directory and file prefix
+    search_pattern = os.path.join(directory, file_prefix + '*')
+    
+    # Get a list of files matching the pattern
+    files = glob.glob(search_pattern)
+    
+    if not files:
+        return None  # No files found with the given prefix
+    
+    # Get the creation time of each file
+    creation_times = [(file, os.path.getctime(file)) for file in files]
+    
+    # Find the file with the newest creation time
+    newest_file = max(creation_times, key=lambda x: x[1])
+    
+    # Convert the creation time to a readable format
+    #newest_file_creation_date = datetime.fromtimestamp(newest_file[1])
+    
+    # return newest_file_creation_date
+    return newest_file[0]
